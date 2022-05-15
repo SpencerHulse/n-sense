@@ -12,15 +12,22 @@ const typeDefs = gql`
     user: User
   }
 
+  type Category {
+    categoryName: String
+  }
+
   type Query {
     users: [User]
     user: User
+    categories: [Category]
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    addCategory(categoryName: String!): Category
+    removeCategory(categoryName: String!): Category
   }
 `;
 
