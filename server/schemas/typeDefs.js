@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    orders: [Order]
   }
 
   type Auth {
@@ -28,12 +29,19 @@ const typeDefs = gql`
     category: Category
   }
 
+  type Order {
+    _id: ID
+    purchaseDate: String
+    products: [Product]
+  }
+
   type Query {
     users: [User]
     user: User
     categories: [Category]
     products(category: ID, name: String): [Product]
     product(_id: ID!): Product
+    order(_id: ID!): Order
   }
 
   type Mutation {
@@ -62,6 +70,7 @@ const typeDefs = gql`
       category: ID
     ): Product
     removeProduct(_id: ID!): Product
+    addOrder(products: [ID]!): Order
   }
 `;
 

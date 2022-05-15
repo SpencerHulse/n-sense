@@ -1,6 +1,6 @@
 // Resolvers - Handle the database portion of queries and mutations
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Category, Product } = require("../models");
+const { User, Category, Product, Order } = require("../models");
 const { signToken } = require("../utils/auth");
 // Will need to import: stripe
 
@@ -14,7 +14,10 @@ const resolvers = {
     // Retrieves the logged-in user
     user: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findOne({ _id: context.user._id });
+        const user = await User.findOne({ _id: context.user._id }).populate({
+          path: "orders.products",
+          populate: "category",
+        });
         return user;
       }
 
@@ -37,6 +40,18 @@ const resolvers = {
     product: async (parent, { _id }) => {
       const product = await Product.findById(_id).populate("category");
       return product;
+    },
+    order: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          path: "orders.products",
+          populate: "category",
+        });
+
+        return user.orders.id(_id);
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
   Mutation: {
@@ -83,16 +98,33 @@ const resolvers = {
     removeCategory: async (parent, { categoryName }) => {
       return Category.findOneAndDelete({ categoryName });
     },
+    // Add a product to the database
     addProduct: async (parent, args) => {
       return Product.create(args);
     },
+    // Update an existing product in the database
     updateProduct: async (parent, args) => {
       return await Product.findByIdAndUpdate(args._id, args, {
         new: true,
       }).populate("category");
     },
+    // Remove an existing product from the database
     removeProduct: async (parent, { _id }) => {
       return Product.findByIdAndDelete({ _id });
+    },
+    // Adds an order to a user's orders
+    addOrder: async (parent, { products }, context) => {
+      if (context.user) {
+        const order = new Order({ products });
+
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { orders: order },
+        });
+
+        return order;
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
 };
