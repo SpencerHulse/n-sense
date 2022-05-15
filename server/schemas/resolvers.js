@@ -1,8 +1,8 @@
 // Resolvers - Handle the database portion of queries and mutations
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Category } = require("../models");
+const { User, Category, Product } = require("../models");
 const { signToken } = require("../utils/auth");
-// Will need to import: models, auth, stripe
+// Will need to import: stripe
 
 const resolvers = {
   Query: {
@@ -24,6 +24,19 @@ const resolvers = {
     categories: async (parent, args) => {
       const categories = await Category.find({});
       return categories;
+    },
+    products: async (parent, { category }) => {
+      const params = {};
+
+      if (category) {
+        params.category = category;
+      }
+
+      return await Product.find(params).populate("category");
+    },
+    product: async (parent, { _id }) => {
+      const product = await Product.findById(_id).populate("category");
+      return product;
     },
   },
   Mutation: {
