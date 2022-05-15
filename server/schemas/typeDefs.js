@@ -51,6 +51,16 @@ const typeDefs = gql`
       primaryImage: String
       category: ID!
     ): Product
+    updateProduct(
+      _id: ID!
+      name: String
+      description: String
+      price: Float
+      stock: Int
+      images: [String]
+      primaryImage: String
+      category: ID
+    ): Product
     removeProduct(_id: ID!): Product
   }
 `;

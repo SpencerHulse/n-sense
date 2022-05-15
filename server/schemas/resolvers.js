@@ -83,6 +83,17 @@ const resolvers = {
     removeCategory: async (parent, { categoryName }) => {
       return Category.findOneAndDelete({ categoryName });
     },
+    addProduct: async (parent, args) => {
+      return Product.create(args);
+    },
+    updateProduct: async (parent, args) => {
+      return await Product.findByIdAndUpdate(args._id, args, {
+        new: true,
+      }).populate("category");
+    },
+    removeProduct: async (parent, { _id }) => {
+      return Product.findByIdAndDelete({ _id });
+    },
   },
 };
 
