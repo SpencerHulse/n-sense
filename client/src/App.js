@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Nav from "./components/Nav";
-import SingleProduct from "./pages/SingleProduct";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
+import SingleProduct from "./pages/SingleProduct";
 import TestPage from "./pages/TestPage";
 import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";

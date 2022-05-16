@@ -1,35 +1,54 @@
 import React, { useEffect } from "react";
 import { BsCart3 } from "react-icons/bs";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import { updateCategories, selectCategory } from "../../features/categorySlice";
+// Apollo/GraphQL
+import { useQuery } from "@apollo/client";
+import { QUERY_CATEGORIES } from "../../utils/queries";
 
-function Nav(props) {
-  const { setCurrentNav, currentNav } = props;
+function Nav() {
+  const dispatch = useDispatch();
+  const { categories, currentCategory } = useSelector(
+    (state) => state.category
+  );
+
+  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+  useEffect(() => {
+    if (categoryData) {
+      dispatch(updateCategories(categoryData.categories));
+    }
+  }, [categoryData, loading, updateCategories]);
+
   return (
     <header>
       <div className="flex flew-row w-full p-6">
-        <div class="w-1/2 flex flex-row justify-between items-center">
+        <div className="w-1/2 flex flex-row justify-between items-center">
           <div className="flex-row logo-container flex ">
             <h1 className="text-3xl">Logo</h1>
           </div>
-          <a href="#candles">candles</a>
-          <a href="#incense">incense</a>
-          <a href="#essentialOils">essential oils</a>
-          <a href="#soaps">soaps</a>
+          {loading
+            ? "Loading"
+            : categories.map((category) => {
+                return (
+                  <a href={`#${category.categoryName}`} key={category._id}>
+                    {category.categoryName}
+                  </a>
+                );
+              })}
         </div>
         <div className="right-nav w-1/2 flex justify-end items-center">
-          <div className="cart flex mr-8 items-center">
-            <a
-              href="#cart"
-              className="nav-link mr-4"
-              onClick={() => setCurrentNav("cart")}
-            >
-              Cart
-            </a>
-            <BsCart3 />
-          </div>
+          <a
+            href="#cart"
+            className="nav-link mr-8"
+            /* onClick={() => setCurrentNav("cart")} */
+          >
+            Cart
+          </a>
           <a
             href="#about"
             className="nav-link"
-            onClick={() => setCurrentNav("about")}
+            /* onClick={() => setCurrentNav("about")} */
           >
             About
           </a>
