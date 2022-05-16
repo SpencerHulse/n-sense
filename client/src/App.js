@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
 import TestPage from "./pages/TestPage";
 import NoMatch from "./pages/NoMatch";
+import Home from "./pages/Home";
 
 // Apollo
 import {
@@ -54,11 +55,12 @@ function App() {
             setCurrentNav={setCurrentNav}
             currentNav={currentNav}
           ></Nav> */}
-          <SingleProduct></SingleProduct>
-          <Switch>
+          {/* <SingleProduct></SingleProduct> */}
+          <Home></Home>
+          {/* <Switch>
             <Route exact path="/" component={TestPage} />
             <Route component={NoMatch} />
-          </Switch>
+          </Switch> */}
         </div>
       </Router>
     </ApolloProvider>
