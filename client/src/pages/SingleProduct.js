@@ -26,9 +26,9 @@ const SingleProduct = () => {
               <div className="size-btn flex w-1/2 justify-between">
                 <select
                   id="size"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
-                  <option selected>Choose a size</option>
+                  <option value="">Choose a size</option>
                   <option value="SM">Small</option>
                   <option value="MD">Medium</option>
                   <option value="LG">Large</option>
@@ -39,9 +39,9 @@ const SingleProduct = () => {
               <div className="quantity-btn flex w-1/2">
                 <select
                   id="size"
-                  class="bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
-                  <option selected>Quantity</option>
+                  <option value="">Quantity</option>
                   <option value="one">1</option>
                   <option value="two">2</option>
                   <option value="three">3</option>

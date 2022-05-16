@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Nav from "./components/Nav";
-import SingleProduct from "./pages/SingleProduct";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
+import SingleProduct from "./pages/SingleProduct";
 import TestPage from "./pages/TestPage";
 import NoMatch from "./pages/NoMatch";
 
@@ -54,9 +54,9 @@ function App() {
             setCurrentNav={setCurrentNav}
             currentNav={currentNav}
           ></Nav> */}
-          <SingleProduct></SingleProduct>
           <Switch>
-            <Route exact path="/" component={TestPage} />
+            <Route exact path="/test" component={TestPage} />
+            <Route exact path="/product" component={SingleProduct} />
             <Route component={NoMatch} />
           </Switch>
         </div>
