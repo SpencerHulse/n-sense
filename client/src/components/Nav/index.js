@@ -18,7 +18,7 @@ function Nav() {
     if (categoryData) {
       dispatch(updateCategories(categoryData.categories));
     }
-  }, [categoryData, loading, updateCategories]);
+  }, [categoryData, loading, updateCategories, dispatch]);
 
   return (
     <header>

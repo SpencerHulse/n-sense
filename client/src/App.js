@@ -50,17 +50,13 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <Nav
-            navs={navs}
-            setCurrentNav={setCurrentNav}
-            currentNav={currentNav}
-          ></Nav> */}
-          {/* <SingleProduct></SingleProduct> */}
-          <Home></Home>
-          {/* <Switch>
-            <Route exact path="/" component={TestPage} />
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/product" component={SingleProduct} />
+            <Route exact path="/test" component={TestPage} />
             <Route component={NoMatch} />
-          </Switch> */}
+          </Switch>
         </div>
       </Router>
     </ApolloProvider>
