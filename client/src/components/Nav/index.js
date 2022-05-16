@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { BsCart3 } from "react-icons/bs";
 
 function Nav(props) {
   const { setCurrentNav, currentNav } = props;
@@ -15,13 +16,16 @@ function Nav(props) {
           <a href="#soaps">soaps</a>
         </div>
         <div className="right-nav w-1/2 flex justify-end items-center">
-          <a
-            href="#cart"
-            className="nav-link mr-8"
-            onClick={() => setCurrentNav("cart")}
-          >
-            Cart
-          </a>
+          <div className="cart flex mr-8 items-center">
+            <a
+              href="#cart"
+              className="nav-link mr-4"
+              onClick={() => setCurrentNav("cart")}
+            >
+              Cart
+            </a>
+            <BsCart3 />
+          </div>
           <a
             href="#about"
             className="nav-link"
