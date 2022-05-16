@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "./components/Nav";
+import SingleProduct from "./pages/SingleProduct";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
 import TestPage from "./pages/TestPage";
@@ -48,11 +49,12 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <Nav
+          {/* <Nav
             navs={navs}
             setCurrentNav={setCurrentNav}
             currentNav={currentNav}
-          ></Nav>
+          ></Nav> */}
+          <SingleProduct></SingleProduct>
           <Switch>
             <Route exact path="/" component={TestPage} />
             <Route component={NoMatch} />
