@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./assets/main.css";
 import App from "./App";
+import "flowbite";
 // Redux Store/Provider
 import { store } from "./store";
 import { Provider } from "react-redux";
