@@ -3,15 +3,35 @@
 @tailwind utilities;
 
 *{
-  font-family: westsac, sans-serif;
-
-font-weight: 400;
-
-font-style: normal;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.product-img{
-  mix-blend-mode: multiply;
-  filter: drop-shadow(20px 10px 4px black);
+.product-image img {
+  width: 100%;
 }
 
+nav {
+  padding: 10px 0 10px 0;
+}
+
+.branding {
+  max-width: 40px;
+  margin-right: 50px;
+}
+
+ul li {
+  margin-right: 50px;
+}
+
+.product-hero {
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.product-info {
+  background-color: white;
+  margin: 30px;
+  padding: 20px;
+}
