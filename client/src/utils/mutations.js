@@ -63,6 +63,7 @@ export const ADD_PRODUCT = gql`
   mutation addProduct(
     $name: String!
     $description: String!
+    $details: [String]
     $price: Float!
     $stock: Int
     $images: [String]
@@ -72,6 +73,7 @@ export const ADD_PRODUCT = gql`
     addProduct(
       name: $name
       description: $description
+      details: $details
       price: $price
       stock: $stock
       images: $images
@@ -113,6 +115,7 @@ export const UPDATE_PRODUCT = gql`
     $id: ID!
     $name: String
     $description: String
+    $details: [String]
     $price: Float
     $stock: Int
     $images: [String]
@@ -123,6 +126,7 @@ export const UPDATE_PRODUCT = gql`
       _id: $id
       name: $name
       description: $description
+      details: $details
       price: $price
       stock: $stock
       images: $images

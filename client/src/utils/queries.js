@@ -47,6 +47,7 @@ export const QUERY_PRODUCTS = gql`
       _id
       name
       description
+      details
       price
       stock
       images
