@@ -1,8 +1,19 @@
 import React, { useEffect } from "react";
-import Nav from "../components/Nav";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
-  return <Nav />;
+  return (
+    <div className="container flex flex-wrap h-screen bg-slate-300">
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+      <ProductCard></ProductCard>
+    </div>
+  );
 };
 
 export default Home;

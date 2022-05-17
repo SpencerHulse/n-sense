@@ -50,11 +50,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          {/* <Nav
-            navs={navs}
-            setCurrentNav={setCurrentNav}
-            currentNav={currentNav}
-          ></Nav> */}
+          <Nav></Nav>
+
           {/* <SingleProduct></SingleProduct> */}
           <Home></Home>
           {/* <Switch>
