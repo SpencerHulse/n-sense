@@ -22,6 +22,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
+    details: [String]
     price: Float
     stock: Int
     images: [String]
@@ -53,6 +54,7 @@ const typeDefs = gql`
     addProduct(
       name: String!
       description: String!
+      details: [String]
       price: Float!
       stock: Int
       images: [String]
@@ -63,6 +65,7 @@ const typeDefs = gql`
       _id: ID!
       name: String
       description: String
+      details: [String]
       price: Float
       stock: Int
       images: [String]
