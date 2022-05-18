@@ -55,7 +55,7 @@ function App() {
             setCurrentNav={setCurrentNav}
             currentNav={currentNav}
           ></Nav> */}
-          {/* <SingleProduct></SingleProduct> */}
+          <SingleProduct></SingleProduct>
           <Home></Home>
           {/* <Switch>
             <Route exact path="/" component={TestPage} />
