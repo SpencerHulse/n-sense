@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
@@ -36,16 +36,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  const [navs] = useState([
-    "Cart",
-    "About",
-    "Smellables",
-    "Tastables",
-    "Burnables",
-  ]);
-
-  const [currentNav, setCurrentNav] = useState(navs[1]);
-
   return (
     <ApolloProvider client={client}>
       <Router>
