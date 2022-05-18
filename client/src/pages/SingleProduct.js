@@ -6,7 +6,6 @@ import candle1 from "../assets/images/candle1.png";
 const SingleProduct = () => {
   return (
     <div className="w-screen h-screen">
-      <Nav></Nav>
       <div className="flex w-full h-2/3 bg-slate-300">
         <div className="flex w-1/2 justify-center">
           <img

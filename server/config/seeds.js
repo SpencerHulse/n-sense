@@ -41,6 +41,7 @@ db.once("open", async () => {
     {
       name: "product one",
       description: "The first of many...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 1.99,
       stock: 1,
       images: ["placeholder1", "placeholder2"],
@@ -50,6 +51,7 @@ db.once("open", async () => {
     {
       name: "product two",
       description: "Two makes a pair...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 2.99,
       stock: 2,
       images: ["placeholder3", "placeholder4"],
@@ -59,6 +61,7 @@ db.once("open", async () => {
     {
       name: "product three",
       description: "Musketeers or something diabolical...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 3.99,
       stock: 3,
       images: ["placeholder5", "placeholder6"],
@@ -68,6 +71,7 @@ db.once("open", async () => {
     {
       name: "product four",
       description: "Four is two pairs...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 4.99,
       stock: 4,
       images: ["placeholder8", "placeholder7"],
@@ -77,6 +81,7 @@ db.once("open", async () => {
     {
       name: "product five",
       description: "Some kind of middle child...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 5.99,
       stock: 5,
       images: ["placeholder10", "placeholder9"],
@@ -86,6 +91,7 @@ db.once("open", async () => {
     {
       name: "product six",
       description: "Six makes six...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 6.99,
       stock: 6,
       images: ["placeholder11", "placeholder12"],
@@ -95,6 +101,7 @@ db.once("open", async () => {
     {
       name: "product seven",
       description: "Seven eight nine...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 7.99,
       stock: 7,
       images: ["placeholder13", "placeholder14"],
@@ -104,6 +111,7 @@ db.once("open", async () => {
     {
       name: "product eight",
       description: "There is no god...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 8.99,
       stock: 8,
       images: ["placeholder15", "placeholder16"],
@@ -113,6 +121,7 @@ db.once("open", async () => {
     {
       name: "product nine",
       description: "To the nines...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 9.99,
       stock: 9,
       images: ["placeholder17", "placeholder18"],
@@ -122,6 +131,7 @@ db.once("open", async () => {
     {
       name: "product ten",
       description: "The last of many...",
+      details: ["Wow, a detail...", "Stop asking."],
       price: 10.99,
       stock: 10,
       images: ["placeholder19", "placeholder20"],
