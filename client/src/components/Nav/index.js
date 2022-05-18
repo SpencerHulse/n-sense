@@ -24,35 +24,32 @@ function Nav() {
     <nav>
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-
-          
-
-        <div className="menu-left flex items-center">
-          <div className="branding">
-            <img src={require(`../../assets/images/nsense-logo.png`)} />
+          <div className="menu-left flex items-center">
+            <div className="branding">
+              <img src={require(`../../assets/images/nsense-logo.png`)} />
+            </div>
+            <ul className="flex">
+              {loading
+                ? "Loading"
+                : categories.map((category) => {
+                    return (
+                      <li key={category._id}>
+                        <a href={`#${category.categoryName}`}>
+                          {category.categoryName}
+                        </a>
+                      </li>
+                    );
+                  })}
+            </ul>
           </div>
-
-          <ul className="flex">
-          {loading
-            ? "Loading"
-            : categories.map((category) => {
-                return (
-                  <li><a href={`#${category.categoryName}`} key={category._id}>
-                    {category.categoryName}
-                  </a></li>
-                );
-              })}
-          </ul>
-        </div>
-        <div>
-          <ul className="flex items-center">
-            <li>Cart</li>
-            <li>About</li>
-          </ul>
+          <div>
+            <ul className="flex items-center">
+              <li>Cart</li>
+              <li>About</li>
+            </ul>
+          </div>
         </div>
       </div>
-      </div>
-
     </nav>
   );
 }

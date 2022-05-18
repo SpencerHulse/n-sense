@@ -1,21 +1,47 @@
 import React, { useEffect } from "react";
 import ProductCard from "../components/ProductCard";
 import Carousel from "../components/Carousel";
-import candle from "../assets/images/candle.jpg";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import { updateProducts } from "../features/productSlice";
+// Apollo/GraphQL
+import { useQuery } from "@apollo/client";
+import { QUERY_PRODUCTS } from "../utils/queries";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.product);
+  const { currentCategory } = useSelector((state) => state.category);
+
+  const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
+  useEffect(() => {
+    if (productData) {
+      dispatch(updateProducts(productData.products));
+    }
+  }, [productData, loading, updateProducts, dispatch]);
+
+  function filterProducts() {
+    if (!currentCategory) {
+      return products;
+    }
+
+    return products.filter(
+      (product) => product.category._id === currentCategory
+    );
+  }
+
   return (
-    <div class="container">
-      <div className="h-96 bg-slate-300">
+    <div className="container">
+      {/*     <div className="h-96 bg-slate-300">
         <h1>Carousel</h1>
       </div>
       <div className="new-products h-96">
-        <div class="flex flex-col bg-white m-auto p-auto w-full h-96">
-          <h1 class="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
+        <div className="flex flex-col bg-white m-auto p-auto w-full h-96">
+          <h1 className="flex py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
             New and Worthy of Chris's Love
           </h1>
-          <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
-            <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
+          <div className="flex overflow-x-scroll pb-10 hide-scroll-bar">
+            <div className="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
               <div className="product-card inline-block px-3">
                 <div className="w-64 h-64 max-w-sm overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   <div className="w-full h-1/2 bg-slate-300">
@@ -45,54 +71,64 @@ const Home = () => {
                 </div>
               </div>
 
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
-              <div class="inline-block px-3">
-                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="inline-block px-3">
+                <div className="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                   Card
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <Carousel></Carousel> */}
-      <ProductCard></ProductCard>
-      {/* <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard>
-          <ProductCard></ProductCard> */}
+      {products.length ? (
+        // Needs to be flex
+        <div className="">
+          {filterProducts().map((product) => (
+            <ProductCard
+              key={product._id}
+              _id={product._id}
+              name={product.name}
+              description={product.description}
+              price={product.price}
+              primaryImage={product.primaryImage}
+              category={product.category.categoryName}
+            />
+          ))}
+        </div>
+      ) : (
+        <h3>There are currently no products available</h3>
+      )}
     </div>
   );
 };
