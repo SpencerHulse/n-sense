@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
-import Nav from "../components/Nav";
 
 const Home = () => {
-  return <Nav />;
+  return (
+    <div>
+      <p>Home Page</p>
+    </div>
+  );
 };
 
 export default Home;

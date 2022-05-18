@@ -18,43 +18,42 @@ function Nav() {
     if (categoryData) {
       dispatch(updateCategories(categoryData.categories));
     }
-  }, [categoryData, loading, updateCategories]);
+  }, [categoryData, loading, updateCategories, dispatch]);
 
   return (
-    <header>
-      <div className="flex flew-row w-full p-6">
-        <div className="w-1/2 flex flex-row justify-between items-center">
-          <div className="flex-row logo-container flex ">
-            <h1 className="text-3xl">Logo</h1>
+    <nav>
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center">
+
+          
+
+        <div className="menu-left flex items-center">
+          <div className="branding">
+            <img src={require(`../../assets/images/nsense-logo.png`)} />
           </div>
+
+          <ul className="flex">
           {loading
             ? "Loading"
             : categories.map((category) => {
                 return (
-                  <a href={`#${category.categoryName}`} key={category._id}>
+                  <li><a href={`#${category.categoryName}`} key={category._id}>
                     {category.categoryName}
-                  </a>
+                  </a></li>
                 );
               })}
+          </ul>
         </div>
-        <div className="right-nav w-1/2 flex justify-end items-center">
-          <a
-            href="#cart"
-            className="nav-link mr-8"
-            /* onClick={() => setCurrentNav("cart")} */
-          >
-            Cart
-          </a>
-          <a
-            href="#about"
-            className="nav-link"
-            /* onClick={() => setCurrentNav("about")} */
-          >
-            About
-          </a>
+        <div>
+          <ul className="flex items-center">
+            <li>Cart</li>
+            <li>About</li>
+          </ul>
         </div>
       </div>
-    </header>
+      </div>
+
+    </nav>
   );
 }
 
