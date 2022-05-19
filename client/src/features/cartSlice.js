@@ -31,7 +31,6 @@ const cartSlice = createSlice({
       state.cartOpen = true;
     },
     addMultipleItems: (state, { payload }) => {
-      console.log(payload);
       state.cartItems = payload;
     },
     removeFromCart: (state, { payload }) => {

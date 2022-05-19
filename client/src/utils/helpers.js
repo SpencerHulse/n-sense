@@ -23,7 +23,6 @@ export function idbPromise(storeName, method, object) {
       db.onerror = function (err) {
         console.log("error", err);
       };
-
       switch (method) {
         case "put":
           store.put(object);
