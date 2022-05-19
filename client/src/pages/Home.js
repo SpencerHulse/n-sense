@@ -8,6 +8,7 @@ import { updateProducts } from "../features/productSlice";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import candle1 from "../assets/images/candle1.png";
+import { idbPromise } from "../utils/helpers";
 
 const Home = () => {
   const { category } = useParams();
@@ -18,6 +19,14 @@ const Home = () => {
   useEffect(() => {
     if (productData) {
       dispatch(updateProducts(productData.products));
+
+      productData.products.forEach((product) => {
+        idbPromise("products", "put", product);
+      });
+    } else if (!loading) {
+      idbPromise("products", "get").then((products) => {
+        dispatch(updateProducts(products));
+      });
     }
   }, [productData, loading, dispatch]);
 

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { idbPromise } from "../utils/helpers";
 
 const initialState = {
   cartItems: [],
@@ -15,6 +16,7 @@ const cartSlice = createSlice({
     addToCart: (state, { payload }) => {
       const { product, purchaseQuantity } = payload;
       let updated = false;
+      const _id = product._id; // For entire object. Used to make IndexedDB simpler.
 
       state.cartItems.map((item) => {
         if (item.product._id === product._id) {
@@ -25,13 +27,12 @@ const cartSlice = createSlice({
       });
 
       if (!updated) {
-        state.cartItems.push({ product, purchaseQuantity });
+        state.cartItems.push({ product, purchaseQuantity, _id });
       }
 
       state.cartOpen = true;
     },
     removeFromCart: (state, { payload }) => {
-      console.log(payload);
       const newCart = state.cartItems.filter((item) => {
         if (item.product._id !== payload.product._id) {
           return item;
