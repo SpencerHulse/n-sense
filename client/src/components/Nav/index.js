@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { BsCart3 } from "react-icons/bs";
+import { Link } from "react-router-dom";
+// import { BsCart3 } from "react-icons/bs";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateCategories, selectCategory } from "../../features/categorySlice";
@@ -9,16 +10,18 @@ import { QUERY_CATEGORIES } from "../../utils/queries";
 
 function Nav() {
   const dispatch = useDispatch();
-  const { categories, currentCategory } = useSelector(
-    (state) => state.category
-  );
+  const { categories } = useSelector((state) => state.category);
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
   useEffect(() => {
     if (categoryData) {
       dispatch(updateCategories(categoryData.categories));
     }
-  }, [categoryData, loading, updateCategories, dispatch]);
+  }, [categoryData, loading, dispatch]);
+
+  function singleCategory(category) {
+    dispatch(selectCategory(category));
+  }
 
   return (
     <nav>
@@ -26,7 +29,12 @@ function Nav() {
         <div className="flex justify-between items-center">
           <div className="menu-left flex items-center">
             <div className="branding">
-              <img src={require(`../../assets/images/nsense-logo.png`)} />
+              <Link to="/">
+                <img
+                  src={require(`../../assets/images/nsense-logo.png`)}
+                  alt="logo"
+                />
+              </Link>
             </div>
             <ul className="flex">
               {loading
@@ -34,9 +42,12 @@ function Nav() {
                 : categories.map((category) => {
                     return (
                       <li key={category._id}>
-                        <a href={`#${category.categoryName}`}>
+                        <Link
+                          to={`/category/${category.categoryName.toLowerCase()}`}
+                          onClick={() => singleCategory(category)}
+                        >
                           {category.categoryName}
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import Carousel from "../components/Carousel";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateProducts } from "../features/productSlice";
@@ -10,24 +10,24 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 import candle1 from "../assets/images/candle1.png";
 
 const Home = () => {
+  const { category } = useParams();
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
-  const { currentCategory } = useSelector((state) => state.category);
 
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
     if (productData) {
       dispatch(updateProducts(productData.products));
     }
-  }, [productData, loading, updateProducts, dispatch]);
+  }, [productData, loading, dispatch]);
 
   function filterProducts() {
-    if (!currentCategory) {
+    if (!category) {
       return products;
     }
 
     return products.filter(
-      (product) => product.category._id === currentCategory
+      (product) => product.category.categoryName.toLowerCase() === category
     );
   }
 
@@ -49,6 +49,10 @@ const Home = () => {
         {products.length ? (
           // Needs to be flex
           <div className="">
+            <h2>
+              You are viewing{" "}
+              {category ? category.toLowerCase() : "all products"}!
+            </h2>
             {filterProducts().map((product) => (
               <ProductCard
                 key={product._id}
@@ -65,9 +69,7 @@ const Home = () => {
           <h3>There are currently no products available</h3>
         )}
       </div>
-
     </div>
-
   );
 };
 

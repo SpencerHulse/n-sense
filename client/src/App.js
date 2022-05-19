@@ -43,6 +43,7 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/category/:category" component={Home} />
             <Route exact path="/product/:id" component={SingleProduct} />
             <Route exact path="/test" component={TestPage} />
             <Route component={NoMatch} />

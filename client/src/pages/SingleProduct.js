@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateProducts } from "../features/productSlice";
@@ -23,7 +23,7 @@ const SingleProduct = () => {
     } else if (productData) {
       dispatch(updateProducts(productData.products));
     }
-  }, [productData, id, products, updateProducts, dispatch]);
+  }, [productData, id, products, dispatch]);
 
   return (
     <>
