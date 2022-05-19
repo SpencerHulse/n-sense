@@ -10,6 +10,13 @@
 
 .product-image img {
   width: 100%;
+  padding: 30px;
+}
+
+.product-hero-container {
+  background-image: url('./images/product-bg.png');
+  background-repeat: repeat-x;
+  background-size: contain;
 }
 
 nav {
@@ -27,6 +34,7 @@ ul li {
 
 .product-hero {
   max-height: 600px;
+  max-width: 1100px;
   overflow: hidden;
 }
 

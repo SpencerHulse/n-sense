@@ -6,9 +6,9 @@ import candle1 from "../assets/images/candle1.png";
 const SingleProduct = () => {
   return (
     <div>
-      <div className="bg-slate-300">
+      <div className="product-hero-container">
         <div className="container mx-auto">
-          <div className="flex justify-between justify-items-stretch product-hero">
+          <div className="flex justify-between justify-items-stretch product-hero mx-auto gap-9">
 
             <div className="product-image w-1/2">
               <img src={candle1} alt="candle" />
