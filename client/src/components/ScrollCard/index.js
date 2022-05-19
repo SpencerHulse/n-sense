@@ -13,7 +13,7 @@ function ScrollCard({ _id, name, description, price, primaryImage, category }) {
         </a>
         <div className="card-info bg-slate-300 w-full h-1/2">
           <a href="#">
-            <h5 className="text-gray-900 text-2xl tracking-tight font-medium mb-2 font-bold dark:text-white">
+            <h5 className="text-gray-900 text-2xl font-medium mb-2 font-bold dark:text-white">
               {name} {category}
             </h5>
           </a>
