@@ -6,6 +6,7 @@ import { updateProducts } from "../features/productSlice";
 // Apollo/GraphQL
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
+import { addToCart } from "../features/cartSlice";
 
 const SingleProduct = () => {
   const [currentProduct, setCurrentProduct] = useState("");
@@ -14,6 +15,7 @@ const SingleProduct = () => {
 
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const { data: productData } = useQuery(QUERY_PRODUCTS);
 
@@ -53,15 +55,15 @@ const SingleProduct = () => {
 
                       <div className="quantity-btn flex w-1/2">
                         <select
-                          id="size"
+                          id="quantity"
                           className="bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         >
                           <option value="">Quantity</option>
-                          <option value="one">1</option>
-                          <option value="two">2</option>
-                          <option value="three">3</option>
-                          <option value="four">4</option>
-                          <option value="five">5</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
                         </select>
                       </div>
                       <br></br>
@@ -70,6 +72,16 @@ const SingleProduct = () => {
                         <button
                           className="bg-indigo-700 hover:ring-indigo-900 hover:ring-2 text-white  p-4 px-6 rounded-md"
                           type="button"
+                          onClick={() => {
+                            const quantitySelected = parseInt(
+                              document.getElementById("quantity").value
+                            );
+                            if (quantitySelected) {
+                              dispatch(
+                                addToCart({ currentProduct, quantitySelected })
+                              );
+                            }
+                          }}
                         >
                           Add to Cart
                         </button>

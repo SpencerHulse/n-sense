@@ -15,7 +15,7 @@ const Cart = () => {
   function calculateTotal() {
     let sum = 0;
     cartItems.forEach((item) => {
-      sum += item.price * item.purchaseQuantity;
+      sum += item.product.price * item.purchaseQuantity;
     });
     return sum.toFixed(2);
   }
@@ -35,7 +35,7 @@ const Cart = () => {
         {cartItems.length ? (
           <div>
             {cartItems.map((item) => {
-              return <CartItem key={item._id} item={item} />;
+              return <CartItem key={item.product._id} item={item} />;
             })}
             <div>
               <strong>Total: ${calculateTotal()}</strong>
