@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { BsCart3 } from "react-icons/bs";
+import Cart from "../Cart";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateCategories, selectCategory } from "../../features/categorySlice";
@@ -55,7 +56,7 @@ function Nav() {
           </div>
           <div>
             <ul className="flex items-center">
-              <li>Cart</li>
+              <Cart />
               <li>About</li>
             </ul>
           </div>
