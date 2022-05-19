@@ -55,6 +55,7 @@ const Home = () => {
             </h2>
             {filterProducts().map((product) => (
               <ProductCard
+                product={product}
                 key={product._id}
                 _id={product._id}
                 name={product.name}

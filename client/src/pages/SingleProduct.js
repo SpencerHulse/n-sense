@@ -78,7 +78,10 @@ const SingleProduct = () => {
                             );
                             if (quantitySelected) {
                               dispatch(
-                                addToCart({ currentProduct, quantitySelected })
+                                addToCart({
+                                  product: currentProduct,
+                                  purchaseQuantity: quantitySelected,
+                                })
                               );
                             }
                           }}

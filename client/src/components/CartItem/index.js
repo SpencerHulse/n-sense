@@ -16,8 +16,8 @@ const CartItem = ({ item }) => {
 
     dispatch(
       addToCart({
-        currentProduct: product,
-        quantitySelected: change,
+        product,
+        purchaseQuantity: change,
       })
     );
   }

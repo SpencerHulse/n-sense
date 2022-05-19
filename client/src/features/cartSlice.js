@@ -13,23 +13,22 @@ const cartSlice = createSlice({
       state.cartOpen = !state.cartOpen;
     },
     addToCart: (state, { payload }) => {
-      const { currentProduct, quantitySelected } = payload;
+      const { product, purchaseQuantity } = payload;
       let updated = false;
 
       state.cartItems.map((item) => {
-        if (item.product._id === currentProduct._id) {
-          item.purchaseQuantity += quantitySelected;
+        if (item.product._id === product._id) {
+          item.purchaseQuantity += purchaseQuantity;
           updated = true;
         }
         return item;
       });
 
       if (!updated) {
-        state.cartItems.push({
-          product: currentProduct,
-          purchaseQuantity: quantitySelected,
-        });
+        state.cartItems.push({ product, purchaseQuantity });
       }
+
+      state.cartOpen = true;
     },
     removeFromCart: (state, { payload }) => {
       console.log(payload);
