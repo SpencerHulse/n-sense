@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../features/cartSlice";
 
 const CartItem = ({ item }) => {
+  const dispatch = useDispatch();
   const { product, purchaseQuantity } = item;
-
-  console.log(product, purchaseQuantity);
 
   function onChange() {
     return;
@@ -29,7 +30,11 @@ const CartItem = ({ item }) => {
             value={purchaseQuantity}
             onChange={onChange}
           />
-          <span role="img" aria-label="trash">
+          <span
+            role="img"
+            aria-label="trash"
+            onClick={() => dispatch(removeFromCart(item))}
+          >
             🗑️
           </span>
         </div>
