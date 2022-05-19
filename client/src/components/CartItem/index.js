@@ -1,13 +1,25 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../features/cartSlice";
+import { removeFromCart, addToCart } from "../../features/cartSlice";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
   const { product, purchaseQuantity } = item;
 
-  function onChange() {
-    return;
+  function onChange(e) {
+    const change = parseInt(e.target.value) - purchaseQuantity;
+
+    if (change === -1 && purchaseQuantity === 1) {
+      dispatch(removeFromCart(item));
+      return;
+    }
+
+    dispatch(
+      addToCart({
+        currentProduct: product,
+        quantitySelected: change,
+      })
+    );
   }
 
   return (
