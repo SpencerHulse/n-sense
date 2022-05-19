@@ -43,6 +43,35 @@ ul li {
   margin: 30px;
   padding: 20px;
 }
+
+.main-hero {
+  background-color: #F8F5F5;
+  min-height: 400px;
+  background-image: url("./images/hero-accent.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.defbutton {
+  border: black 2px solid;
+  padding: 5px 10px;
+}
+
+.container.mx-auto {
+  height: 100%;
+}
+
+.hero-content {
+  max-width: 1100px;
+  padding: 40px 0 40px 0;
+}
+
+.hero-title {
+  font-size: 57px;
+  font-weight: bold;
+}
+
 .hide-scroll-bar {
   -ms-overflow-style: none;
   scrollbar-width: none;
