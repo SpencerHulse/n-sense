@@ -1,25 +1,32 @@
 import React, { useEffect } from "react";
+import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleCart } from "../../features/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { cartItems, cartOpen, amount, total } = useSelector(
-    (state) => state.cart
-  );
+  const { cartItems, cartOpen } = useSelector((state) => state.cart);
 
   function toggle() {
     dispatch(toggleCart());
   }
 
+  function calculateTotal() {
+    let sum = 0;
+    cartItems.forEach((item) => {
+      sum += item.price * item.purchaseQuantity;
+    });
+    return sum.toFixed(2);
+  }
+
   if (!cartOpen) {
-    return <li onClick={() => toggle()}>Cart ({amount})</li>;
+    return <li onClick={() => toggle()}>Cart ({cartItems.length})</li>;
   }
 
   return (
     <>
-      <li>Cart ({amount})</li>
+      <li>Cart ({cartItems.length})</li>
 
       {/* Make this a modal with absolute positioning... */}
       <div>
@@ -27,11 +34,11 @@ const Cart = () => {
         <h2>Shopping Cart</h2>
         {cartItems.length ? (
           <div>
-            {cartItems.map((item) => ({
-              /* <CartItem key={item._id} item={item} /> */
-            }))}
+            {cartItems.map((item) => {
+              return <CartItem key={item._id} item={item} />;
+            })}
             <div>
-              <strong>Total: ${total}</strong>
+              <strong>Total: ${calculateTotal()}</strong>
               {Auth.loggedIn() ? (
                 <button>Checkout</button>
               ) : (
