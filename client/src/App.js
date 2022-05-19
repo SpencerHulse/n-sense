@@ -6,6 +6,7 @@ import SingleProduct from "./pages/SingleProduct";
 import TestPage from "./pages/TestPage";
 import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 // Apollo
 import {
@@ -15,6 +16,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import ProductCard from "./components/ProductCard";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -43,8 +45,10 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/product" component={SingleProduct} />
+            <Route exact path="/category/:category" component={Home} />
+            <Route exact path="/product/:id" component={SingleProduct} />
             <Route exact path="/test" component={TestPage} />
+            <Route exact path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>
         </div>

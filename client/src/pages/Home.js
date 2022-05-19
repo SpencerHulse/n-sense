@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
-import Carousel from "../components/Carousel";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateProducts } from "../features/productSlice";
@@ -8,204 +8,43 @@ import { updateProducts } from "../features/productSlice";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import ScrollCardCarousel from "../components/ScrollCardCarousel";
+import candle1 from "../assets/images/candle1.png";
+import { idbPromise } from "../utils/helpers";
+import ScrollCard from "../components/ScrollCard";
 
 const Home = () => {
+  const { category } = useParams();
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
-  const { currentCategory } = useSelector((state) => state.category);
 
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
     if (productData) {
       dispatch(updateProducts(productData.products));
+
+      productData.products.forEach((product) => {
+        idbPromise("products", "put", product);
+      });
+    } else if (!loading) {
+      idbPromise("products", "get").then((products) => {
+        dispatch(updateProducts(products));
+      });
     }
-  }, [productData, loading, updateProducts, dispatch]);
+  }, [productData, loading, dispatch]);
 
   function filterProducts() {
-    if (!currentCategory) {
+    if (!category) {
       return products;
     }
 
     return products.filter(
-      (product) => product.category._id === currentCategory
+      (product) => product.category.categoryName.toLowerCase() === category
     );
   }
 
   return (
     <div className="h-96 bg-slate-300">
-      <div className="flex overflow-x-scroll pb-10 hide-scroll-bar">
-        <div className="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
-          <div className="product-card object-contain">
-            <div className="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt="choco brownie"
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card mx-12">
-            <div className="max-w-lg bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt={`choco brownie`}
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="product-card mx-12">
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt="choco brownie"
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card mx-12">
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt="choco brownie"
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card mx-12">
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt="choco brownie"
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card mx-12">
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt="choco brownie"
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card mx-12">
-            <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-              <a href="#">
-                <img
-                  className="rounded-t-lg"
-                  src={require(`../assets/images/chocolate-brownie.jpg`)}
-                  alt="choco brownie"
-                />
-              </a>
-              <div className="p-5">
-                <a href="#">
-                  <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    choco brownie
-                  </h5>
-                </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                  Big black candle (BBC)
-                </p>
-                <div className="flex flex-row justify-between w-full">
-                  <p className="price text-xl font-bold text-white">$6.69</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* {products.length ? (
+      {/* {products.length ? (
             // Needs to be flex
             <div className="">
               {filterProducts().map((product) => (
@@ -223,6 +62,56 @@ const Home = () => {
           ) : (
             <h3>There are currently no products available</h3>
           )} */}
+      <div className="main">
+        <div className="main-hero flex items-center">
+          <div className="container mx-auto flex hero-content">
+            <div className="w-3/12">
+              <img src={candle1} alt="candle" />
+            </div>
+            <div className="w-9/12 m-auto">
+              <h1 className="hero-title align-middle">
+                New Exciting Collection
+              </h1>
+              <button className="defbutton">Shop today</button>
+            </div>
+          </div>
+        </div>
+        <ScrollCardCarousel>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+          <ScrollCard></ScrollCard>
+        </ScrollCardCarousel>
+
+        <div className="container flex">
+          {products.length ? (
+            // Needs to be flex
+            <div className="">
+              <h2>
+                You are viewing{" "}
+                {category ? category.toLowerCase() : "all products"}!
+              </h2>
+              {filterProducts().map((product) => (
+                <ProductCard
+                  product={product}
+                  key={product._id}
+                  _id={product._id}
+                  name={product.name}
+                  description={product.description}
+                  price={product.price}
+                  primaryImage={product.primaryImage}
+                  category={product.category.categoryName}
+                />
+              ))}
+            </div>
+          ) : (
+            <h3>There are currently no products available</h3>
+          )}
         </div>
       </div>
     </div>
