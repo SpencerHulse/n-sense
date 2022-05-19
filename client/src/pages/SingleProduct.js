@@ -8,6 +8,8 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
 import { addToCart } from "../features/cartSlice";
 
+import { idbPromise } from "../utils/helpers";
+
 const SingleProduct = () => {
   const [currentProduct, setCurrentProduct] = useState("");
 
@@ -77,12 +79,32 @@ const SingleProduct = () => {
                               document.getElementById("quantity").value
                             );
                             if (quantitySelected) {
+                              const itemInCart = cartItems.find(
+                                (item) => item._id === currentProduct._id
+                              );
+
                               dispatch(
                                 addToCart({
                                   product: currentProduct,
                                   purchaseQuantity: quantitySelected,
+                                  _id: currentProduct._id,
                                 })
                               );
+
+                              if (itemInCart) {
+                                idbPromise("cart", "put", {
+                                  ...itemInCart,
+                                  purchaseQuantity:
+                                    parseInt(itemInCart.purchaseQuantity) +
+                                    quantitySelected,
+                                });
+                              } else {
+                                idbPromise("cart", "put", {
+                                  product: currentProduct,
+                                  purchaseQuantity: quantitySelected,
+                                  _id: currentProduct._id,
+                                });
+                              }
                             }
                           }}
                         >

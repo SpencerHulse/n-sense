@@ -2,11 +2,23 @@ import React, { useEffect } from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleCart } from "../../features/cartSlice";
+import { toggleCart, addMultipleItems } from "../../features/cartSlice";
+import { idbPromise } from "../../utils/helpers";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems, cartOpen } = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise("cart", "get");
+      dispatch(addMultipleItems([...cart]));
+    }
+
+    if (!cartItems.length) {
+      getCart();
+    }
+  }, [cartItems.length, dispatch]);
 
   function toggle() {
     dispatch(toggleCart());
