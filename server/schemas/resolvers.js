@@ -2,7 +2,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Category, Product, Order } = require("../models");
 const { signToken } = require("../utils/auth");
-// Will need to import: stripe
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
@@ -52,6 +52,53 @@ const resolvers = {
       }
 
       throw new AuthenticationError("Not logged in");
+    },
+    checkout: async (parent, args, context) => {
+      // Parse out the referring URL
+      const url = new URL(context.headers.referer).origin;
+      const order = new Order({ products: args.products });
+      // execPopulate is required for existing documents (the above already existing)
+      // However, in the latest version of Mongoose, it is likely non-existent
+      const { products } = await order.populate("products").execPopulate();
+
+      const line_items = [];
+
+      for (let i = 0; i < products.length; i++) {
+        // generate product id
+        const product = await stripe.products.create({
+          name: products[i].name,
+          description: products[i].description,
+          /* Works because we have access to the original url,
+          but they will only be visible when live (such as on Heroku).
+          This is because there is no access on localhost */
+          images: [`${url}/images/${products[i].primaryImage}`],
+        });
+        console.log("product");
+        // generate price id using the product id
+        const price = await stripe.prices.create({
+          product: product.id,
+          /* Because stripe requires cost in cents */
+          unit_amount: products[i].price * 100,
+          currency: "usd",
+        });
+        console.log("price");
+        // add price id to the line items array
+        line_items.push({
+          price: price.id,
+          quantity: 1,
+        });
+      }
+
+      // Checkout session
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+
+      return { session: session.id };
     },
   },
   Mutation: {
@@ -115,6 +162,7 @@ const resolvers = {
     // Adds an order to a user's orders
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
+        console.log(products);
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, {

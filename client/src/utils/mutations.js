@@ -155,6 +155,15 @@ export const ADD_ORDER = gql`
       purchaseDate
       products {
         _id
+        name
+        description
+        price
+        stock
+        images
+        primaryImage
+        category {
+          categoryName
+        }
       }
     }
   }

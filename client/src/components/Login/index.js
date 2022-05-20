@@ -103,7 +103,7 @@ const Login = () => {
                 ) : null}
                 <div className="flex-row flex-end">
                   <button type="submit">Submit</button>
-                  <a onClick={() => setSelectForm("signUp")}>Sign Up Instead</a>
+                  <p onClick={() => setSelectForm("signUp")}>Sign Up Instead</p>
                 </div>
               </form>
             </div>
@@ -143,7 +143,7 @@ const Login = () => {
                 </div>
                 <div className="flex-row flex-end">
                   <button type="submit">Submit</button>
-                  <a onClick={() => setSelectForm("login")}>Log In Instead</a>
+                  <p onClick={() => setSelectForm("login")}>Log In Instead</p>
                 </div>
               </form>
             </div>

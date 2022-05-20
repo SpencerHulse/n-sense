@@ -6,6 +6,7 @@ import SingleProduct from "./pages/SingleProduct";
 import TestPage from "./pages/TestPage";
 import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";
+import SuccessfulPurchase from "./pages/SuccessfulPurchase";
 
 // Apollo
 import {
@@ -45,6 +46,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/category/:category" component={Home} />
             <Route exact path="/product/:id" component={SingleProduct} />
+            <Route exact path="/success" component={SuccessfulPurchase} />
             <Route exact path="/test" component={TestPage} />
             <Route component={NoMatch} />
           </Switch>
