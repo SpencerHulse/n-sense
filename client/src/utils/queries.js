@@ -93,3 +93,12 @@ export const QUERY_ORDER = gql`
     }
   }
 `;
+
+// Requires an array of product IDs
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart, addToCart } from "../../features/cartSlice";
+import { idbPromise } from "../../utils/helpers";
 
 const CartItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const CartItem = ({ item }) => {
 
     if (change === -1 && purchaseQuantity === 1) {
       dispatch(removeFromCart(item));
+      idbPromise("cart", "delete", { _id: product._id });
       return;
     }
 
@@ -20,6 +22,12 @@ const CartItem = ({ item }) => {
         purchaseQuantity: change,
       })
     );
+
+    idbPromise("cart", "put", {
+      product,
+      purchaseQuantity: parseInt(e.target.value),
+      _id: product._id,
+    });
   }
 
   return (
@@ -45,7 +53,10 @@ const CartItem = ({ item }) => {
           <span
             role="img"
             aria-label="trash"
-            onClick={() => dispatch(removeFromCart(item))}
+            onClick={() => {
+              dispatch(removeFromCart(item));
+              idbPromise("cart", "delete", { _id: product._id });
+            }}
           >
             🗑️
           </span>

@@ -2,11 +2,31 @@ import React, { useEffect } from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleCart } from "../../features/cartSlice";
+import { toggleCart, addMultipleItems } from "../../features/cartSlice";
+import { idbPromise } from "../../utils/helpers";
+
+// Stripe
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_CHECKOUT } from "../../utils/queries";
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems, cartOpen } = useSelector((state) => state.cart);
+
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise("cart", "get");
+      dispatch(addMultipleItems([...cart]));
+    }
+
+    if (!cartItems.length) {
+      getCart();
+    }
+  }, [cartItems.length, dispatch]);
 
   function toggle() {
     dispatch(toggleCart());
@@ -19,6 +39,39 @@ const Cart = () => {
     });
     return sum.toFixed(2);
   }
+
+  function submitCheckout() {
+    const productIds = [];
+
+    cartItems.forEach((item) => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        productIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise("cart", "get");
+      dispatch(addMultipleItems([...cart]));
+    }
+
+    if (!cartItems.length) {
+      getCart();
+    }
+  }, [cartItems.length, dispatch]);
 
   if (!cartOpen) {
     return <li onClick={() => toggle()}>Cart ({cartItems.length})</li>;
@@ -40,7 +93,7 @@ const Cart = () => {
             <div>
               <strong>Total: ${calculateTotal()}</strong>
               {Auth.loggedIn() ? (
-                <button>Checkout</button>
+                <button onClick={submitCheckout}>Checkout</button>
               ) : (
                 <span>(log in to check out)</span>
               )}
