@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/SpencerHulse/n-sense/issues"
   },
-  "homepage": "https://github.com/SpencerHulse/n-sense#readme"
+  "homepage": "https://github.com/SpencerHulse/n-sense#readme",
+  "dependencies": {
+    "react-hot-loader": "^4.13.0"
+  }
 }
