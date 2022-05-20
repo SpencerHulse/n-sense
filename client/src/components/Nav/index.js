@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { BsCart3 } from "react-icons/bs";
+import Auth from "../../utils/auth";
 import Cart from "../Cart";
+import Login from "../Login";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateCategories, selectCategory } from "../../features/categorySlice";
@@ -58,6 +60,15 @@ function Nav() {
             <ul className="flex items-center">
               <Cart />
               <li>About</li>
+              {Auth.loggedIn() ? (
+                <li>
+                  <a href="/" onClick={() => Auth.logout()}>
+                    Logout
+                  </a>
+                </li>
+              ) : (
+                <Login />
+              )}
             </ul>
           </div>
         </div>
