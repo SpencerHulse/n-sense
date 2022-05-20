@@ -62,7 +62,7 @@ const Home = () => {
           ) : (
             <h3>There are currently no products available</h3>
           )} */}
-      <div className="main">
+      <div>
         <div className="main-hero flex items-center">
           <div className="container mx-auto flex hero-content">
             <div className="w-3/12">
@@ -76,43 +76,56 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <ScrollCardCarousel>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-          <ScrollCard></ScrollCard>
-        </ScrollCardCarousel>
+        <div className="section">
+          <div className="container mx-auto mb-10">
 
-        <div className="container flex">
-          {products.length ? (
-            // Needs to be flex
-            <div className="">
-              <h2>
-                You are viewing{" "}
-                {category ? category.toLowerCase() : "all products"}!
-              </h2>
-              {filterProducts().map((product) => (
-                <ProductCard
-                  product={product}
-                  key={product._id}
-                  _id={product._id}
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                  primaryImage={product.primaryImage}
-                  category={product.category.categoryName}
-                />
-              ))}
-            </div>
-          ) : (
-            <h3>There are currently no products available</h3>
-          )}
+            <ScrollCardCarousel>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+            </ScrollCardCarousel>
+
+          </div>
         </div>
+        <div className="section">
+          <div className="container mx-auto flex">
+            <div className="product-display flex flex-wrap">
+
+              {products.length ? (
+                // Needs to be flex
+                <div>
+                  <h2 className="category-title mb-10">
+                    {category ? category : "All products"}
+                  </h2>
+                  <div className="-m-2 flex flex-wrap">
+                  {filterProducts().map((product) => (
+                    <ProductCard
+                      product={product}
+                      key={product._id}
+                      _id={product._id}
+                      name={product.name}
+                      description={product.description}
+                      price={product.price}
+                      primaryImage={product.primaryImage}
+                      category={product.category.categoryName}
+                    />
+                  ))}
+                  </div>
+                </div>
+
+              ) : (
+                <h3>There are currently no products available</h3>
+              )}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

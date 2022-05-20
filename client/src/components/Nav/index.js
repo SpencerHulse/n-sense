@@ -31,9 +31,10 @@ function Nav() {
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <div className="menu-left flex items-center">
-            <div className="branding">
+            <div className="branding-container">
               <Link to="/">
-                <img
+                <img 
+                  className="branding"
                   src={require(`../../assets/images/nsense-logo.png`)}
                   alt="logo"
                 />
