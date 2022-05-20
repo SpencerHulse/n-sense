@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/SpencerHulse/n-sense#readme",
   "dependencies": {
-    "react-hot-loader": "^4.13.0"
+    "@headlessui/react": "^1.6.2",
+    "@heroicons/react": "^1.0.6"
   }
 }

@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SuccessfulPurchase from "./pages/SuccessfulPurchase";
 import Orders from "./pages/Orders";
-
+import Modal from "./components/Modal";
 // Apollo
 import {
   ApolloClient,
