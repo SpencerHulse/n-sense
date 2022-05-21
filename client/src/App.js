@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
-import Admin from "./pages/Admin";
+import AdminDash from "./pages/AdminDash";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Orders from "./pages/Orders";
@@ -47,7 +47,7 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/admin" component={Admin} />
+            <Route exact path="/admin" component={AdminDash} />
             <Route exact path="/category/:category" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/orders" component={Orders} />

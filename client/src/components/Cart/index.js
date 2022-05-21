@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleCart } from "../../features/cartSlice";
-import Modal from "../Modal";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -61,30 +60,5 @@ const Cart = () => {
     </>
   );
 };
-
-//       <div>
-//         <div onClick={() => toggle()}>[close]</div>
-//         <h2>Shopping Cart</h2>
-//         {cartItems.length ? (
-//           <div>
-//             {cartItems.map((item) => {
-//               return <CartItem key={item.product._id} item={item} />;
-//             })}
-//             <div>
-//               <strong>Total: ${calculateTotal()}</strong>
-//               {Auth.loggedIn() ? (
-//                 <button>Checkout</button>
-//               ) : (
-//                 <span>(log in to check out)</span>
-//               )}
-//             </div>
-//           </div>
-//         ) : (
-//           <h3>You haven't added anything to your cart yet!</h3>
-//         )}
-//       </div>
-//     </>
-//   );
-// };
 
 export default Cart;

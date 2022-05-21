@@ -4,7 +4,7 @@ function ScrollCard({ _id, name, description, price, primaryImage, category }) {
   return (
     <div className="product-card w-48 mr-4">
       <div className="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
-        <a href="#">
+        <a href="/">
           <img
             className="rounded-t-lg"
             src={require(`../../assets/images/chocolate-brownie.jpg`)}
@@ -12,7 +12,7 @@ function ScrollCard({ _id, name, description, price, primaryImage, category }) {
           />
         </a>
         <div className="p-5">
-          <a href="#">
+          <a href="/">
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               choco brownie
             </h5>

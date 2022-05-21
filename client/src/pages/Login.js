@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 function Login() {
   return (
@@ -18,7 +18,7 @@ function Login() {
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or
                 <a
-                  href="#"
+                  href="/"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   {" "}

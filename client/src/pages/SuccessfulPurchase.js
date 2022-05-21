@@ -12,7 +12,7 @@ function SuccessfulPurchase() {
 
       let products = [];
       // Get an array of the product IDs in the cart
-      cart.map((product) => {
+      cart.forEach((product) => {
         for (let i = 0; i < product.purchaseQuantity; i++) {
           products.push(product._id);
         }
