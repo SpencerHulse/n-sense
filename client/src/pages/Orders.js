@@ -10,6 +10,42 @@ function OrderHistory() {
 
   if (data) {
     user = data.user;
+    /*     const { orders } = user;
+    const updatedOrders = [];
+
+    orders.forEach((order) => {
+      let tabulation = [];
+      let products = [];
+      let updatedLength = order.products.length;
+      let i = 0;
+      while (i < order.products.length - 1) {
+        console.log(i);
+        if (products.includes(order.products[i]._id)) {
+          return;
+        }
+
+        let currentProduct;
+
+        const filtered = order.products.filter((product) => {
+          currentProduct = product;
+          products.push(product._id);
+          return product._id !== order.products[i];
+        });
+
+        console.log(filtered);
+        console.log(products);
+
+        tabulation = [
+          ...tabulation,
+          { currentProduct, purchaseQuantity: updatedLength - filtered.length },
+        ];
+
+        updatedLength = filtered.length;
+        i++;
+      }
+      console.log(updatedOrders);
+      updatedOrders.push(tabulation);
+    }); */
   }
 
   return (

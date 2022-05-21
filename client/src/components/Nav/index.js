@@ -58,9 +58,11 @@ function Nav() {
           </div>
           <div>
             <ul className="flex items-center">
-              <li>
-                <Link to="/orders">Orders</Link>
-              </li>
+              {Auth.loggedIn() ? (
+                <li>
+                  <Link to="/orders">Orders</Link>
+                </li>
+              ) : null}
               <Cart />
               <li>About</li>
               {Auth.loggedIn() ? (
