@@ -6,9 +6,10 @@ import SingleProduct from "./pages/SingleProduct";
 import TestPage from "./pages/TestPage";
 import NoMatch from "./pages/NoMatch";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import SuccessfulPurchase from "./pages/SuccessfulPurchase";
 import Orders from "./pages/Orders";
-
+import Modal from "./components/Modal";
 // Apollo
 import {
   ApolloClient,
@@ -17,6 +18,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import ProductCard from "./components/ProductCard";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -41,7 +43,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className="main">
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
@@ -50,6 +52,7 @@ function App() {
             <Route exact path="/product/:id" component={SingleProduct} />
             <Route exact path="/success" component={SuccessfulPurchase} />
             <Route exact path="/test" component={TestPage} />
+            <Route exact path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>
         </div>

@@ -7,8 +7,10 @@ import { updateProducts } from "../features/productSlice";
 // Apollo/GraphQL
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
+import ScrollCardCarousel from "../components/ScrollCardCarousel";
 import candle1 from "../assets/images/candle1.png";
 import { idbPromise } from "../utils/helpers";
+import ScrollCard from "../components/ScrollCard";
 
 const Home = () => {
   const { category } = useParams();
@@ -41,43 +43,84 @@ const Home = () => {
   }
 
   return (
-    <div className="main">
-      <div className="main-hero flex items-center">
-        <div className="container mx-auto flex hero-content">
-          <div className="w-3/12">
-            <img src={candle1} alt="candle" />
-          </div>
-          <div className="w-9/12 m-auto">
-            <h1 className="hero-title align-middle">New Exciting Collection</h1>
-            <button className="defbutton">Shop today</button>
+    <div className="h-96 bg-slate-300">
+      {/* {products.length ? (
+            // Needs to be flex
+            <div className="">
+              {filterProducts().map((product) => (
+                <ProductCard
+                  key={product._id}
+                  _id={product._id}
+                  name={product.name}
+                  description={product.description}
+                  price={product.price}
+                  primaryImage={product.primaryImage}
+                  category={product.category.categoryName}
+                />
+              ))}
+            </div>
+          ) : (
+            <h3>There are currently no products available</h3>
+          )} */}
+      <div>
+        <div className="main-hero flex items-center">
+          <div className="container mx-auto flex hero-content">
+            <div className="w-3/12">
+              <img src={candle1} alt="candle" />
+            </div>
+            <div className="w-9/12 m-auto">
+              <h1 className="hero-title align-middle">
+                New Exciting Collection
+              </h1>
+              <button className="defbutton">Shop today</button>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="container flex">
-        {products.length ? (
-          // Needs to be flex
-          <div className="">
-            <h2>
-              You are viewing{" "}
-              {category ? category.toLowerCase() : "all products"}!
-            </h2>
-            {filterProducts().map((product) => (
-              <ProductCard
-                product={product}
-                key={product._id}
-                _id={product._id}
-                name={product.name}
-                description={product.description}
-                price={product.price}
-                primaryImage={product.primaryImage}
-                category={product.category.categoryName}
-              />
-            ))}
+        <div className="section">
+          <div className="container mx-auto mb-10">
+            <ScrollCardCarousel>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+              <ScrollCard></ScrollCard>
+            </ScrollCardCarousel>
           </div>
-        ) : (
-          <h3>There are currently no products available</h3>
-        )}
+        </div>
+        <div className="section">
+          <div className="container mx-auto flex">
+            <div className="product-display flex flex-wrap">
+              {products.length ? (
+                // Needs to be flex
+                <div>
+                  <h2 className="category-title mb-10">
+                    {category ? category : "All products"}
+                  </h2>
+                  <div className="-m-2 flex flex-wrap">
+                    {filterProducts().map((product) => (
+                      <ProductCard
+                        product={product}
+                        key={product._id}
+                        _id={product._id}
+                        name={product.name}
+                        description={product.description}
+                        price={product.price}
+                        primaryImage={product.primaryImage}
+                        category={product.category.categoryName}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <h3>There are currently no products available</h3>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

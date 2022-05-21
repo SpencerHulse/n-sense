@@ -58,7 +58,7 @@ const CartItem = ({ item }) => {
               idbPromise("cart", "delete", { _id: product._id });
             }}
           >
-            🗑️
+            Remove
           </span>
         </div>
       </div>
