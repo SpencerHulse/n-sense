@@ -1,6 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useMutation, useQuery } from "@apollo/client";
+import { UPDATE_PRODUCT, REMOVE_PRODUCT } from "../../utils/mutations";
+import { QUERY_PRODUCT } from "../../utils/queries";
 
-const UpdateProduct = ({ categories }) => {
+const UpdateProduct = ({ categories, selectedProduct }) => {
+  const [updateProduct] = useMutation(UPDATE_PRODUCT);
+  const [removeProduct] = useMutation(REMOVE_PRODUCT);
+  const { loading: loadingProduct, data: productData } = useQuery(
+    QUERY_PRODUCT,
+    {
+      variables: { id: selectedProduct },
+    }
+  );
+  if (!loadingProduct) {
+    console.log(productData);
+  }
   const [formState, setFormState] = useState({
     name: "",
     description: "",
@@ -30,16 +44,58 @@ const UpdateProduct = ({ categories }) => {
     setDetails({ ...details, [name]: value });
   };
 
-  console.log(formState);
+  const updateProductHandler = (event) => {
+    event.preventDefault();
+    const { name, description, price, stock, primaryImage, category } =
+      formState;
+    const detailsArray = [];
+    const imagesArray = [primaryImage];
+
+    for (let key in details) {
+      const detail = details[key];
+      if (detail !== "") {
+        detailsArray.push(detail);
+      }
+    }
+
+    if (name && description && price && category) {
+      updateProduct({
+        variables: {
+          id: selectedProduct,
+          name: name,
+          description: description,
+          details: detailsArray,
+          price: parseFloat(price),
+          stock: parseInt(stock),
+          images: imagesArray,
+          primaryImage: primaryImage,
+          category: category,
+        },
+      });
+
+      window.location.assign("/admin");
+    }
+  };
+
+  const productDeleteHandler = () => {
+    removeProduct({ variables: { id: selectedProduct } });
+    window.location.assign("/admin");
+  };
+
+  useEffect(() => {
+    document.getElementById("name").value = "";
+  }, [selectedProduct]);
+
+  console.log(formState, details, selectedProduct);
 
   return (
     <>
-      <h2>Adding Product!</h2>
-      <form action="submit">
-        <label htmlFor="name">Name: </label>
+      <h2>Updating Product!</h2>
+      <form action="submit" onSubmit={updateProductHandler}>
+        <label htmlFor="name">Name (Required): </label>
         <input type="text" name="name" id="name" onChange={handleChange} />
         <br />
-        <label htmlFor="description">Description: </label>
+        <label htmlFor="description">Description (Required): </label>
         <textarea
           type="text"
           name="description"
@@ -85,7 +141,7 @@ const UpdateProduct = ({ categories }) => {
         />
         <br />
         {/* Strict about getting a decimal .00 always + nothing but numbers? */}
-        <label htmlFor="price">Price: </label>
+        <label htmlFor="price">Price (Required): </label>
         <input
           type="number"
           name="price"
@@ -119,7 +175,7 @@ const UpdateProduct = ({ categories }) => {
         />
         <br />
         {/* Change to select... */}
-        <label htmlFor="category">Category: </label>
+        <label htmlFor="category">Category (Required): </label>
         <select name="category" id="category" onChange={handleChange}>
           <option value="">Select a Category</option>
           {categories.map((category) => (
@@ -128,7 +184,9 @@ const UpdateProduct = ({ categories }) => {
             </option>
           ))}
         </select>
+        <button>Submit</button>
       </form>
+      <button onClick={productDeleteHandler}>Delete</button>
     </>
   );
 };

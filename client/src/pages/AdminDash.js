@@ -48,6 +48,14 @@ const Admin = () => {
     setSelectedProduct(selected[selected.selectedIndex].value);
   }
 
+  useEffect(() => {
+    if (selectedProduct) {
+      setFormType("Update Product");
+    } else {
+      setFormType("");
+    }
+  }, [selectedProduct]);
+
   return (
     <>
       <h1>Admin Page!</h1>
@@ -67,14 +75,6 @@ const Admin = () => {
                 </option>
               ))}
           </select>
-          <button
-            onClick={() => {
-              setFormType("Update Product");
-            }}
-          >
-            Update Selected Product
-          </button>
-          <button>Delete Selected Product</button>
           <br />
           <button onClick={() => setFormType("Add Product")}>
             Add New Product
@@ -105,7 +105,7 @@ const Admin = () => {
         </div>
       </div>
       {formType === "Add Product" && <ProductForm categories={categories} />}
-      {formType === "Update Product" && (
+      {formType === "Update Product" && selectedProduct && (
         <UpdateProduct
           selectedProduct={selectedProduct}
           categories={categories}
