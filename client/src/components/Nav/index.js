@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
 import Cart from "../Cart";
 import Login from "../Login";
+import Admin from "../Admin";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { updateCategories, selectCategory } from "../../features/categorySlice";
@@ -65,7 +66,7 @@ function Nav() {
                 </li>
               ) : null}
               <Cart />
-              <li>About</li>
+              <Admin />
               {Auth.loggedIn() ? (
                 <li>
                   <a href="/" onClick={() => Auth.logout()}>

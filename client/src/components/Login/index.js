@@ -112,7 +112,7 @@ const Login = () => {
               <h2>Signup</h2>
               <form onSubmit={handleFormSubmitSignUp}>
                 <div className="flex-row space-between my-2">
-                  <label htmlFor="firstName">First Name:</label>
+                  <label htmlFor="firstName">Username:</label>
                   <input
                     placeholder="Username"
                     name="username"

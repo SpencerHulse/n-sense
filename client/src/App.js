@@ -2,14 +2,15 @@ import React from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // Pages
-import SingleProduct from "./pages/SingleProduct";
-import TestPage from "./pages/TestPage";
-import NoMatch from "./pages/NoMatch";
+import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SuccessfulPurchase from "./pages/SuccessfulPurchase";
 import Orders from "./pages/Orders";
-import Modal from "./components/Modal";
+import SingleProduct from "./pages/SingleProduct";
+import SuccessfulPurchase from "./pages/SuccessfulPurchase";
+import TestPage from "./pages/TestPage";
+import NoMatch from "./pages/NoMatch";
+
 // Apollo
 import {
   ApolloClient,
@@ -18,7 +19,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import ProductCard from "./components/ProductCard";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -47,12 +47,13 @@ function App() {
           <Nav />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/admin" component={Admin} />
             <Route exact path="/category/:category" component={Home} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/orders" component={Orders} />
             <Route exact path="/product/:id" component={SingleProduct} />
             <Route exact path="/success" component={SuccessfulPurchase} />
             <Route exact path="/test" component={TestPage} />
-            <Route exact path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>
         </div>
