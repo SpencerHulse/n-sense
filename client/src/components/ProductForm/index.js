@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { ADD_PRODUCT } from "../../utils/mutations";
 
 const ProductForm = ({ categories }) => {
+  const [addProduct] = useMutation(ADD_PRODUCT);
+
   const [formState, setFormState] = useState({
     name: "",
     description: "",
@@ -30,16 +34,46 @@ const ProductForm = ({ categories }) => {
     setDetails({ ...details, [name]: value });
   };
 
-  console.log(formState);
+  const addProductHandler = (event) => {
+    event.preventDefault();
+    const { name, description, price, stock, primaryImage, category } =
+      formState;
+    const detailsArray = [];
+    const imagesArray = [primaryImage];
+
+    for (let key in details) {
+      const detail = details[key];
+      if (detail !== "") {
+        detailsArray.push(detail);
+      }
+    }
+
+    if (name && description && price && category) {
+      addProduct({
+        variables: {
+          name: name,
+          description: description,
+          details: detailsArray,
+          price: parseFloat(price),
+          stock: parseInt(stock),
+          images: imagesArray,
+          primaryImage: primaryImage,
+          category: category,
+        },
+      });
+
+      window.location.assign("/admin");
+    }
+  };
 
   return (
     <>
       <h2>Adding Product!</h2>
-      <form action="submit">
-        <label htmlFor="name">Name: </label>
+      <form action="submit" onSubmit={addProductHandler}>
+        <label htmlFor="name">Name (Required): </label>
         <input type="text" name="name" id="name" onChange={handleChange} />
         <br />
-        <label htmlFor="description">Description: </label>
+        <label htmlFor="description">Description (Required): </label>
         <textarea
           type="text"
           name="description"
@@ -85,7 +119,7 @@ const ProductForm = ({ categories }) => {
         />
         <br />
         {/* Strict about getting a decimal .00 always + nothing but numbers? */}
-        <label htmlFor="price">Price: </label>
+        <label htmlFor="price">Price (Required): </label>
         <input
           type="number"
           name="price"
@@ -119,7 +153,7 @@ const ProductForm = ({ categories }) => {
         />
         <br />
         {/* Change to select... */}
-        <label htmlFor="category">Category: </label>
+        <label htmlFor="category">Category (Required): </label>
         <select name="category" id="category" onChange={handleChange}>
           <option value="">Select a Category</option>
           {categories.map((category) => (
@@ -128,6 +162,7 @@ const ProductForm = ({ categories }) => {
             </option>
           ))}
         </select>
+        <button>Submit</button>
       </form>
     </>
   );

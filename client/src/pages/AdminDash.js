@@ -60,13 +60,12 @@ const Admin = () => {
             onChange={() => handleProductChange()}
           >
             <option value="">Select a Product</option>
-            {!productLoading
-              ? products.map((product, i) => (
-                  <option value={product._id} key={product._id}>
-                    {product.name}
-                  </option>
-                ))
-              : null}
+            {!productLoading &&
+              products.map((product, i) => (
+                <option value={product._id} key={product._id}>
+                  {product.name}
+                </option>
+              ))}
           </select>
           <button
             onClick={() => {
@@ -85,16 +84,15 @@ const Admin = () => {
           {/* Thinking each could take up half the screen, and a form can pop up beneath depending on selection */}
           <h2>Categories</h2>
           <select name="categories" id="categories">
-            {!categoryLoading
-              ? categories.map((category) => (
-                  <option
-                    value={category.categoryName.toLowerCase()}
-                    key={category._id}
-                  >
-                    {category.categoryName}
-                  </option>
-                ))
-              : null}
+            {!categoryLoading &&
+              categories.map((category) => (
+                <option
+                  value={category.categoryName.toLowerCase()}
+                  key={category._id}
+                >
+                  {category.categoryName}
+                </option>
+              ))}
           </select>
           <button onClick={() => setFormType("Update Category")}>
             Update Selected Category
@@ -106,15 +104,13 @@ const Admin = () => {
           </button>
         </div>
       </div>
-      {formType === "Add Product" ? (
-        <ProductForm categories={categories} />
-      ) : null}
-      {formType === "Update Product" ? (
+      {formType === "Add Product" && <ProductForm categories={categories} />}
+      {formType === "Update Product" && (
         <UpdateProduct
           selectedProduct={selectedProduct}
           categories={categories}
         />
-      ) : null}
+      )}
     </>
   );
 };

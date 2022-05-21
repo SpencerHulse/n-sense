@@ -5,11 +5,11 @@ import Auth from "../../utils/auth";
 const AdminNav = () => {
   return (
     <>
-      {Auth.getProfile().data.admin ? (
+      {Auth.getProfile().data.admin && (
         <li>
           <Link to="/admin">Admin</Link>
         </li>
-      ) : null}
+      )}
     </>
   );
 };
