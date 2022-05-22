@@ -39,7 +39,9 @@ const ProductForm = ({ categories }) => {
     const { name, description, price, stock, primaryImage, category } =
       formState;
     const detailsArray = [];
-    const imagesArray = [primaryImage];
+
+    if (primaryImage === "") {
+    }
 
     for (let key in details) {
       const detail = details[key];
@@ -49,6 +51,14 @@ const ProductForm = ({ categories }) => {
     }
 
     if (name && description && price && category) {
+      let primaryImageCheck;
+      if (primaryImage === "") {
+        primaryImageCheck = "default";
+      } else {
+        primaryImageCheck = primaryImage;
+      }
+      const imagesArray = [primaryImageCheck];
+
       addProduct({
         variables: {
           name: name,
@@ -57,7 +67,7 @@ const ProductForm = ({ categories }) => {
           price: parseFloat(price),
           stock: parseInt(stock),
           images: imagesArray,
-          primaryImage: primaryImage,
+          primaryImage: primaryImageCheck,
           category: category,
         },
       });

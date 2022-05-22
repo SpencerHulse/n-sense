@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { UPDATE_PRODUCT, REMOVE_PRODUCT } from "../../utils/mutations";
+import { UPDATE_PRODUCT } from "../../utils/mutations";
 import { QUERY_PRODUCT } from "../../utils/queries";
 
 const UpdateProduct = ({ categories, selectedProduct }) => {
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
-  const [removeProduct] = useMutation(REMOVE_PRODUCT);
   const { loading: loadingProduct, data: productData } = useQuery(
     QUERY_PRODUCT,
     { variables: { id: selectedProduct } }
@@ -53,7 +52,7 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
       }
     }
     setDetailsState(newDetails);
-  }, [productData]);
+  }, [productData, loadingProduct]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -72,7 +71,6 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     const { name, description, price, stock, primaryImage, category } =
       formState;
     const detailsArray = [];
-    const imagesArray = [primaryImage];
 
     for (let key in detailsState) {
       const detail = detailsState[key];
@@ -82,6 +80,14 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     }
 
     if (name && description && price && category) {
+      let primaryImageCheck;
+      if (primaryImage === "") {
+        primaryImageCheck = "default";
+      } else {
+        primaryImageCheck = primaryImage;
+      }
+      const imagesArray = [primaryImageCheck];
+
       updateProduct({
         variables: {
           id: selectedProduct,
@@ -91,18 +97,13 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
           price: parseFloat(price),
           stock: parseInt(stock),
           images: imagesArray,
-          primaryImage: primaryImage,
+          primaryImage: primaryImageCheck,
           category: category,
         },
       });
 
       window.location.assign("/admin");
     }
-  };
-
-  const productDeleteHandler = () => {
-    removeProduct({ variables: { id: selectedProduct } });
-    window.location.assign("/admin");
   };
 
   useEffect(() => {
@@ -112,7 +113,7 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
 
     for (let key in formState) {
       const formData = formState[key];
-      if (formData.__typename === "Category") {
+      if (key === "Category") {
         document.getElementById(key).selected = formData._id;
       } else {
         document.getElementById(key).value = formData;
@@ -123,7 +124,7 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
       const detail = detailsState[key];
       document.getElementById(key).value = detail;
     }
-  }, [selectedProduct, formState]);
+  }, [selectedProduct, formState, detailsState]);
 
   return (
     <>
@@ -230,7 +231,6 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
             </select>
             <button>Submit</button>
           </form>
-          <button onClick={productDeleteHandler}>Delete</button>
         </>
       )}
     </>
