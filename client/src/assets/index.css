@@ -13,6 +13,7 @@
   --secondary-background: #e7e7e7;
   --text-light: #8a8a8a;
   --text-highlight: dodgerblue;
+  --brand-color: #44AB2A;
 }
 
 .section {
@@ -35,6 +36,7 @@ h2 {
 }
 
 .order-details-title {
+  text-align: left;
   font-weight: 300;
   color: var(--text-light);
 }
@@ -50,6 +52,18 @@ h2 {
 
 hr {
   margin: 20px 0 20px 0;
+  background-color: #c9c9c9;
+}
+
+.order-item {
+  padding: 0 0 20px 0;
+  border-bottom: #c9c9c9 1px solid;
+  margin: 20px 0;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+  margin-bottom: none;
 }
 
 .order-id-badge {
@@ -66,11 +80,15 @@ hr {
 
 .orderlist-img {
   width: 75px;
+  height: 75px;
+  border-radius: 5px;
+  object-fit: fill;
+  margin-right: 20px;
 }
 
 .product-image img {
   width: 100%;
-  padding: 30px;
+  max-height: 550px;
 }
 
 .product-hero-container {
@@ -87,6 +105,14 @@ nav {
   position: relative;
 }
 
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-right: 50px;
+}
+
 nav img {
   height: 100%;
 }
@@ -100,8 +126,15 @@ nav img {
   margin-right: 50px;
 }
 
-ul li {
-  margin-right: 50px;
+ul {
+  list-style-type: disc;
+  padding-left: 10px;
+}
+
+.add-button {
+  margin-top: auto;
+  background-color: var(--brand-color);
+  padding: 10px 20px;
 }
 
 .product-hero {
@@ -111,9 +144,22 @@ ul li {
 }
 
 .product-info {
+  display: flex;
+  flex-wrap: wrap;
   background-color: white;
+  width: 400px;
   margin: 30px;
   padding: 20px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-radius: 5px;
+}
+
+.details-item {
+  flex: 100%;
+}
+
+.add-button-container {
+  margin-top: auto;
 }
 
 .main-hero {
@@ -144,6 +190,10 @@ ul li {
   background-color: var(--primary-background);
   min-height: 100vh;
   overflow: auto;
+}
+
+.price {
+  font-weight: bold;
 }
 
 .minidialog {
