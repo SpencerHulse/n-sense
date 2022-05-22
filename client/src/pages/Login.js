@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginForm from "../components/Login";
+import SignupForm from "../components/Signup";
 import Auth from "../utils/auth";
 
 function Login() {
+  const [loginForm, setLoginForm] = useState(true);
   if (Auth.loggedIn()) {
     window.location.assign("/");
   }
@@ -19,21 +21,23 @@ function Login() {
                 alt="n-Sense logo"
               />
               <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Sign in to your account
+                {loginForm
+                  ? "Sign in to your account"
+                  : "Sign up for an account"}
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600">
-                Or
-                <a
-                  href="/"
+                Or{" "}
+                <button
+                  id="login-form-select"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
+                  onClick={() => setLoginForm(!loginForm)}
                 >
-                  {" "}
-                  join today
-                </a>
+                  {loginForm ? "join today" : "login now"}
+                </button>
                 !
               </p>
             </div>
-            <LoginForm />
+            {loginForm ? <LoginForm /> : <SignupForm />}
           </div>
         </div>
       </div>
