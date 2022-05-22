@@ -80,7 +80,6 @@ const Admin = () => {
   };
 
   const categoryDeleteHandler = () => {
-    console.log(selectedCategory);
     removeCategory({ variables: { categoryName: selectedCategory } });
     window.location.assign("/admin");
   };

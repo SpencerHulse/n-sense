@@ -6,85 +6,100 @@ import { QUERY_USER } from "../utils/queries";
 
 function OrderHistory() {
   const { data } = useQuery(QUERY_USER);
-  let user;
+  let groupedOrders = [];
 
   if (data) {
-    user = data.user;
-    /*     const { orders } = user;
-    const updatedOrders = [];
-
+    const userData = data.user;
+    const { orders } = userData;
     orders.forEach((order) => {
-      let tabulation = [];
-      let products = [];
-      let updatedLength = order.products.length;
-      let i = 0;
-      while (i < order.products.length - 1) {
-        console.log(i);
-        if (products.includes(order.products[i]._id)) {
-          return;
-        }
+      const { products } = order;
+      const orderSummary = [];
+      products.forEach((product) => {
+        const { _id, name, price, primaryImage } = product;
+        let updated = false;
 
-        let currentProduct;
-
-        const filtered = order.products.filter((product) => {
-          currentProduct = product;
-          products.push(product._id);
-          return product._id !== order.products[i];
+        orderSummary.map((orderProduct) => {
+          if (orderProduct[0]._id === _id) {
+            orderProduct[0].quantityPurchased += 1;
+            updated = true;
+          }
+          return orderProduct;
         });
 
-        console.log(filtered);
-        console.log(products);
-
-        tabulation = [
-          ...tabulation,
-          { currentProduct, purchaseQuantity: updatedLength - filtered.length },
-        ];
-
-        updatedLength = filtered.length;
-        i++;
-      }
-      console.log(updatedOrders);
-      updatedOrders.push(tabulation);
-    }); */
+        if (!updated) {
+          const productSummary = [
+            {
+              _id,
+              name,
+              price,
+              primaryImage,
+              quantityPurchased: 1,
+            },
+          ];
+          orderSummary.push(productSummary);
+        }
+      });
+      groupedOrders.push({
+        _id: order._id,
+        purchaseDate: order.purchaseDate,
+        products: orderSummary,
+      });
+    });
   }
+
+  const calculateTotal = ({ products }) => {
+    const total = products.reduce((accumulator, currentValue) => {
+      return (
+        accumulator + currentValue[0].price * currentValue[0].quantityPurchased
+      );
+    }, 0);
+
+    return total;
+  };
 
   return (
     <>
       <div className="container my-1">
         <Link to="/">← Back to Products</Link>
 
-        {user ? (
+        {groupedOrders && data && (
           <>
-            <h2>Previous orders for {user.username}</h2>
-            {user.orders.map((order) => (
-              <div key={order._id} className="my-2">
+            <h2>Previous orders for {data.user.username}</h2>
+            {groupedOrders.map((order) => (
+              <div key={order._id}>
                 <h3>
-                  {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
+                  {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}{" "}
+                  - Order Total: ${calculateTotal(order)}
                 </h3>
                 <div className="flex-row">
-                  {order.products.map(
-                    ({ _id, primaryImage, name, price }, index) => (
-                      <div key={index} className="card px-1 py-1">
-                        <Link to={`/product/${_id}`}>
-                          <img
-                            src={require(`../assets/images/${primaryImage}.jpg`)}
-                            alt={name}
-                          />
-                          {/* The below is good for production... uses public folder
+                  {order.products.map((product, index) => (
+                    <div key={index} className="card">
+                      <Link to={`/product/${product[0]._id}`}>
+                        <img
+                          src={require(`../assets/images/${product[0].primaryImage}.jpg`)}
+                          alt={product[0].name}
+                        />
+                        {/* The below is good for production... uses public folder
                           <img alt={name} src={`/images/${primaryImage}`} /> */}
-                          <p>{name}</p>
-                        </Link>
-                        <div>
-                          <span>${price}</span>
-                        </div>
+                        <p>
+                          {product[0].name} x {product[0].quantityPurchased}
+                        </p>
+                      </Link>
+                      <div>
+                        <span>
+                          $
+                          {(
+                            product[0].price * product[0].quantityPurchased
+                          ).toFixed(2)}
+                        </span>
                       </div>
-                    )
-                  )}
+                    </div>
+                  ))}
                 </div>
               </div>
             ))}
           </>
-        ) : null}
+        )}
       </div>
     </>
   );

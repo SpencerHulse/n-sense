@@ -73,7 +73,6 @@ const resolvers = {
           This is because there is no access on localhost */
           images: [`${url}/images/${products[i].primaryImage}`],
         });
-        console.log("product");
         // generate price id using the product id
         const price = await stripe.prices.create({
           product: product.id,
@@ -81,7 +80,6 @@ const resolvers = {
           unit_amount: products[i].price * 100,
           currency: "usd",
         });
-        console.log("price");
         // add price id to the line items array
         line_items.push({
           price: price.id,
@@ -162,7 +160,6 @@ const resolvers = {
     // Adds an order to a user's orders
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
-        console.log(products);
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, {
