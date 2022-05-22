@@ -10,7 +10,7 @@ import { updateCategories } from "../features/categorySlice";
 
 import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_PRODUCTS, QUERY_CATEGORIES } from "../utils/queries";
-import { REMOVE_PRODUCT } from "../utils/mutations";
+import { REMOVE_PRODUCT, REMOVE_CATEGORY } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 
 const Admin = () => {
@@ -23,8 +23,10 @@ const Admin = () => {
   const dispatch = useDispatch();
   const [formType, setFormType] = useState();
   const [selectedProduct, setSelectedProduct] = useState();
+  const [selectedCategory, setSelectedCategory] = useState();
   const { products } = useSelector((state) => state.product);
   const [removeProduct] = useMutation(REMOVE_PRODUCT);
+  const [removeCategory] = useMutation(REMOVE_CATEGORY);
 
   const { loading: productLoading, data: productData } =
     useQuery(QUERY_PRODUCTS);
@@ -58,6 +60,12 @@ const Admin = () => {
     setSelectedProduct(selected[selected.selectedIndex].value);
   }
 
+  function handleCategoryChange() {
+    setSelectedCategory();
+    let selected = document.getElementById("categories").options;
+    setSelectedCategory(selected[selected.selectedIndex].value);
+  }
+
   useEffect(() => {
     if (selectedProduct) {
       setFormType("Update Product");
@@ -71,24 +79,33 @@ const Admin = () => {
     window.location.assign("/admin");
   };
 
+  const categoryDeleteHandler = () => {
+    console.log(selectedCategory);
+    removeCategory({ variables: { categoryName: selectedCategory } });
+    window.location.assign("/admin");
+  };
+
   return (
     <>
       <h1>Admin Page!</h1>
       <div>
         {/* Thinking each could take up half the screen, and a form can pop up beneath depending on selection */}
         <h2>Categories</h2>
-        <select name="categories" id="categories">
+        <select
+          name="categories"
+          id="categories"
+          onChange={() => handleCategoryChange()}
+        >
           {!categoryLoading &&
             categories.map((category) => (
-              <option
-                value={category.categoryName.toLowerCase()}
-                key={category._id}
-              >
+              <option value={category.categoryName} key={category._id}>
                 {category.categoryName}
               </option>
             ))}
         </select>
-        <button>Delete Selected Category</button>
+        <button onClick={categoryDeleteHandler}>
+          Delete Selected Category
+        </button>
         <br />
         <button onClick={() => setFormType("Add Category")}>
           Add New Category

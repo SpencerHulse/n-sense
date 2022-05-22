@@ -15,11 +15,11 @@ const ProductForm = ({ categories }) => {
   });
 
   const [details, setDetails] = useState({
-    detailsOne: "",
-    detailsTwo: "",
-    detailsThree: "",
-    detailsFour: "",
-    detailsFive: "",
+    details1: "",
+    details2: "",
+    details3: "",
+    details4: "",
+    details5: "",
   });
 
   const handleChange = (event) => {
@@ -39,9 +39,6 @@ const ProductForm = ({ categories }) => {
     const { name, description, price, stock, primaryImage, category } =
       formState;
     const detailsArray = [];
-
-    if (primaryImage === "") {
-    }
 
     for (let key in details) {
       const detail = details[key];
@@ -95,36 +92,36 @@ const ProductForm = ({ categories }) => {
         <label htmlFor="details">Details: </label>
         <input
           type="text"
-          name="detailsOne"
-          id="detailsOne"
+          name="details1"
+          id="details1"
           onChange={handleDetails}
         />
         <br />
         <input
           type="text"
-          name="detailsTwo"
-          id="detailsTwo"
+          name="details2"
+          id="details2"
           onChange={handleDetails}
         />
         <br />
         <input
           type="text"
-          name="detailsThree"
-          id="detailsThree"
+          name="details3"
+          id="details3"
           onChange={handleDetails}
         />
         <br />
         <input
           type="text"
-          name="detailsFour"
-          id="detailsFour"
+          name="details4"
+          id="details4"
           onChange={handleDetails}
         />
         <br />
         <input
           type="text"
-          name="detailsFive"
-          id="detailsFive"
+          name="details5"
+          id="details5"
           onChange={handleDetails}
         />
         <br />
