@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProductForm from "../components/ProductForm";
 import UpdateProduct from "../components/UpdateProduct";
+import Auth from "../utils/auth";
 
 import { useSelector, useDispatch } from "react-redux";
 import { updateProducts } from "../features/productSlice";
@@ -11,6 +12,12 @@ import { QUERY_PRODUCTS, QUERY_CATEGORIES } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 
 const Admin = () => {
+  if (!Auth.loggedIn()) {
+    window.location.assign("/");
+  } else if (!Auth.getProfile().data.admin) {
+    window.location.assign("/");
+  }
+
   const dispatch = useDispatch();
   const [formType, setFormType] = useState();
   const [selectedProduct, setSelectedProduct] = useState();

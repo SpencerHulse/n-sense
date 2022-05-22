@@ -67,11 +67,13 @@ export const QUERY_PRODUCT = gql`
       _id
       name
       description
+      details
       price
       stock
       images
       primaryImage
       category {
+        _id
         categoryName
       }
     }
