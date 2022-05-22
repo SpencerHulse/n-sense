@@ -28,8 +28,8 @@ module.exports = {
     return req;
   },
   // signToken arguments and payload variables need to change based on typeDef
-  signToken: function ({ username, _id }) {
-    const payload = { username, _id };
+  signToken: function ({ username, _id, admin }) {
+    const payload = { username, _id, admin };
 
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },

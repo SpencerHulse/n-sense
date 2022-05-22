@@ -17,6 +17,7 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      admin
       orders {
         _id
         purchaseDate
@@ -66,11 +67,13 @@ export const QUERY_PRODUCT = gql`
       _id
       name
       description
+      details
       price
       stock
       images
       primaryImage
       category {
+        _id
         categoryName
       }
     }

@@ -2,10 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+:root {
+  --primary-background: #f8f5f5;
+  --secondary-background: #e7e7e7;
+  --text-light: #8a8a8a; 
+  --text-highlight: dodgerblue;
+}
+
+.section {
+  margin: 25px 0 0 0;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+.order-details {
+  background-color: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.light {
+  color: var(--text-light);
+}
+
+.order-details-title {
+  font-weight: 300;
+  color: var(--text-light);
+}
+
+.order-details-info {
+  font-size: 20px;
+}
+
+.order-product-name {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+hr {
+  margin: 20px 0 20px 0;
+}
+
+.order-id-badge {
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-radius: 200px;
+  font-weight: bold;
+  background-color: var(--primary-background);
+}
+
+.order-id {
+  color: var(--text-highlight);
+}
+
+.orderlist-img {
+  width: 75px;
 }
 
 .product-image img {
@@ -14,7 +76,7 @@
 }
 
 .product-hero-container {
-  background-image: url('./images/product-bg.png');
+  background-image: url("./images/product-bg.png");
   background-repeat: repeat-x;
   background-size: contain;
 }
@@ -57,7 +119,7 @@ ul li {
 }
 
 .main-hero {
-  background-color: #E7E7E7;
+  background-color: var(--secondary-background);
   min-height: 400px;
 }
 
@@ -81,7 +143,7 @@ ul li {
 }
 
 .main {
-  background-color: #F8F5F5;
+  background-color: var(--primary-background);
   min-height: 100vh;
   overflow: auto;
 }
@@ -150,11 +212,15 @@ ul li {
 
 .product-card-action {
   margin-top: auto;
-} 
+}
 
 .product-card:hover {
   border-top: 4px rgb(104, 54, 139);
   border-bottom: 4px rgb(104, 54, 139);
   border-left: 4px rgb(74, 37, 100);
-  border-right: 4px rgb(74, 37, 100)
+  border-right: 4px rgb(74, 37, 100);
+}
+
+#login-form-select {
+  cursor: pointer;
 }

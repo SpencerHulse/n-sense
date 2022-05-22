@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { removeFromCart, addToCart } from "../../features/cartSlice";
 import { idbPromise } from "../../utils/helpers";

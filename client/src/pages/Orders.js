@@ -6,85 +6,118 @@ import { QUERY_USER } from "../utils/queries";
 
 function OrderHistory() {
   const { data } = useQuery(QUERY_USER);
-  let user;
+  let groupedOrders = [];
 
   if (data) {
-    user = data.user;
-    /*     const { orders } = user;
-    const updatedOrders = [];
-
+    const userData = data.user;
+    const { orders } = userData;
     orders.forEach((order) => {
-      let tabulation = [];
-      let products = [];
-      let updatedLength = order.products.length;
-      let i = 0;
-      while (i < order.products.length - 1) {
-        console.log(i);
-        if (products.includes(order.products[i]._id)) {
-          return;
-        }
+      const { products } = order;
+      const orderSummary = [];
+      products.forEach((product) => {
+        const { _id, name, price, primaryImage } = product;
+        let updated = false;
 
-        let currentProduct;
-
-        const filtered = order.products.filter((product) => {
-          currentProduct = product;
-          products.push(product._id);
-          return product._id !== order.products[i];
+        orderSummary.map((orderProduct) => {
+          if (orderProduct[0]._id === _id) {
+            orderProduct[0].quantityPurchased += 1;
+            updated = true;
+          }
+          return orderProduct;
         });
 
-        console.log(filtered);
-        console.log(products);
-
-        tabulation = [
-          ...tabulation,
-          { currentProduct, purchaseQuantity: updatedLength - filtered.length },
-        ];
-
-        updatedLength = filtered.length;
-        i++;
-      }
-      console.log(updatedOrders);
-      updatedOrders.push(tabulation);
-    }); */
+        if (!updated) {
+          const productSummary = [
+            {
+              _id,
+              name,
+              price,
+              primaryImage,
+              quantityPurchased: 1,
+            },
+          ];
+          orderSummary.push(productSummary);
+        }
+      });
+      groupedOrders.push({
+        _id: order._id,
+        purchaseDate: order.purchaseDate,
+        products: orderSummary,
+      });
+    });
   }
+
+  const calculateTotal = ({ products }) => {
+    const total = products.reduce((accumulator, currentValue) => {
+      return (
+        accumulator + currentValue[0].price * currentValue[0].quantityPurchased
+      );
+    }, 0);
+
+    return total;
+  };
 
   return (
     <>
-      <div className="container my-1">
-        <Link to="/">← Back to Products</Link>
+      <div className="section">
+        <div className="container mx-auto my-1">
+          <Link to="/">← Back to Products</Link>
 
-        {user ? (
-          <>
-            <h2>Previous orders for {user.username}</h2>
-            {user.orders.map((order) => (
-              <div key={order._id} className="my-2">
-                <h3>
-                  {new Date(parseInt(order.purchaseDate)).toLocaleDateString()}
-                </h3>
-                <div className="flex-row">
-                  {order.products.map(
-                    ({ _id, primaryImage, name, price }, index) => (
-                      <div key={index} className="card px-1 py-1">
-                        <Link to={`/product/${_id}`}>
-                          <img
-                            src={require(`../assets/images/${primaryImage}.jpg`)}
-                            alt={name}
-                          />
-                          {/* The below is good for production... uses public folder
+          {groupedOrders && data && (
+            <>
+              <h2 className="mb-10">My Orders</h2>
+              {groupedOrders.map((order) => (
+                <div className="order-details" key={order._id}>
+                  <div className="order-info flex items-center">
+                    <p className="order-id-badge">Order <span className="order-id">#{order._id}</span></p>
+                    <p className="light">Order placed:{" "}{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}{" "}</p>
+                  </div>
+                  <hr />
+                  <div className="flex-row">
+                    {order.products.map((product, index) => (
+
+                      <div key={index} className="flex justify-between">
+                        <Link to={`/product/${product[0]._id}`} className="w-full">
+                          <div className="flex items-center w-full justify-between">
+                            <div className="flex items-center">
+                              <img className="orderlist-img" src={require(`../assets/images/${product[0].primaryImage}.jpg`)} alt={product[0].name} />
+                              <div>
+                                <p className="order-product-name">{product[0].name}</p>
+                                {/* Placeholder, should use tag to get the category of ordered product */}
+                                <p className="light">Candles</p>
+                              </div>
+                            </div>
+                            {/* The below is good for production... uses public folder
                           <img alt={name} src={`/images/${primaryImage}`} /> */}
-                          <p>{name}</p>
+                            <div>
+                              <p className="order-details-title">Quantity</p>
+                              <p className="order-details-info">{product[0].quantityPurchased}</p>
+                            </div>
+                            <div>
+                              <p className="order-details-title">Unit price</p>
+                              <p className="order-details-info">${product[0].price}</p>
+                            </div>
+                            <div className="w-32 grid justify-items-end">
+                              <p className="order-details-title">Total</p>
+                              <p className="order-details-info font-bold">${(product[0].price * product[0].quantityPurchased).toFixed(2)}</p>
+                            </div>
+                          </div>
                         </Link>
-                        <div>
-                          <span>${price}</span>
-                        </div>
                       </div>
-                    )
-                  )}
+
+                    ))}
+                  </div>
+
+                  <hr />
+                  <div className="flex justify-end">
+                    <h3 className="order-details-info font-bold">Order Total: ${calculateTotal(order)}</h3>
+                  </div>
+
                 </div>
-              </div>
-            ))}
-          </>
-        ) : null}
+              ))}
+            </>
+          )}
+        </div>
       </div>
     </>
   );

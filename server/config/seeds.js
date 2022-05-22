@@ -22,6 +22,13 @@ db.once("open", async () => {
     password: "password12345",
   });
 
+  await User.create({
+    username: "admin",
+    email: "admin@admin.com",
+    password: "admin",
+    admin: true,
+  });
+
   console.log("users seeded");
 
   await Category.deleteMany();

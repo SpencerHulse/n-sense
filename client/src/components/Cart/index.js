@@ -5,10 +5,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleCart } from "../../features/cartSlice";
 import Modal from "../Modal";
 import { XIcon } from "@heroicons/react/outline";
+import { toggleCart, addMultipleItems } from "../../features/cartSlice";
+import { idbPromise } from "../../utils/helpers";
+
+// Stripe
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_CHECKOUT } from "../../utils/queries";
+const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems, cartOpen } = useSelector((state) => state.cart);
+
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise("cart", "get");
+      dispatch(addMultipleItems([...cart]));
+    }
+
+    if (!cartItems.length) {
+      getCart();
+    }
+  }, [cartItems.length, dispatch]);
 
   function toggle() {
     dispatch(toggleCart());
@@ -22,6 +43,39 @@ const Cart = () => {
     return sum.toFixed(2);
   }
 
+  function submitCheckout() {
+    const productIds = [];
+
+    cartItems.forEach((item) => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        productIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise("cart", "get");
+      dispatch(addMultipleItems([...cart]));
+    }
+
+    if (!cartItems.length) {
+      getCart();
+    }
+  }, [cartItems.length, dispatch]);
+
   if (!cartOpen) {
     return <li onClick={() => toggle()}>Cart ({cartItems.length})</li>;
   }
@@ -31,6 +85,7 @@ const Cart = () => {
       <li>Cart ({cartItems.length})</li>
 
       {/* Make this a modal with absolute positioning... */}
+<<<<<<< HEAD
       <div className="max-h-screen" onBlur={() => toggle()}>
         <div
           id="cart-modal"
@@ -53,6 +108,26 @@ const Cart = () => {
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
+=======
+      <div className="modal">
+        <div className="modal-content">
+          <div className="modal-header">
+            <div onClick={() => toggle()}>[close]</div>
+            <h4 className="modal-title">Shopping Cart</h4>
+          </div>
+          {cartItems.length ? (
+            <div className="modal-body">
+              {cartItems.map((item) => {
+                return <CartItem key={item.product._id} item={item} />;
+              })}
+              <div>
+                <strong>Total: ${calculateTotal()}</strong>
+                {Auth.loggedIn() ? (
+                  <button onClick={submitCheckout}>Checkout</button>
+                ) : (
+                  <span>(log in to check out)</span>
+                )}
+>>>>>>> 07af8500787a5ed4ddd49071883924ce368b1049
               </div>
               {cartItems.length ? (
                 <div className="modal-body">
@@ -89,30 +164,5 @@ const Cart = () => {
     </>
   );
 };
-
-//       <div>
-//         <div onClick={() => toggle()}>[close]</div>
-//         <h2>Shopping Cart</h2>
-//         {cartItems.length ? (
-//           <div>
-//             {cartItems.map((item) => {
-//               return <CartItem key={item.product._id} item={item} />;
-//             })}
-//             <div>
-//               <strong>Total: ${calculateTotal()}</strong>
-//               {Auth.loggedIn() ? (
-//                 <button>Checkout</button>
-//               ) : (
-//                 <span>(log in to check out)</span>
-//               )}
-//             </div>
-//           </div>
-//         ) : (
-//           <h3>You haven't added anything to your cart yet!</h3>
-//         )}
-//       </div>
-//     </>
-//   );
-// };
 
 export default Cart;

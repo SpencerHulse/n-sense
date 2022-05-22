@@ -63,29 +63,56 @@ const resolvers = {
 
       const line_items = [];
 
-      for (let i = 0; i < products.length; i++) {
+      const orderSummary = [];
+
+      await products.forEach((product) => {
+        const { _id, name, description, price, primaryImage } = product;
+        let updated = false;
+
+        orderSummary.map((orderProduct) => {
+          if (orderProduct[0]._id === _id) {
+            orderProduct[0].quantityPurchased += 1;
+            updated = true;
+          }
+          return orderProduct;
+        });
+
+        if (!updated) {
+          const productSummary = [
+            {
+              _id,
+              name,
+              description,
+              price,
+              primaryImage,
+              quantityPurchased: 1,
+            },
+          ];
+          orderSummary.push(productSummary);
+        }
+      });
+
+      for (let i = 0; i < orderSummary.length; i++) {
         // generate product id
         const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
+          name: orderSummary[i][0].name,
+          description: orderSummary[i][0].description,
           /* Works because we have access to the original url,
           but they will only be visible when live (such as on Heroku).
           This is because there is no access on localhost */
-          images: [`${url}/images/${products[i].primaryImage}`],
+          images: [`${url}/images/${orderSummary[i][0].primaryImage}`],
         });
-        console.log("product");
         // generate price id using the product id
         const price = await stripe.prices.create({
           product: product.id,
           /* Because stripe requires cost in cents */
-          unit_amount: products[i].price * 100,
+          unit_amount: orderSummary[i][0].price * 100,
           currency: "usd",
         });
-        console.log("price");
         // add price id to the line items array
         line_items.push({
           price: price.id,
-          quantity: 1,
+          quantity: orderSummary[i][0].quantityPurchased,
         });
       }
 
@@ -162,7 +189,6 @@ const resolvers = {
     // Adds an order to a user's orders
     addOrder: async (parent, { products }, context) => {
       if (context.user) {
-        console.log(products);
         const order = new Order({ products });
 
         await User.findByIdAndUpdate(context.user._id, {

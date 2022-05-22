@@ -27,20 +27,17 @@ const cartSlice = createSlice({
       if (!updated) {
         state.cartItems.push({ product, purchaseQuantity, _id });
       }
-
-      state.cartOpen = true;
     },
     addMultipleItems: (state, { payload }) => {
       state.cartItems = payload;
     },
     removeFromCart: (state, { payload }) => {
-      const newCart = state.cartItems.filter((item) => {
-        if (item.product._id !== payload.product._id) {
-          return item;
-        }
-      });
+      const newCart = state.cartItems.filter(
+        (item) => item.product._id !== payload.product._id
+      );
 
       state.cartItems = newCart;
+      if (!state.cartItems.length) state.cartOpen = false;
     },
   },
 });
