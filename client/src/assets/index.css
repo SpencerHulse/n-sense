@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 * {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -13,7 +11,7 @@
 :root {
   --primary-background: #f8f5f5;
   --secondary-background: #e7e7e7;
-  --text-light: #8a8a8a; 
+  --text-light: #8a8a8a;
   --text-highlight: dodgerblue;
 }
 

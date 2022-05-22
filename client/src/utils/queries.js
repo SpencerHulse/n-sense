@@ -26,6 +26,9 @@ export const QUERY_USER = gql`
           name
           price
           primaryImage
+          category {
+            categoryName
+          }
         }
       }
     }
@@ -92,6 +95,9 @@ export const QUERY_ORDER = gql`
         name
         price
         primaryImage
+        category {
+          categoryName
+        }
       }
     }
   }
