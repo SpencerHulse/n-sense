@@ -27,8 +27,6 @@ const cartSlice = createSlice({
       if (!updated) {
         state.cartItems.push({ product, purchaseQuantity, _id });
       }
-
-      state.cartOpen = true;
     },
     addMultipleItems: (state, { payload }) => {
       state.cartItems = payload;
