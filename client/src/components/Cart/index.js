@@ -80,10 +80,9 @@ const Cart = () => {
   }
 
   return (
-    <>
+    <div>
       <li>Cart ({cartItems.length})</li>
-
-      {/* Make this a modal with absolute positioning... */}
+      /* Make this a modal with absolute positioning... */
       <div className="max-h-screen" onBlur={() => toggle()}>
         <div
           id="cart-modal"
@@ -106,11 +105,16 @@ const Cart = () => {
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-                </div>
-                </div>
-                </div>
-                </div>
-      <div className="modal">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Cart;
+/* <div className="modal">
         <div className="modal-content">
           <div className="modal-header">
             <div onClick={() => toggle()}>[close]</div>
@@ -160,9 +164,8 @@ const Cart = () => {
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </div> 
   );
 };
 
-export default Cart;
+*/
