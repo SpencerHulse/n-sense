@@ -3,12 +3,12 @@ import ScrollCard from "../ScrollCard";
 
 function ScrollCardCarousel() {
   return (
-    <div className="container flex flex-col">
-      <h1 className="lg:ml-40 md:ml-20 ml-10 font-bold text-3xl">
-        New and Newsworthy
+    <div className="mt-10">
+      <h1 className="font-bold text-3xl mb-10">
+        New and Noteworthy
       </h1>
-      <div className="flex overflow-x-scroll pb-10 hide-scroll-bar">
-        <div className="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 ">
+      <div className="flex overflow-x-scroll hide-scroll-bar">
+        <div className="flex flex-nowrap">
           <ScrollCard />
           <ScrollCard />
           <ScrollCard />

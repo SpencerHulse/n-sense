@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -21,10 +21,22 @@
 
 nav {
   padding: 10px 0 10px 0;
+  height: 95px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  background-color: white;
+  position: relative;
+}
+
+nav img {
+  height: 100%;
+}
+
+.branding-container {
+  height: 75px;
 }
 
 .branding {
-  max-width: 40px;
+  max-height: 100%;
   margin-right: 50px;
 }
 
@@ -45,12 +57,8 @@ ul li {
 }
 
 .main-hero {
-  background-color: #F8F5F5;
+  background-color: #E7E7E7;
   min-height: 400px;
-  background-image: url("./images/hero-accent.png");
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .defbutton {
@@ -72,20 +80,79 @@ ul li {
   font-weight: bold;
 }
 
+.main {
+  background-color: #F8F5F5;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+.minidialog {
+  margin-top: 90px;
+  max-width: 600px;
+  padding: 50px 80px 50px 50px;
+  background-color: white;
+  background-image: url("./images/hero-accent.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  margin-bottom: 150px;
+}
+
+.minicontent {
+  width: 400px;
+}
+
 .hide-scroll-bar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
 .hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }
-.card-info{
+
+.card-info {
   padding: 1rem;
 }
-.category{
+
+.category {
   margin-bottom: 1rem;
 }
-.product-card:hover{
+
+.category-title {
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.product-card-content {
+  height: 700px;
+  overflow: hidden;
+}
+
+.product-card-image {
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-card-details {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 450px;
+}
+
+.product-card-description {
+  height: 260px;
+  overflow: hidden;
+}
+
+.product-card-action {
+  margin-top: auto;
+} 
+
+.product-card:hover {
   border-top: 4px rgb(104, 54, 139);
   border-bottom: 4px rgb(104, 54, 139);
   border-left: 4px rgb(74, 37, 100);
