@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleCart } from "../../features/cartSlice";
 import Modal from "../Modal";
 import { XIcon } from "@heroicons/react/outline";
 import { toggleCart, addMultipleItems } from "../../features/cartSlice";
@@ -85,7 +84,6 @@ const Cart = () => {
       <li>Cart ({cartItems.length})</li>
 
       {/* Make this a modal with absolute positioning... */}
-<<<<<<< HEAD
       <div className="max-h-screen" onBlur={() => toggle()}>
         <div
           id="cart-modal"
@@ -108,7 +106,10 @@ const Cart = () => {
                     <XIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
                 </div>
-=======
+                </div>
+                </div>
+                </div>
+                </div>
       <div className="modal">
         <div className="modal-content">
           <div className="modal-header">
@@ -127,7 +128,6 @@ const Cart = () => {
                 ) : (
                   <span>(log in to check out)</span>
                 )}
->>>>>>> 07af8500787a5ed4ddd49071883924ce368b1049
               </div>
               {cartItems.length ? (
                 <div className="modal-body">
