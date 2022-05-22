@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 // import { BsCart3 } from "react-icons/bs";
 import Auth from "../../utils/auth";
 import Cart from "../Cart";
-import Login from "../Login";
 import AdminNav from "../AdminNav";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -74,7 +73,9 @@ function Nav() {
                   </li>
                 </>
               ) : (
-                <Login />
+                <li>
+                  <Link to="/login">Login/Signup</Link>
+                </li>
               )}
             </ul>
           </div>
