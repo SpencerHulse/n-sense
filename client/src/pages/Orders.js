@@ -67,19 +67,19 @@ function OrderHistory() {
             <>
               <h2 className="mb-10">My Orders</h2>
               {groupedOrders.map((order) => (
-                <div className="order-details" key={order._id}>
+                <div className="order-details mb-5" key={order._id}>
                   <div className="order-info flex items-center">
                     <p className="order-id-badge">Order <span className="order-id">#{order._id}</span></p>
                     <p className="light">Order placed:{" "}{new Date(parseInt(order.purchaseDate)).toLocaleDateString()}{" "}</p>
                   </div>
                   <hr />
-                  <div className="flex-row">
+                  <ul className="w-full">
                     {order.products.map((product, index) => (
 
-                      <div key={index} className="flex justify-between">
+                      <li key={index} className="order-item flex justify-between">
                         <Link to={`/product/${product[0]._id}`} className="w-full">
                           <div className="flex items-center w-full justify-between">
-                            <div className="flex items-center">
+                            <div className="flex w-5/12 items-center">
                               <img className="orderlist-img" src={require(`../assets/images/${product[0].primaryImage}.jpg`)} alt={product[0].name} />
                               <div>
                                 <p className="order-product-name">{product[0].name}</p>
@@ -89,24 +89,28 @@ function OrderHistory() {
                             </div>
                             {/* The below is good for production... uses public folder
                           <img alt={name} src={`/images/${primaryImage}`} /> */}
-                            <div>
-                              <p className="order-details-title">Quantity</p>
-                              <p className="order-details-info">{product[0].quantityPurchased}</p>
-                            </div>
-                            <div>
-                              <p className="order-details-title">Unit price</p>
-                              <p className="order-details-info">${product[0].price}</p>
-                            </div>
-                            <div className="w-32 grid justify-items-end">
-                              <p className="order-details-title">Total</p>
-                              <p className="order-details-info font-bold">${(product[0].price * product[0].quantityPurchased).toFixed(2)}</p>
-                            </div>
+                            <table className="table-fixed w-7/12">
+                              <thead>
+                                <tr>
+                                  <th><p className="order-details-title">Quantity</p></th>
+                                  <th><p className="order-details-title">Unit price</p></th>
+                                  <th><p className="order-details-title">Total</p></th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td><p className="order-details-info">{product[0].quantityPurchased}</p></td>
+                                  <td><p className="order-details-info">${product[0].price}</p></td>
+                                  <td><p className="order-details-info font-bold">${(product[0].price * product[0].quantityPurchased).toFixed(2)}</p></td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </div>
                         </Link>
-                      </div>
+                      </li>
 
                     ))}
-                  </div>
+                  </ul>
 
                   <hr />
                   <div className="flex justify-end">

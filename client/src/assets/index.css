@@ -38,6 +38,7 @@ h2 {
 }
 
 .order-details-title {
+  text-align: left;
   font-weight: 300;
   color: var(--text-light);
 }
@@ -53,6 +54,18 @@ h2 {
 
 hr {
   margin: 20px 0 20px 0;
+  background-color: #c9c9c9;
+}
+
+.order-item {
+  padding: 0 0 20px 0;
+  border-bottom: #c9c9c9 1px solid;
+  margin: 20px 0;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+  margin-bottom: none;
 }
 
 .order-id-badge {
@@ -69,6 +82,10 @@ hr {
 
 .orderlist-img {
   width: 75px;
+  height: 75px;
+  border-radius: 5px;
+  object-fit: fill;
+  margin-right: 20px;
 }
 
 .product-image img {
