@@ -11,6 +11,8 @@ import ScrollCardCarousel from "../components/ScrollCardCarousel";
 import candle1 from "../assets/images/candle1.png";
 import { idbPromise } from "../utils/helpers";
 import ScrollCard from "../components/ScrollCard";
+import Slider from "../components/Slider/Slider";
+import Modal from "../components/Modal";
 
 const Home = () => {
   const { category } = useParams();
@@ -76,7 +78,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="section">
+        */
+        <Slider></Slider>
+        <div className="section scroll-carousel">
           <div className="container mx-auto mb-10">
             <ScrollCardCarousel>
               <ScrollCard></ScrollCard>
