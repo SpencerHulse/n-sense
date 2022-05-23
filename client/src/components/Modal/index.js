@@ -112,7 +112,7 @@ export default function Modal() {
   return (
     <>
       <li>Cart ({cartItems.length})</li>
-      <div className="bg-white absolute">
+      <div className="bg-white absolute z-50">
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-0  overflow-auto">
           <div>
             <h1 className="text-3xl font-extrabold text-center tracking-tight text-gray-900 sm:text-4xl">

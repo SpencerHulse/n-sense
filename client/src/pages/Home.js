@@ -45,70 +45,74 @@ const Home = () => {
   }
 
   return (
-    <div className="h-96 bg-slate-300">
-      <div>
-        <Slider />
-        {/* <div className="main-hero flex items-center">
+    <>
+      <div className="h-96 bg-slate-300">
+        <div>
+          {!category && (
+            /* <div className="main-hero flex items-center">
           <div className="container mx-auto flex hero-content">
-            <div className="w-3/12">
-              <img src={candle1} alt="candle" />
-            </div>
-            <div className="w-9/12 m-auto">
-              <h1 className="hero-title align-middle">
-                New Exciting Collection
-              </h1>
-              <button className="defbutton">Shop today</button>
-            </div>
-          </div> */}
-        {/* </div> */}
-        */
-        <div className="section scroll-carousel">
-          <div className="container mx-auto mb-10">
-            <ScrollCardCarousel>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-              <ScrollCard></ScrollCard>
-            </ScrollCardCarousel>
+          <div className="w-3/12">
+          <img src={candle1} alt="candle" />
           </div>
-        </div>
-        <div className="section">
-          <div className="container mx-auto flex">
-            <div className="product-display flex flex-wrap">
-              {products.length ? (
-                // Needs to be flex
-                <div>
-                  <h2 className="category-title mb-10">
-                    {category ? category : "All products"}
-                  </h2>
-                  <div className="-m-2 flex flex-wrap">
-                    {filterProducts().map((product) => (
-                      <ProductCard
-                        product={product}
-                        key={product._id}
-                        _id={product._id}
-                        name={product.name}
-                        description={product.description}
-                        price={product.price}
-                        primaryImage={product.primaryImage}
-                        category={product.category.categoryName}
-                      />
-                    ))}
+          <div className="w-9/12 m-auto">
+          <h1 className="hero-title align-middle">
+          New Exciting Collection
+          </h1>
+          <button className="defbutton">Shop today</button>
+          </div>
+          </div> */
+            /* </div> */
+
+            <div className="section scroll-carousel">
+              // <Slider />
+              <div className="container mx-auto mb-10">
+                <ScrollCardCarousel>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                  <ScrollCard></ScrollCard>
+                </ScrollCardCarousel>
+              </div>
+            </div>
+          )}
+          <div className="section">
+            <div className="container mx-auto flex">
+              <div className="product-display flex flex-wrap">
+                {products.length ? (
+                  // Needs to be flex
+                  <div>
+                    <h2 className="category-title mb-10 text-3xl bold">
+                      {category ? category : "All products"}
+                    </h2>
+                    <div className="-m-2 flex flex-wrap italic">
+                      {filterProducts().map((product) => (
+                        <ProductCard
+                          product={product}
+                          key={product._id}
+                          _id={product._id}
+                          name={product.name}
+                          description={product.description}
+                          price={product.price}
+                          primaryImage={product.primaryImage}
+                          category={product.category.categoryName}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <h3>There are currently no products available</h3>
-              )}
+                ) : (
+                  <h3>There are currently no products available</h3>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
