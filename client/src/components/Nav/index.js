@@ -10,6 +10,8 @@ import { updateCategories, selectCategory } from "../../features/categorySlice";
 // Apollo/GraphQL
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
+import { BsSearch } from "react-icons/bs";
+import Modal from "../Modal";
 
 function Nav() {
   const dispatch = useDispatch();
@@ -23,12 +25,15 @@ function Nav() {
   }, [categoryData, loading, dispatch]);
 
   function singleCategory(category) {
+    // document.getElementsByClassName("main-hero").style.display = "none";
+    // document.getElementsByClassName("scroll-carousel").style.display = "none";
+
     dispatch(selectCategory(category));
   }
 
   return (
     <nav>
-      <div className="container mx-auto">
+      <div className="container mx-auto relative">
         <div className="flex justify-between items-center">
           <div className="menu-left flex items-center">
             <div className="branding-container">
@@ -59,7 +64,22 @@ function Nav() {
           </div>
           <div>
             <ul className="flex items-center">
-              <Cart />
+              <li>
+                <input
+                  className="border-black border-2 rounded-lg"
+                  type="text"
+                  placeholder="Search..."
+                ></input>
+                <button className="ml-2" type="submit">
+                  <i className="fa fa-search"></i>
+                </button>
+              </li>
+              {Auth.loggedIn() ? (
+                <li>
+                  <Link to="/orders">Orders</Link>
+                </li>
+              ) : null}
+              <Modal />
               {Auth.loggedIn() ? (
                 <>
                   <li>
