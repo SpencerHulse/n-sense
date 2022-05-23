@@ -52,9 +52,30 @@ const CartItem2 = ({ item }) => {
                 {product.name}
               </a>
             </h4>
-            <p className="ml-4 text-sm font-medium text-gray-900">
-              {product.price}
-            </p>
+            <div className="ml-4 ">
+              <p className="mb-4 text-sm font-medium text-gray-900">
+                {product.price}
+              </p>
+              <label htmlFor={`quantity-`} className="sr-only">
+                Quantity, {product.name}
+              </label>
+              <select
+                id={`quantity-`}
+                name={`quantity-`}
+                className="block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={purchaseQuantity}
+                onChange={onChange}
+              >
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+                <option value={6}>6</option>
+                <option value={7}>7</option>
+                <option value={8}>8</option>
+              </select>
+            </div>
           </div>
           <p className="mt-1 text-sm text-gray-500">{product.color}</p>
           <p className="mt-1 text-sm text-gray-500">{product.size}</p>
