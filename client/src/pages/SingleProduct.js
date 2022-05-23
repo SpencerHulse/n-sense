@@ -36,7 +36,7 @@ const SingleProduct = () => {
           <div className="product-hero-container">
             <div className="container mx-auto">
               <div className="flex justify-between product-hero mx-auto gap-9">
-                <div className="product-image w-1/2">
+                <div className="product-image mx-auto">
                   <img
                     src={currentProduct.primaryImage}
                     alt={`${currentProduct.name} ${currentProduct.category.categoryName}`}

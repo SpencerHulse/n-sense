@@ -486,9 +486,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-0 {
   left: 0px;
 }
-.top-0 {
-  top: 0px;
-}
 .z-10 {
   z-index: 10;
 }
@@ -549,11 +546,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mr-4 {
   margin-right: 1rem;
 }
+.mb-4 {
+  margin-bottom: 1rem;
+}
 .mt-4 {
   margin-top: 1rem;
-}
-.mt-12 {
-  margin-top: 3rem;
 }
 .mt-10 {
   margin-top: 2.5rem;
@@ -609,9 +606,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-1\/2 {
   height: 50%;
 }
-.max-h-60 {
-  max-height: 15rem;
-}
 .w-3\/12 {
   width: 25%;
 }
@@ -659,9 +653,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .max-w-md {
   max-width: 28rem;
-}
-.max-w-2xl {
-  max-width: 42rem;
 }
 .max-w-sm {
   max-width: 24rem;
@@ -757,9 +748,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-divide-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-divide-opacity));
 }
-.overflow-auto {
-  overflow: auto;
-}
 .overflow-hidden {
   overflow: hidden;
 }
@@ -804,9 +792,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-b-2 {
   border-bottom-width: 2px;
-}
-.border-b {
-  border-bottom-width: 1px;
 }
 .border-gray-300 {
   --tw-border-opacity: 1;
@@ -885,6 +870,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
 }
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -892,10 +885,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-.py-16 {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 .pl-10 {
   padding-left: 2.5rem;
@@ -905,6 +894,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .pb-4 {
   padding-bottom: 1rem;
+}
+.text-left {
+  text-align: left;
 }
 .text-center {
   text-align: center;
@@ -947,6 +939,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .font-normal {
   font-weight: 400;
+}
+.leading-5 {
+  line-height: 1.25rem;
 }
 .tracking-tight {
   letter-spacing: -0.025em;
@@ -1093,6 +1088,17 @@ h2 {
   color: var(--text-light);
 }
 
+.order-items {
+  padding: 0px;
+  border-top: var(--secondary-background) 1px solid;
+  border-bottom: var(--secondary-background) 1px solid;
+  margin-bottom: 20px;
+}
+
+.order-info {
+  margin-bottom: 20px;
+}
+
 .order-details-title {
   text-align: left;
   font-weight: 300;
@@ -1101,27 +1107,33 @@ h2 {
 
 .order-details-info {
   font-size: 20px;
+  color: black;
 }
 
 .order-product-name {
   font-weight: 300;
   font-size: 20px;
+  color: black;
 }
 
 hr {
   margin: 20px 0 20px 0;
-  background-color: #c9c9c9;
+  background-color: var(--primary-background);
 }
 
 .order-item {
-  padding: 0 0 20px 0;
-  border-bottom: #c9c9c9 1px solid;
-  margin: 20px 0;
+  padding: 20px 10px 20px 20px;
+  border-bottom: var(--secondary-background) 1px solid;
+}
+
+.order-item:hover {
+  background-color: var(--primary-background);
+  border-radius: 5px;
 }
 
 .order-item:last-child {
   border-bottom: none;
-  margin-bottom: none;
+  margin-bottom: 0px;
 }
 
 .order-id-badge {
@@ -1141,12 +1153,15 @@ hr {
   height: 75px;
   border-radius: 5px;
   object-fit: fill;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  overflow: hidden;
 }
 
 .product-image img {
   width: 100%;
-  max-height: 550px;
+  max-height: 700px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .product-hero-container {
@@ -1198,11 +1213,13 @@ ul {
   margin-top: auto;
   background-color: var(--brand-color);
   padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
 }
 
 .product-hero {
-  max-height: 600px;
-  max-width: 1100px;
+  max-height: 700px;
   overflow: hidden;
 }
 
@@ -1210,7 +1227,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   background-color: white;
-  width: 400px;
+  width: 450px;
   margin: 30px;
   padding: 20px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -1332,6 +1349,35 @@ ul {
   border-right: 4px rgb(74, 37, 100);
 }
 
+.cart {
+  background-color: white;
+  position: absolute;
+  top: 85px;
+  right: 50px;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-fill-mode: backwards;
+}
+
+.cart-list-container {
+  margin-top: 20px;
+  padding: 0px;
+}
+
+.cart-list {
+  width: 100%;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 #login-form-select {
   cursor: pointer;
 }
@@ -1394,6 +1440,12 @@ ul {
   outline-offset: 2px;
 }
 
+.focus\:ring-1:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -1417,10 +1469,6 @@ ul {
 
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
-}
-
-.focus\:ring-offset-gray-50:focus {
-  --tw-ring-offset-color: #f9fafb;
 }
 
 .group:hover .group-hover\:text-green-400 {
@@ -1478,26 +1526,9 @@ ul {
 
 @media (min-width: 640px) {
 
-  .sm\:ml-6 {
-    margin-left: 1.5rem;
-  }
-
-  .sm\:h-32 {
-    height: 8rem;
-  }
-
-  .sm\:w-32 {
-    width: 8rem;
-  }
-
   .sm\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-  .sm\:py-24 {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
   }
 
   .sm\:text-sm {
@@ -1505,20 +1536,7 @@ ul {
     line-height: 1.25rem;
   }
 
-  .sm\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
   .sm\:duration-700 {
     transition-duration: 700ms;
-  }
-}
-
-@media (min-width: 1024px) {
-
-  .lg\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 }

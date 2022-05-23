@@ -32,16 +32,15 @@ const CartItem2 = ({ item }) => {
   }
 
   return (
-    <li key={product.id} className="flex py-6">
-      <div className="flex-shrink-0">
+    <li key={product.id} className="flex cart-list">
+      <div className="orderlist-img">
         <img
-          src={require(`../../assets/images/${product.primaryImage}.jpg`)}
+          src={product.primaryImage}
           alt={`${product.name} ${product.category.categoryName}`}
-          className="w-24 h-24 rounded-md object-center object-cover sm:w-32 sm:h-32"
         />
       </div>
 
-      <div className="ml-4 flex-1 flex flex-col sm:ml-6">
+      <div className="ml-4 flex-1 flex flex-col">
         <div>
           <div className="flex justify-between">
             <h4 className="text-sm">
@@ -51,52 +50,70 @@ const CartItem2 = ({ item }) => {
               >
                 {product.name}
               </a>
+              <p className="flex items-center text-sm text-gray-700 space-x-2">
+                {product.inStock ? (
+                  <CheckIcon
+                    className="flex-shrink-0 h-5 w-5 text-green-500"
+                    aria-hidden="true"
+                  />
+                ) : (
+                  <ClockIcon
+                    className="flex-shrink-0 h-5 w-5 text-gray-300"
+                    aria-hidden="true"
+                  />
+                )}
+
+                <span>
+                  {product.inStock
+                    ? "In stock"
+                    : `Will ship in ${product.leadTime}`}
+                </span>
+              </p>
+              <div>
+                <button
+                  type="button"
+                  className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                >
+                  <span
+                    aria-label="trash"
+                    onClick={() => {
+                      dispatch(removeFromCart(item));
+                      idbPromise("cart", "delete", { _id: product._id });
+                    }}
+                  >
+                    Remove
+                  </span>
+                </button>
+              </div>
             </h4>
-            <p className="ml-4 text-sm font-medium text-gray-900">
-              {product.price}
-            </p>
+
+            <div className="ml-4 ">
+              <p className="mb-4 text-sm font-medium text-gray-900">
+                {product.price}
+              </p>
+              <label htmlFor={`quantity-`} className="sr-only">
+                Quantity, {product.name}
+              </label>
+              <select
+                id={`quantity-`}
+                name={`quantity-`}
+                className="block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                value={purchaseQuantity}
+                onChange={onChange}
+              >
+                <option value={1}>1</option>
+                <option value={2}>2</option>
+                <option value={3}>3</option>
+                <option value={4}>4</option>
+                <option value={5}>5</option>
+              </select>
+            </div>
           </div>
           <p className="mt-1 text-sm text-gray-500">{product.color}</p>
           <p className="mt-1 text-sm text-gray-500">{product.size}</p>
         </div>
 
-        <div className="mt-4 flex-1 flex items-end justify-between">
-          <p className="flex items-center text-sm text-gray-700 space-x-2">
-            {product.inStock ? (
-              <CheckIcon
-                className="flex-shrink-0 h-5 w-5 text-green-500"
-                aria-hidden="true"
-              />
-            ) : (
-              <ClockIcon
-                className="flex-shrink-0 h-5 w-5 text-gray-300"
-                aria-hidden="true"
-              />
-            )}
-
-            <span>
-              {product.inStock
-                ? "In stock"
-                : `Will ship in ${product.leadTime}`}
-            </span>
-          </p>
-          <div className="ml-4">
-            <button
-              type="button"
-              className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              <span
-                aria-label="trash"
-                onClick={() => {
-                  dispatch(removeFromCart(item));
-                  idbPromise("cart", "delete", { _id: product._id });
-                }}
-              >
-                Remove
-              </span>
-            </button>
-          </div>
-        </div>
+        <div className="mt-4 flex-1 flex items-end justify-between"></div>
       </div>
     </li>
   );

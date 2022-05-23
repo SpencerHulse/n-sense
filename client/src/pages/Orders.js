@@ -79,8 +79,8 @@ function OrderHistory() {
                       ).toLocaleDateString()}{" "}
                     </p>
                   </div>
-                  <hr />
-                  <ul className="w-full">
+                  {/* <hr /> */}
+                  <ul className="w-full order-items">
                     {order.products.map((product, index) => (
                       <li
                         key={index}
@@ -152,7 +152,7 @@ function OrderHistory() {
                     ))}
                   </ul>
 
-                  <hr />
+                  {/* <hr /> */}
                   <div className="flex justify-end">
                     <h3 className="order-details-info font-bold">
                       Order Total: ${calculateTotal(order)}

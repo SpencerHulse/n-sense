@@ -74,11 +74,6 @@ function Nav() {
                   <i className="fa fa-search"></i>
                 </button>
               </li>
-              {Auth.loggedIn() ? (
-                <li>
-                  <Link to="/orders">Orders</Link>
-                </li>
-              ) : null}
               <Modal />
               {Auth.loggedIn() ? (
                 <>
