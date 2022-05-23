@@ -12,6 +12,7 @@ import candle1 from "../assets/images/candle1.png";
 import { idbPromise } from "../utils/helpers";
 import ScrollCard from "../components/ScrollCard";
 import Slider from "../components/Slider/Slider";
+import Modal from "../components/Modal";
 
 const Home = () => {
   const { category } = useParams();

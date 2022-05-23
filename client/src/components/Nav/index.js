@@ -11,6 +11,7 @@ import { updateCategories, selectCategory } from "../../features/categorySlice";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
 import { BsSearch } from "react-icons/bs";
+import Modal from "../Modal";
 
 function Nav() {
   const dispatch = useDispatch();
@@ -32,7 +33,7 @@ function Nav() {
 
   return (
     <nav>
-      <div className="container mx-auto">
+      <div className="container mx-auto relative">
         <div className="flex justify-between items-center">
           <div className="menu-left flex items-center">
             <div className="branding-container">
@@ -78,7 +79,7 @@ function Nav() {
                   <Link to="/orders">Orders</Link>
                 </li>
               ) : null}
-              <Cart />
+              <Modal />
               {Auth.loggedIn() ? (
                 <>
                   <li>
