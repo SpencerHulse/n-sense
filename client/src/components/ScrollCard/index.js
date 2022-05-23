@@ -36,6 +36,7 @@ function ScrollCard({
           <div className="flex flex-row justify-between w-full">
             <p className="price text-xl font-bold text-white">$6.69</p>
             <button
+              className="text-white"
               onClick={() => {
                 const itemInCart = cartItems.find((item) => item._id === _id);
 

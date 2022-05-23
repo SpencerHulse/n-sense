@@ -46,26 +46,9 @@ const Home = () => {
 
   return (
     <div className="h-96 bg-slate-300">
-      {/* {products.length ? (
-            // Needs to be flex
-            <div className="">
-              {filterProducts().map((product) => (
-                <ProductCard
-                  key={product._id}
-                  _id={product._id}
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                  primaryImage={product.primaryImage}
-                  category={product.category.categoryName}
-                />
-              ))}
-            </div>
-          ) : (
-            <h3>There are currently no products available</h3>
-          )} */}
       <div>
-        <div className="main-hero flex items-center">
+        <Slider />
+        {/* <div className="main-hero flex items-center">
           <div className="container mx-auto flex hero-content">
             <div className="w-3/12">
               <img src={candle1} alt="candle" />
@@ -76,10 +59,9 @@ const Home = () => {
               </h1>
               <button className="defbutton">Shop today</button>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         */
-        <Slider></Slider>
         <div className="section scroll-carousel">
           <div className="container mx-auto mb-10">
             <ScrollCardCarousel>
