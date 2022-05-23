@@ -56,8 +56,8 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["citrus-seagrass", "another-one"],
-      primaryImage: "citrus-seagrass",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/citrus-seagrass.jpg",
       category: categories[0]._id,
     },
     {
@@ -71,8 +71,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["coffee-shop", "another-one"],
-      primaryImage: "coffee-shop",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/coffee-shop.jpg",
       category: categories[0]._id,
     },
     {
@@ -86,8 +85,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["another-one", "cozy-cabin"],
-      primaryImage: "cozy-cabin",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/cozy-cabin.jpg",
       category: categories[0]._id,
     },
     {
@@ -101,8 +99,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["honey-vanilla", "another-one"],
-      primaryImage: "honey-vanilla",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/honey-vanilla.jpg",
       category: categories[0]._id,
     },
     {
@@ -116,8 +113,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["lavender", "another-one"],
-      primaryImage: "lavender",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/lavender.jpg",
       category: categories[0]._id,
     },
     {
@@ -131,8 +127,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["lemon", "another-one"],
-      primaryImage: "lemon",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/lemon.jpg",
       category: categories[0]._id,
     },
     {
@@ -146,8 +141,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["orange-cassia", "another-one"],
-      primaryImage: "orange-cassia",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/orange-cassia.jpg",
       category: categories[0]._id,
     },
     {
@@ -161,8 +155,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["sugar-cookies", "another-one"],
-      primaryImage: "sugar-cookies",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/sugar-cookies.jpg",
       category: categories[0]._id,
     },
     {
@@ -176,8 +169,7 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["apple-pie", "another-one"],
-      primaryImage: "apple-pie",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/apple-pie.jpg",
       category: categories[0]._id,
     },
     {
@@ -191,8 +183,8 @@ db.once("open", async () => {
       ],
       price: 8.99,
       stock: 20,
-      images: ["another-one", "chocolate-brownie"],
-      primaryImage: "chocolate-brownie",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/chocolate-brownie.jpg",
       category: categories[0]._id,
     },
     {
@@ -206,8 +198,7 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      images: ["amber-and-moss", "another-one"],
-      primaryImage: "amber-and-moss",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/amber-and-moss.jpg",
       category: categories[1]._id,
     },
     {
@@ -221,8 +212,7 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      images: ["black-fig", "another-one"],
-      primaryImage: "black-fig",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/black-fig.jpg",
       category: categories[1]._id,
     },
     {
@@ -236,8 +226,8 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      images: ["patchouli-sweetgrass", "another-one"],
-      primaryImage: "patchouli-sweetgrass",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/patchouli-sweetgrass.jpg",
       category: categories[1]._id,
     },
     {
@@ -251,8 +241,8 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      images: ["sandlewood-and-rose", "another-one"],
-      primaryImage: "sandlewood-and-rose",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/sandlewood-and-rose.jpg",
       category: categories[1]._id,
     },
     {
@@ -266,8 +256,8 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      images: ["teakwood-and-tobacco", "another-one"],
-      primaryImage: "teakwood-and-tobacco",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/teakwood-and-tobacco.jpg",
       category: categories[1]._id,
     },
     {
@@ -277,8 +267,7 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      images: ["citrus-fresh", "another-one"],
-      primaryImage: "citrus-fresh",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/citrus-fresh.jpg",
       category: categories[2]._id,
     },
     {
@@ -288,8 +277,7 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      images: ["cypress", "another-one"],
-      primaryImage: "cypress",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/cypress.jpg",
       category: categories[2]._id,
     },
     {
@@ -299,8 +287,7 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      images: ["lemon-myrtle", "another-one"],
-      primaryImage: "lemon-myrtle",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/lemon-myrtle.jpg",
       category: categories[2]._id,
     },
     {
@@ -310,8 +297,7 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      images: ["orange", "another-one"],
-      primaryImage: "orange",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/orange.jpg",
       category: categories[2]._id,
     },
     {
@@ -321,8 +307,7 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      images: ["peppermint", "another-one"],
-      primaryImage: "peppermint",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/peppermint.jpg",
       category: categories[2]._id,
     },
     {
@@ -332,8 +317,7 @@ db.once("open", async () => {
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
-      images: ["christmas-wish", "another-one"],
-      primaryImage: "christmas-wish",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/christmas-wish.jpg",
       category: categories[3]._id,
     },
     {
@@ -343,8 +327,8 @@ db.once("open", async () => {
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
-      images: ["honeysuckle-and-orange", "another-one"],
-      primaryImage: "honeysuckle-and-orange",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/honeysuckle-and-orange.jpg",
       category: categories[3]._id,
     },
     {
@@ -354,8 +338,7 @@ db.once("open", async () => {
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
-      images: ["morning-dew", "another-one"],
-      primaryImage: "morning-dew",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/morning-dew.jpg",
       category: categories[3]._id,
     },
     {
@@ -365,8 +348,8 @@ db.once("open", async () => {
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
-      images: ["peppermint-and-eucalyptus", "another-one"],
-      primaryImage: "peppermint-and-eucalyptus",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/peppermint-and-eucalyptus.jpg",
       category: categories[3]._id,
     },
     {
@@ -376,8 +359,8 @@ db.once("open", async () => {
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
-      images: ["tea-tree-and-charcoal", "another-one"],
-      primaryImage: "tea-tree-and-charcoal",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/tea-tree-and-charcoal.jpg",
       category: categories[3]._id,
     },
   ]);
