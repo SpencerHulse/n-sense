@@ -1,7 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React from "react";
 import CartItem from "../CartItem";
-import { CheckIcon, ClockIcon } from "@heroicons/react/solid";
 import { useEffect } from "react";
 import CartItem2 from "../CartItem/index2";
 import Auth from "../../utils/auth";
