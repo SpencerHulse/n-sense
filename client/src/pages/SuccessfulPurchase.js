@@ -27,9 +27,9 @@ function SuccessfulPurchase() {
         });
       }
 
-      setTimeout(() => {
-        window.location.assign("/");
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.assign("/");
+      // }, 3000);
     }
 
     saveOrder();
@@ -37,9 +37,33 @@ function SuccessfulPurchase() {
 
   return (
     <div>
-      <h1>Success!</h1>
-      <h2>Thank you for your purchase!</h2>
-      <h2>You will now be redirected to the homepage</h2>
+      <div className="section">
+        <div className="container mx-auto">
+          <div className="minidialog mx-auto">
+            <div className="minicontent mx-auto">
+              <div className="items-center">
+                <img
+                  className="mx-auto h-12 w-auto"
+                  src={require(`../assets/images/nsense-logo.png`)}
+                  alt="n-Sense logo"
+                />
+                <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+                  Thank you for your purchase!
+                </h2>
+                <p className="mt-2 mb-5 text-center text-sm text-gray-600">
+                  The order was created successfully.
+                </p>
+                <div>
+                  <p class="mt-2 text-center text-sm text-gray-600">
+                  <a href="./">Continue shopping</a>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
