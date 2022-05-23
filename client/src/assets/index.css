@@ -65,7 +65,7 @@ h2 {
 .order-product-name {
   font-weight: 300;
   font-size: 20px;
-  color: black  ;
+  color: black;
 }
 
 hr {
@@ -105,7 +105,8 @@ hr {
   height: 75px;
   border-radius: 5px;
   object-fit: fill;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  overflow: hidden;
 }
 
 .product-image img {
@@ -162,6 +163,9 @@ ul {
   margin-top: auto;
   background-color: var(--brand-color);
   padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
 }
 
 .product-hero {
@@ -294,6 +298,35 @@ ul {
   border-bottom: 4px rgb(104, 54, 139);
   border-left: 4px rgb(74, 37, 100);
   border-right: 4px rgb(74, 37, 100);
+}
+
+.cart {
+  background-color: white;
+  position: absolute;
+  top: 85px;
+  right: 50px;
+  max-width: 500px;
+  padding: 20px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  animation-duration: 0.5s;
+  animation-name: animate-fade;
+  animation-fill-mode: backwards;
+}
+
+.cart-list-container {
+  margin-top: 20px;
+  padding: 0px;
+}
+
+.cart-list {
+  width: 100%;
+}
+
+@keyframes animate-fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 #login-form-select {
