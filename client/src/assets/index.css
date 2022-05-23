@@ -40,6 +40,17 @@ h2 {
   color: var(--text-light);
 }
 
+.order-items {
+  padding: 0px;
+  border-top: var(--secondary-background) 1px solid;
+  border-bottom: var(--secondary-background) 1px solid;
+  margin-bottom: 20px;
+}
+
+.order-info {
+  margin-bottom: 20px;
+}
+
 .order-details-title {
   text-align: left;
   font-weight: 300;
@@ -48,27 +59,33 @@ h2 {
 
 .order-details-info {
   font-size: 20px;
+  color: black;
 }
 
 .order-product-name {
   font-weight: 300;
   font-size: 20px;
+  color: black  ;
 }
 
 hr {
   margin: 20px 0 20px 0;
-  background-color: #c9c9c9;
+  background-color: var(--primary-background);
 }
 
 .order-item {
-  padding: 0 0 20px 0;
-  border-bottom: #c9c9c9 1px solid;
-  margin: 20px 0;
+  padding: 20px 10px 20px 20px;
+  border-bottom: var(--secondary-background) 1px solid;
+}
+
+.order-item:hover {
+  background-color: var(--primary-background);
+  border-radius: 5px;
 }
 
 .order-item:last-child {
   border-bottom: none;
-  margin-bottom: none;
+  margin-bottom: 0px;
 }
 
 .order-id-badge {
