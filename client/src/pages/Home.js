@@ -18,7 +18,7 @@ const Home = () => {
   const { category } = useParams();
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
-
+  console.log(products);
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
     if (productData) {
@@ -64,18 +64,22 @@ const Home = () => {
             /* </div> */
 
             <div className="section scroll-carousel">
-              // <Slider />
+              <Slider />
+
               <div className="container mx-auto mb-10">
                 <ScrollCardCarousel>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
-                  <ScrollCard></ScrollCard>
+                  {filterProducts().map((product) => (
+                    <ScrollCard
+                      product={product}
+                      key={product._id}
+                      _id={product._id}
+                      name={product.name}
+                      description={product.description}
+                      price={product.price}
+                      primaryImage={product.primaryImage}
+                      category={product.category.categoryName}
+                    />
+                  ))}
                 </ScrollCardCarousel>
               </div>
             </div>

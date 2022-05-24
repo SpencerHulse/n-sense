@@ -1,8 +1,18 @@
+:root {
+    --primary-background: #f8f5f5;
+    --secondary-background: #e7e7e7;
+    --text-light: #8a8a8a;
+    --text-highlight: dodgerblue;
+    --brand-color: #44AB2A;
+  }
+  
+
 .slider{
     width: 100%;
     height: 75vh;
     position: relative;
     overflow: hidden;
+    z-index: 30;
 }
 
 .slide{
@@ -71,10 +81,11 @@ hr {
     opacity: 0;
 width: 50%;
 padding: 3rem;
-background: rgba(0,0,0,.3);
+background: rgba(0, 0, 0, 0.3);
 animation: slide-up 1s ease .5s;
 animation-fill-mode: forwards;
-visibility: hidden
+visibility: hidden;
+border: solid white 4px
 }
 
 @keyframes slide-up{

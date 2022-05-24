@@ -60,7 +60,9 @@ const Slider = () => {
                 <div className="content">
                   <h2>{slide.title}</h2>
                   <hr />
-                  <button className="--btn --btn-primary">Shop Today</button>
+                  <button className="--btn --btn-primary border-white border-4 py-4 px-8">
+                    Shop Today
+                  </button>
                 </div>
               </div>
             )}
