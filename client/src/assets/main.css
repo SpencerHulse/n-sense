@@ -920,11 +920,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 0.75rem;
   padding-right: 0.75rem;
 }
-<<<<<<< HEAD
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -933,8 +928,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 2rem;
   padding-right: 2rem;
 }
-=======
->>>>>>> 805c821d04d4afac7e31aec59861670819fccf47
 .pl-10 {
   padding-left: 2.5rem;
 }

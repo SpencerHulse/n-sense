@@ -7,18 +7,15 @@ import { updateProducts } from "../features/productSlice";
 // Apollo/GraphQL
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
-import ScrollCardCarousel from "../components/ScrollCardCarousel";
-import candle1 from "../assets/images/candle1.png";
 import { idbPromise } from "../utils/helpers";
 import ScrollCard from "../components/ScrollCard";
 import Slider from "../components/Slider/Slider";
-import Modal from "../components/Modal";
 
 const Home = () => {
   const { category } = useParams();
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.product);
-  console.log(products);
+
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
     if (productData) {
@@ -49,38 +46,30 @@ const Home = () => {
       <div className="h-96 bg-slate-300">
         <div>
           {!category && (
-            /* <div className="main-hero flex items-center">
-          <div className="container mx-auto flex hero-content">
-          <div className="w-3/12">
-          <img src={candle1} alt="candle" />
-          </div>
-          <div className="w-9/12 m-auto">
-          <h1 className="hero-title align-middle">
-          New Exciting Collection
-          </h1>
-          <button className="defbutton">Shop today</button>
-          </div>
-          </div> */
-            /* </div> */
-
             <div className="scroll-carousel">
               <Slider />
-
               <div className="container mx-auto mb-10">
-                <ScrollCardCarousel>
-                  {filterProducts().map((product) => (
-                    <ScrollCard
-                      product={product}
-                      key={product._id}
-                      _id={product._id}
-                      name={product.name}
-                      description={product.description}
-                      price={product.price}
-                      primaryImage={product.primaryImage}
-                      category={product.category.categoryName}
-                    />
-                  ))}
-                </ScrollCardCarousel>
+                <div className="mt-10">
+                  <h1 className="font-bold text-3xl mb-10">
+                    New and Noteworthy
+                  </h1>
+                  <div className="flex overflow-x-scroll hide-scroll-bar">
+                    <div className="flex flex-nowrap">
+                      {filterProducts().map((product) => (
+                        <ScrollCard
+                          product={product}
+                          key={product._id}
+                          _id={product._id}
+                          name={product.name}
+                          description={product.description}
+                          price={product.price}
+                          primaryImage={product.primaryImage}
+                          category={product.category.categoryName}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           )}

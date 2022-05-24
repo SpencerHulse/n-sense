@@ -150,15 +150,11 @@ export default function Modal() {
               </div>
               {Auth.loggedIn() ? (
                 <div className="mt-10">
-<<<<<<< HEAD
-                  <button type="submit" className="add-button">
-=======
                   <button
                     type="submit"
                     className="add-button"
                     onClick={submitCheckout}
                   >
->>>>>>> 805c821d04d4afac7e31aec59861670819fccf47
                     Checkout
                   </button>
                 </div>
