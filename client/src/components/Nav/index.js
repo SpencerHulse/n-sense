@@ -32,7 +32,7 @@ function Nav() {
   }
 
   return (
-    <nav>
+    <nav className="dark:bg-[#444444] text-black dark:text-white">
       <div className="container mx-auto relative">
         <div className="flex justify-between items-center">
           <div className="menu-left flex items-center">
@@ -49,25 +49,24 @@ function Nav() {
               {loading
                 ? "Loading"
                 : categories.map((category) => {
-                    return (
-                      <li key={category._id}>
-                        <Link
-                          to={`/category/${category.categoryName.toLowerCase()}`}
-                          onClick={() => singleCategory(category)}
-                        >
-                          {category.categoryName}
-                        </Link>
-                      </li>
-                    );
-                  })}
+                  return (
+                    <li key={category._id}>
+                      <Link
+                        to={`/category/${category.categoryName.toLowerCase()}`}
+                        onClick={() => singleCategory(category)}
+                      >
+                        {category.categoryName}
+                      </Link>
+                    </li>
+                  );
+                })}
             </ul>
           </div>
           <div>
             <ul className="flex items-center">
-              <li>
+              <li className="flex items-center">
                 <input
-                  className="border-black border-2 rounded-lg"
-                  type="text"
+                  className="appearance-none self-center rounded relative block w-full px-3 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2" type="text"
                   placeholder="Search..."
                 ></input>
                 <button className="ml-2" type="submit">

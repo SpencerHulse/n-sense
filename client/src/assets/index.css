@@ -22,7 +22,7 @@
 
 a {
   font-weight: bold;
-  color: #44AB2A;
+  /* color: #44AB2A; */
 }
 
 h2 {
@@ -117,9 +117,9 @@ hr {
 }
 
 .product-hero-container {
-  background-image: url("./images/product-bg.png");
+  /* background-image: url("./images/product-bg.png");
   background-repeat: repeat-x;
-  background-size: contain;
+  background-size: contain; */
 }
 
 nav {
@@ -131,7 +131,7 @@ nav {
 }
 
 nav a {
-  color: black;
+  /* color: black; */
   font-weight: normal;
 }
 

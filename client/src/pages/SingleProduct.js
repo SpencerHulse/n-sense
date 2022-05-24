@@ -33,7 +33,7 @@ const SingleProduct = () => {
     <>
       {currentProduct ? (
         <div>
-          <div className="product-hero-container">
+          <div className="product-hero-container bg-gradient-to-b from-[#F8F5F5] to-[#DCDCDC] dark:from-[#777777] to-[#4A4A4A]">
             <div className="container mx-auto">
               <div className="flex justify-between product-hero mx-auto gap-9">
                 <div className="product-image mx-auto">
@@ -42,23 +42,23 @@ const SingleProduct = () => {
                     alt={`${currentProduct.name} ${currentProduct.category.categoryName}`}
                   />
                 </div>
-                <div className="product-info">
+                <div className="product-info bg-white dark:bg-[#343434]">
                   <div className="w-full">
                     <div className="details-item ">
-                      <h2 className="text-2xl bold block">
+                      <h2 className="text-2xl bold block dark:text-white">
                         {currentProduct.name}
                       </h2>
                     </div>
                     <div className="details-item mb-5">
-                      <h3 className="text-slate-600 block">
+                      <h3 className="text-slate-600 block dark:text-white">
                         {currentProduct.category.categoryName}
                       </h3>
                     </div>
                     <div className="details-item mb-5">
-                      <p className="price light">$ {currentProduct.price}</p>
+                      <p className="price light dark:text-white">$ {currentProduct.price}</p>
                     </div>
                     <div className="details-item mb-5">
-                      <ul>
+                      <ul className="dark:text-white">
                         {currentProduct.details.map((detail, i) => {
                           return <li key={i}>{detail}</li>;
                         })}
@@ -128,10 +128,10 @@ const SingleProduct = () => {
 
           <div className="section w-full flex flex-row">
             <div className="container mx-auto">
-              <h1 className="text-3xl font-extrabold mb-10">
+              <h1 className="text-3xl font-extrabold mb-10 dark:text-white">
                 Product Description
               </h1>
-              <p>{currentProduct.description}</p>
+              <p className="dark:text-white">{currentProduct.description}</p>
             </div>
           </div>
         </div>
