@@ -170,6 +170,18 @@ ul {
   color: white;
 }
 
+.add-button:hover {
+  opacity: 0.9;
+}
+
+.disabled-button {
+  background-color: rgb(74, 74, 74);
+}
+
+.disabled-button:hover {
+  cursor: not-allowed;
+}
+
 .warning-button {
   margin-top: auto;
   /* background-color: var(--brand-color); */

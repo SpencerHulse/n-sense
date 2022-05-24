@@ -147,15 +147,28 @@ export default function Cart() {
                 </p>
               </div>
               {Auth.loggedIn() ? (
-                <div className="mt-10">
-                  <button
-                    type="submit"
-                    className="add-button"
-                    onClick={submitCheckout}
-                  >
-                    Checkout
-                  </button>
-                </div>
+                cartItems.length ? (
+                  <div className="mt-10">
+                    <button
+                      type="submit"
+                      className="add-button"
+                      onClick={submitCheckout}
+                    >
+                      Checkout
+                    </button>
+                  </div>
+                ) : (
+                  <div className="mt-10">
+                    <button
+                      type="submit"
+                      className="add-button disabled-button"
+                      onClick={submitCheckout}
+                      disabled
+                    >
+                      Checkout
+                    </button>
+                  </div>
+                )
               ) : (
                 <span>
                   (
