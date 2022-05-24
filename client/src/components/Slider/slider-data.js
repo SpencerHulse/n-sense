@@ -15,11 +15,13 @@ export const sliderData = [
     title: "Burn our incense!",
   },
   {
-    image: { citrus },
+    image:
+      "https://cdn.shopify.com/s/files/1/0648/1955/files/Essential-Oil-Main.jpg",
     title: "Expand your mind with our essential oils!",
   },
   {
-    image: { christmas },
+    image:
+      "https://cdn.shopify.com/s/files/1/0211/5044/products/soaps01_1127x634.jpg?v=1569282266",
     title: "Feel organicly clean with our natural soaps!",
   },
 ];
