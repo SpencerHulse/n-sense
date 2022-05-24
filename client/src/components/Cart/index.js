@@ -42,7 +42,8 @@ const Cart = () => {
     return sum.toFixed(2);
   }
 
-  function submitCheckout() {
+  function submitCheckout(event) {
+    event.preventDefault();
     const productIds = [];
 
     cartItems.forEach((item) => {
@@ -98,7 +99,7 @@ const Cart = () => {
               <div>
                 <strong>Total: ${calculateTotal()}</strong>
                 {Auth.loggedIn() ? (
-                  <button>Checkout</button>
+                  <button onClick={submitCheckout}>Checkout</button>
                 ) : (
                   <span>(log in to check out)</span>
                 )}

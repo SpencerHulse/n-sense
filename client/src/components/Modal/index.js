@@ -73,7 +73,8 @@ export default function Modal() {
     return sum.toFixed(2);
   }
 
-  function submitCheckout() {
+  function submitCheckout(event) {
+    event.preventDefault();
     const productIds = [];
 
     cartItems.forEach((item) => {
@@ -110,14 +111,14 @@ export default function Modal() {
     return <li onClick={() => toggle()}>Cart ({cartItems.length})</li>;
   }
 
-
-
   return (
     <>
       <li>Cart ({cartItems.length})</li>
       <div className="cart">
         <div>
-          <div className="mb-5" onClick={() => toggle()}>Close cart</div>
+          <div className="mb-5" onClick={() => toggle()}>
+            Close cart
+          </div>
           <form>
             <section>
               <ul className="cart-list-container" role="list">
@@ -153,6 +154,7 @@ export default function Modal() {
                   <button
                     type="submit"
                     className="add-button"
+                    onClick={submitCheckout}
                   >
                     Checkout
                   </button>
