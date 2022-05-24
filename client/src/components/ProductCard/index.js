@@ -22,7 +22,7 @@ function ProductCard({
         <Link to={`/product/${_id}`}>
           <img
             className="rounded-t-lg product-card-image"
-            src={require(`../../assets/images/${primaryImage}.jpg`)}
+            src={primaryImage}
             alt={`${name} ${category}`}
           />
         </Link>

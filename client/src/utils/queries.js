@@ -54,7 +54,6 @@ export const QUERY_PRODUCTS = gql`
       details
       price
       stock
-      images
       primaryImage
       category {
         categoryName
@@ -73,7 +72,6 @@ export const QUERY_PRODUCT = gql`
       details
       price
       stock
-      images
       primaryImage
       category {
         _id
@@ -108,6 +106,15 @@ export const QUERY_CHECKOUT = gql`
   query getCheckout($products: [ID]!) {
     checkout(products: $products) {
       session
+    }
+  }
+`;
+
+// Retrieves a Secure URL used to upload AWS s3 Images
+export const QUERY_URL = gql`
+  query uploadImage($primaryImage: String!) {
+    uploadImage(primaryImage: $primaryImage) {
+      url
     }
   }
 `;
