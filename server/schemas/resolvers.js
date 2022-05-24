@@ -98,10 +98,6 @@ const resolvers = {
         const product = await stripe.products.create({
           name: orderSummary[i][0].name,
           description: orderSummary[i][0].description,
-          /* Works because we have access to the original url,
-          but they will only be visible when live (such as on Heroku).
-          This is because there is no access on localhost */
-          images: [`${url}/images/${orderSummary[i][0].primaryImage}`],
         });
         // generate price id using the product id
         const price = await stripe.prices.create({
@@ -109,6 +105,7 @@ const resolvers = {
           /* Because stripe requires cost in cents */
           unit_amount: orderSummary[i][0].price * 100,
           currency: "usd",
+          tax_behavior: "exclusive",
         });
         // add price id to the line items array
         line_items.push({
@@ -122,6 +119,53 @@ const resolvers = {
         payment_method_types: ["card"],
         line_items,
         mode: "payment",
+        shipping_address_collection: {
+          allowed_countries: ["US", "CA"],
+        },
+        /*         shipping_options: [
+          {
+            shipping_rate_data: {
+              type: "fixed_amount",
+              fixed_amount: {
+                amount: 0,
+                currency: "usd",
+              },
+              display_name: "Free shipping",
+              // Delivers between 5-7 business days
+              delivery_estimate: {
+                minimum: {
+                  unit: "business_day",
+                  value: 5,
+                },
+                maximum: {
+                  unit: "business_day",
+                  value: 7,
+                },
+              },
+            },
+          },
+          {
+            shipping_rate_data: {
+              type: "fixed_amount",
+              fixed_amount: {
+                amount: 1499,
+                currency: "usd",
+              },
+              display_name: "Next day air",
+              // Delivers in exactly 1 business day
+              delivery_estimate: {
+                minimum: {
+                  unit: "business_day",
+                  value: 1,
+                },
+                maximum: {
+                  unit: "business_day",
+                  value: 1,
+                },
+              },
+            },
+          },
+        ], */
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });

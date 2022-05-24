@@ -27,12 +27,14 @@ const CategoryForm = () => {
 
   return (
     <>
-      <h2>Adding Category!</h2>
-      <form action="submit" onSubmit={addProductHandler}>
-        <label htmlFor="name">Name (Required): </label>
-        <input type="text" name="name" id="name" onChange={handleChange} />
-        <button>Submit</button>
-      </form>
+      <div className="adjust-container">
+
+        <h2 className="mb-2">Add a Category</h2>
+        <form action="submit" onSubmit={addProductHandler}>
+          <input type="text" name="name" placeholder="Category name" id="name" onChange={handleChange} className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2" />
+          <button className="add-button">Submit</button>
+        </form>
+      </div>
     </>
   );
 };

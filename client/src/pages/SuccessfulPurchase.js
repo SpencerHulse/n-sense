@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_ORDER } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
+import { Link } from "react-router-dom";
 
 function SuccessfulPurchase() {
   const [addOrder] = useMutation(ADD_ORDER);
@@ -55,11 +56,10 @@ function SuccessfulPurchase() {
                 </p>
                 <div>
                   <p class="mt-2 text-center text-sm text-gray-600">
-                  <a href="./">Continue shopping</a>
+                    <Link to="/">Continue shopping</Link>
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
