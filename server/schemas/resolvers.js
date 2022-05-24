@@ -181,6 +181,22 @@ const resolvers = {
   Mutation: {
     // Add a new user to the database and log into the site
     addUser: async (parent, args) => {
+      let usernameCheck = await User.find({ username: args.username });
+      if (usernameCheck.length) {
+        console.log(usernameCheck);
+        return { message: "Username already exists" };
+      }
+
+      let emailCheck = await User.find({ email: args.email });
+      if (emailCheck.length) {
+        return { message: "There is already an account with this email" };
+      }
+
+      let passwordCheck = args.password.length;
+      if (passwordCheck < 5) {
+        return { message: "The password must be at least 5 characters" };
+      }
+
       const user = await User.create(args);
       const token = signToken(user);
 

@@ -69,7 +69,7 @@ function OrderHistory() {
 
           {groupedOrders && data && (
             <>
-              <h2 className="mb-10">My Orders</h2>
+              <h2 className="mb-10">Order history for {data.user.username}:</h2>
               {groupedOrders.map((order) => (
                 <div className="order-details mb-5" key={order._id}>
                   <div className="order-info flex items-center">

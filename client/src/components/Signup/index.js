@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -10,9 +10,11 @@ const Signup = () => {
     password: "",
     username: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    setErrorMessage("");
     try {
       const mutationResponse = await addUser({
         variables: {
@@ -21,6 +23,12 @@ const Signup = () => {
           username: formState.username,
         },
       });
+      console.log(mutationResponse);
+      if (mutationResponse.data.addUser.message) {
+        setErrorMessage(mutationResponse.data.addUser.message);
+        return;
+      }
+
       const token = mutationResponse.data.addUser.token;
       Auth.login(token);
     } catch (e) {
@@ -89,9 +97,9 @@ const Signup = () => {
         </div>
       </div>
 
-      {error && (
+      {errorMessage && (
         <div>
-          <p>The provided credentials are incorrect</p>
+          <p>{errorMessage}</p>
         </div>
       )}
 

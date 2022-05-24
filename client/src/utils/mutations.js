@@ -15,6 +15,7 @@ export const ADD_USER = gql`
       admin: $admin
     ) {
       token
+      message
       user {
         _id
         username
