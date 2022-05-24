@@ -153,66 +153,83 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     <>
       {formState && (
         <>
-          <h2>Updating Product!</h2>
+        <div className="adjust-container mt-5">
+          <h2>Edit product</h2>
           <form action="submit" onSubmit={updateProductHandler}>
+          <label htmlFor="category">Category (Required): </label>
+            <select className="w-8/12 mb-5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category" id="category" onChange={handleChange}>
+              <option value="">Select a Category</option>
+              {categories.map((category) => (
+                <option value={category._id} key={category._id}>
+                  {category.categoryName}
+                </option>
+              ))}
+            </select>
             <label htmlFor="name">Name (Required): </label>
-            <input type="text" name="name" id="name" onChange={handleChange} />
+            <input type="text" name="name" id="name" onChange={handleChange} className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2" />
+
             <br />
             <label htmlFor="description">Description (Required): </label>
             <textarea
-              type="text"
-              name="description"
-              id="description"
-              onChange={handleChange}
-            />
+            type="text"
+            rows="10"
+            name="description"
+            id="description"
+            placeholder="Description (required)"
+            className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2"
+            onChange={handleChange}
+          />
             <br />
             {/* Some kind of add new on button click type deal with a max of five? */}
             <label htmlFor="details">Details: </label>
             <input
-              type="text"
-              name="details1"
-              id="details1"
-              onChange={handleDetails}
-            />
-            <br />
-            <input
-              type="text"
-              name="details2"
-              id="details2"
-              onChange={handleDetails}
-            />
-            <br />
-            <input
-              type="text"
-              name="details3"
-              id="details3"
-              onChange={handleDetails}
-            />
-            <br />
-            <input
-              type="text"
-              name="details4"
-              id="details4"
-              onChange={handleDetails}
-            />
-            <br />
-            <input
-              type="text"
-              name="details5"
-              id="details5"
-              onChange={handleDetails}
-            />
+            type="text"
+            name="details1"
+            id="details1"
+            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            onChange={handleDetails}
+          />
+          <input
+            type="text"
+            name="details2"
+            id="details2"
+            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            onChange={handleDetails}
+          />
+          <input
+            type="text"
+            name="details3"
+            id="details3"
+            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            onChange={handleDetails}
+          />
+          <input
+            type="text"
+            name="details4"
+            id="details4"
+            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            onChange={handleDetails}
+          />
+          <input
+            type="text"
+            name="details5"
+            id="details5"
+            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            onChange={handleDetails}
+          />
             <br />
             {/* Strict about getting a decimal .00 always + nothing but numbers? */}
             <label htmlFor="price">Price (Required): </label>
             <input
-              type="number"
-              name="price"
-              id="price"
-              step="0.01"
-              min="0"
-              onChange={handleChange}
-            />
+            type="number"
+            name="price"
+            id="price"
+            step="0.01"
+            min="0"
+            placeholder="Price"
+            className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2"
+            onChange={handleDetails}
+          />
             <br />
             {/* Input or the one where you can arrow up/down? */}
             <label htmlFor="stock">Stock: </label>
@@ -221,6 +238,7 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
               name="stock"
               id="stock"
               min="0"
+              className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2"
               onChange={handleChange}
             />
             <br />
@@ -231,23 +249,17 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
               id="imageInput"
               type="file"
               accept="image/*"
+              className="fileupload block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
               onChange={handleImageChange}
             />
             <br />
             {/* Change to select... */}
-            <label htmlFor="category">Category (Required): </label>
-            <select name="category" id="category" onChange={handleChange}>
-              <option value="">Select a Category</option>
-              {categories.map((category) => (
-                <option value={category._id} key={category._id}>
-                  {category.categoryName}
-                </option>
-              ))}
-            </select>
-            <button>Submit</button>
+            <button className="add-button">Submit</button>
           </form>
+      </div>
         </>
       )}
+
     </>
   );
 };
