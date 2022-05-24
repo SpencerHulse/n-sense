@@ -54,6 +54,7 @@ const Slider = () => {
           <div
             className={index === currentSlide ? "slide current" : "slide"}
             key={index}
+            onClick={(event) => console.log(event.target)}
           >
             {index === currentSlide && (
               <div>
@@ -61,12 +62,15 @@ const Slider = () => {
                 <div className="content">
                   <h2>{slide.title}</h2>
                   <hr />
-                  <button
-                    type="button"
-                    className="shop --btn --btn-primary border-white border-4 py-4 px-8"
-                  >
-                    <Link to={slide.href}>Shop Today</Link>
-                  </button>
+                  <Link to={slide.href}>
+                    <button
+                      id="slider-button"
+                      type="button"
+                      className="shop --btn --btn-primary border-white border-4 py-4 px-8"
+                    >
+                      Shop Today
+                    </button>
+                  </Link>
                 </div>
               </div>
             )}
