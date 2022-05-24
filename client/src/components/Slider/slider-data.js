@@ -20,7 +20,7 @@ export const sliderData = [
   {
     image:
       "https://cdn.shopify.com/s/files/1/0211/5044/products/soaps01_1127x634.jpg?v=1569282266",
-    title: "Feel organicly clean with our natural soaps!",
+    title: "Feel organically clean with our natural soaps!",
     href: "/category/soaps",
   },
 ];

@@ -1249,6 +1249,10 @@ ul {
   width: 100%;
 }
 
+.product-quantity {
+  width: 40px;
+}
+
 .dropdown {
   background-color: var(--primary-background);
   padding: 5px 10px;

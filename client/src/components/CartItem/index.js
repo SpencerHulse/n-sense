@@ -9,6 +9,10 @@ const CartItem = ({ item }) => {
   const { product, purchaseQuantity } = item;
 
   function onChange(e) {
+    // Prevents empty input and thus NaN value
+    if (!e.target.value && e.target.value !== "0") {
+      return;
+    }
     const change = parseInt(e.target.value) - purchaseQuantity;
 
     if (change === -1 && purchaseQuantity === 1) {
@@ -87,19 +91,14 @@ const CartItem = ({ item }) => {
               <label htmlFor={`quantity-`} className="sr-only">
                 Quantity, {product.name}
               </label>
-              <select
+              <input
                 id={`quantity-`}
                 name={`quantity-`}
-                className="block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="product-quantity block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 value={purchaseQuantity}
                 onChange={onChange}
-              >
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-              </select>
+                type="number"
+              />
             </div>
           </div>
           <p className="mt-1 text-sm text-gray-500">{product.color}</p>
