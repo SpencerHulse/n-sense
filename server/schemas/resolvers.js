@@ -2,6 +2,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Category, Product, Order } = require("../models");
 const { signToken } = require("../utils/auth");
+const { generateUploadURL } = require("../utils/aws-s3");
 const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
@@ -126,6 +127,11 @@ const resolvers = {
       });
 
       return { session: session.id };
+    },
+    // AWS S3 Bucket Upload
+    uploadImage: async (parent, args) => {
+      const url = await generateUploadURL(args.primaryImage);
+      return { url };
     },
   },
   Mutation: {

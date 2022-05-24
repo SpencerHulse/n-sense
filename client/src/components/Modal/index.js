@@ -112,25 +112,14 @@ export default function Modal() {
   return (
     <>
       <li>Cart ({cartItems.length})</li>
-      <div className="bg-white absolute z-50">
-        <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-0  overflow-auto">
-          <div>
-            <h1 className="text-3xl font-extrabold text-center tracking-tight text-gray-900 sm:text-4xl">
-              Shopping Cart
-            </h1>
-            <div onClick={() => toggle()}>[close]</div>
+      <div className="cart">
+        <div>
+          <div className="mb-5" onClick={() => toggle()}>
+            Close cart
           </div>
-
-          <form className="mt-12">
-            <section aria-labelledby="cart-heading">
-              <h2 id="cart-heading" className="sr-only">
-                Items in your shopping cart
-              </h2>
-
-              <ul
-                role="list"
-                className="border-t border-b border-gray-200 divide-y divide-gray-200"
-              >
+          <form>
+            <section>
+              <ul className="cart-list-container" role="list">
                 {cartItems.map((item) => {
                   return <CartItem2 key={item.product._id} item={item} />;
                 })}
@@ -160,10 +149,7 @@ export default function Modal() {
               </div>
               {Auth.loggedIn() ? (
                 <div className="mt-10">
-                  <button
-                    type="submit"
-                    className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-                  >
+                  <button type="submit" className="add-button">
                     Checkout
                   </button>
                 </div>
@@ -176,18 +162,6 @@ export default function Modal() {
                   to check out)
                 </span>
               )}
-
-              <div className="mt-6 text-sm text-center">
-                <p>
-                  or{" "}
-                  <a
-                    href="/"
-                    className="text-indigo-600 font-medium hover:text-indigo-500"
-                  >
-                    Continue Shopping<span aria-hidden="true"> &rarr;</span>
-                  </a>
-                </p>
-              </div>
             </section>
           </form>
         </div>

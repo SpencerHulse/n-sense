@@ -34,7 +34,7 @@ const CartItem = ({ item }) => {
     <div className="flex py-6 border-b-2 border-gray-400 w-full">
       <div className="h-24 w-24 flex flex-row flex-shrink-0 rounded-md border border-gray-200">
         <img
-          src={require(`../../assets/images/${product.primaryImage}.jpg`)}
+          src={product.primaryImage}
           alt={`${product.name} ${product.category.categoryName}`}
           className="h-full w-full object-cover object-center"
         />

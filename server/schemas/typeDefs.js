@@ -26,7 +26,6 @@ const typeDefs = gql`
     details: [String]
     price: Float
     stock: Int
-    images: [String]
     primaryImage: String
     category: Category
   }
@@ -41,6 +40,10 @@ const typeDefs = gql`
     session: ID
   }
 
+  type AmazonS3 {
+    url: String
+  }
+
   type Query {
     users: [User]
     user: User
@@ -49,6 +52,7 @@ const typeDefs = gql`
     product(_id: ID!): Product
     order(_id: ID!): Order
     checkout(products: [ID]!): Checkout
+    uploadImage(primaryImage: String!): AmazonS3
   }
 
   type Mutation {
@@ -68,7 +72,6 @@ const typeDefs = gql`
       details: [String]
       price: Float!
       stock: Int
-      images: [String]
       primaryImage: String
       category: ID!
     ): Product
@@ -79,7 +82,6 @@ const typeDefs = gql`
       details: [String]
       price: Float
       stock: Int
-      images: [String]
       primaryImage: String
       category: ID
     ): Product
