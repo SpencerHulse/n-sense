@@ -82,12 +82,21 @@ function OrderHistory() {
                   {/* <hr /> */}
                   <ul className="w-full order-items">
                     {order.products.map((product, index) => (
-
-                      <li key={index} className="order-item flex justify-between">
-                        <Link to={`/product/${product[0]._id}`} className="w-full">
+                      <li
+                        key={index}
+                        className="order-item flex justify-between"
+                      >
+                        <Link
+                          to={`/product/${product[0]._id}`}
+                          className="w-full"
+                        >
                           <div className="flex items-center w-full justify-between">
                             <div className="flex w-5/12 items-center">
-                              <img className="orderlist-img" src={require(`../assets/images/${product[0].primaryImage}.jpg`)} alt={product[0].name} />
+                              <img
+                                className="orderlist-img"
+                                src={product[0].primaryImage}
+                                alt={product[0].name}
+                              />
                               <div>
                                 <p className="order-product-name">
                                   {product[0].name}
@@ -95,28 +104,51 @@ function OrderHistory() {
                                 <p className="light">{product[0].category}</p>
                               </div>
                             </div>
-                            {/* The below is good for production... uses public folder
-                          <img alt={name} src={`/images/${primaryImage}`} /> */}
                             <table className="table-fixed w-7/12">
                               <thead>
                                 <tr>
-                                  <th><p className="order-details-title">Quantity</p></th>
-                                  <th><p className="order-details-title">Unit price</p></th>
-                                  <th><p className="order-details-title">Total</p></th>
+                                  <th>
+                                    <p className="order-details-title">
+                                      Quantity
+                                    </p>
+                                  </th>
+                                  <th>
+                                    <p className="order-details-title">
+                                      Unit price
+                                    </p>
+                                  </th>
+                                  <th>
+                                    <p className="order-details-title">Total</p>
+                                  </th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
-                                  <td><p className="order-details-info">{product[0].quantityPurchased}</p></td>
-                                  <td><p className="order-details-info">${product[0].price}</p></td>
-                                  <td><p className="order-details-info font-bold">${(product[0].price * product[0].quantityPurchased).toFixed(2)}</p></td>
+                                  <td>
+                                    <p className="order-details-info">
+                                      {product[0].quantityPurchased}
+                                    </p>
+                                  </td>
+                                  <td>
+                                    <p className="order-details-info">
+                                      ${product[0].price}
+                                    </p>
+                                  </td>
+                                  <td>
+                                    <p className="order-details-info font-bold">
+                                      $
+                                      {(
+                                        product[0].price *
+                                        product[0].quantityPurchased
+                                      ).toFixed(2)}
+                                    </p>
+                                  </td>
                                 </tr>
                               </tbody>
                             </table>
                           </div>
                         </Link>
                       </li>
-
                     ))}
                   </ul>
 

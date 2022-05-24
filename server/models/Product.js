@@ -26,11 +26,6 @@ const productSchema = new Schema({
     min: 0,
     default: 0,
   },
-  images: [
-    {
-      type: String,
-    },
-  ],
   primaryImage: {
     type: String,
   },

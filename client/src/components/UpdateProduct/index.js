@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation, useQuery, useLazyQuery } from "@apollo/client";
 import { UPDATE_PRODUCT } from "../../utils/mutations";
-import { QUERY_PRODUCT } from "../../utils/queries";
+import { QUERY_PRODUCT, QUERY_URL } from "../../utils/queries";
 
 const UpdateProduct = ({ categories, selectedProduct }) => {
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
@@ -9,13 +9,14 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     QUERY_PRODUCT,
     { variables: { id: selectedProduct } }
   );
+  const [getURL, { data }] = useLazyQuery(QUERY_URL);
+  const [image, setImage] = useState();
 
   const [formState, setFormState] = useState({
     name: "",
     description: "",
     price: "",
     stock: "",
-    primaryImage: "",
     category: "",
   });
 
@@ -66,8 +67,32 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     setDetailsState({ ...detailsState, [name]: value });
   };
 
-  const updateProductHandler = (event) => {
+  const handleImageChange = (event) => {
+    setImage(event.target.files[0]);
+  };
+
+  useEffect(() => {
+    if (image) {
+      getURL({ variables: { primaryImage: image.name } });
+    }
+  }, [image]);
+
+  const updateProductHandler = async (event) => {
     event.preventDefault();
+    // Upload the image (if it exists) to the AWS s3 Bucket
+    let imageUrl;
+    if (image) {
+      await fetch(data.uploadImage.url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        body: image,
+      });
+      // Gets the URL for src
+      imageUrl = data.uploadImage.url.split("?")[0];
+    }
+    // Variables from the form
     const { name, description, price, stock, primaryImage, category } =
       formState;
     const detailsArray = [];
@@ -81,12 +106,11 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
 
     if (name && description && price && category) {
       let primaryImageCheck;
-      if (primaryImage === "") {
-        primaryImageCheck = "default";
+      if (image) {
+        primaryImageCheck = imageUrl;
       } else {
         primaryImageCheck = primaryImage;
       }
-      const imagesArray = [primaryImageCheck];
 
       updateProduct({
         variables: {
@@ -96,7 +120,6 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
           details: detailsArray,
           price: parseFloat(price),
           stock: parseInt(stock),
-          images: imagesArray,
           primaryImage: primaryImageCheck,
           category: category,
         },
@@ -201,22 +224,14 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
               onChange={handleChange}
             />
             <br />
-            {/* Upload multiple images or give up and go with one? */}
-            <label htmlFor="images">Images: </label>
+            <label htmlFor="primaryImage" id="primaryImage">
+              Main Image:{" "}
+            </label>
             <input
-              type="text"
-              name="images"
-              id="images"
-              onChange={handleChange}
-            />
-            <br />
-            {/* Default to first image chosen? Then provide a dropdown using state? */}
-            <label htmlFor="primaryImage">Main Image: </label>
-            <input
-              type="text"
-              name="primaryImage"
-              id="primaryImage"
-              onChange={handleChange}
+              id="imageInput"
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
             />
             <br />
             {/* Change to select... */}

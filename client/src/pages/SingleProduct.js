@@ -38,7 +38,7 @@ const SingleProduct = () => {
               <div className="flex justify-between product-hero mx-auto gap-9">
                 <div className="product-image mx-auto">
                   <img
-                    src={require(`../assets/images/${currentProduct.primaryImage}.jpg`)}
+                    src={currentProduct.primaryImage}
                     alt={`${currentProduct.name} ${currentProduct.category.categoryName}`}
                   />
                 </div>
@@ -50,13 +50,12 @@ const SingleProduct = () => {
                       </h2>
                     </div>
                     <div className="details-item mb-5">
-
                       <h3 className="text-slate-600 block">
                         {currentProduct.category.categoryName}
                       </h3>
                     </div>
                     <div className="details-item mb-5">
-                      <p className="price light">${" "}{currentProduct.price}</p>
+                      <p className="price light">$ {currentProduct.price}</p>
                     </div>
                     <div className="details-item mb-5">
                       <ul>
@@ -66,21 +65,22 @@ const SingleProduct = () => {
                       </ul>
                     </div>
 
-                    <div className="details-item quantity-btn">
-
-                    </div>
+                    <div className="details-item quantity-btn"></div>
                   </div>
                   <br />
 
                   <div className="add-button-container gap-4 flex w-full">
-                  <select id="quantity" className="w-1/2 bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="">Quantity</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                      </select>
+                    <select
+                      id="quantity"
+                      className="w-1/2 bg-gray-50 border border-gray-300  text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                      <option value="">Quantity</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
                     <button
                       className="mt-5 add-button text-white rounded-md w-1/2"
                       type="button"
@@ -120,9 +120,7 @@ const SingleProduct = () => {
                     >
                       Add to Cart
                     </button>
-                  
                   </div>
-
                 </div>
               </div>
             </div>

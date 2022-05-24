@@ -76,7 +76,6 @@ export const ADD_PRODUCT = gql`
     $details: [String]
     $price: Float!
     $stock: Int
-    $images: [String]
     $primaryImage: String
     $category: ID!
   ) {
@@ -86,7 +85,6 @@ export const ADD_PRODUCT = gql`
       details: $details
       price: $price
       stock: $stock
-      images: $images
       primaryImage: $primaryImage
       category: $category
     ) {
@@ -95,7 +93,6 @@ export const ADD_PRODUCT = gql`
       description
       price
       stock
-      images
       primaryImage
       category {
         categoryName
@@ -113,7 +110,6 @@ export const REMOVE_PRODUCT = gql`
       description
       price
       stock
-      images
       primaryImage
     }
   }
@@ -128,7 +124,6 @@ export const UPDATE_PRODUCT = gql`
     $details: [String]
     $price: Float
     $stock: Int
-    $images: [String]
     $primaryImage: String
     $category: ID
   ) {
@@ -139,7 +134,6 @@ export const UPDATE_PRODUCT = gql`
       details: $details
       price: $price
       stock: $stock
-      images: $images
       primaryImage: $primaryImage
       category: $category
     ) {
@@ -148,7 +142,6 @@ export const UPDATE_PRODUCT = gql`
       description
       price
       stock
-      images
       primaryImage
       category {
         categoryName
@@ -169,7 +162,6 @@ export const ADD_ORDER = gql`
         description
         price
         stock
-        images
         primaryImage
         category {
           categoryName

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
+import React, { useState, useEffect } from "react";
+import { useMutation, useLazyQuery } from "@apollo/client";
 import { ADD_PRODUCT } from "../../utils/mutations";
+import { QUERY_URL } from "../../utils/queries";
 
 const ProductForm = ({ categories }) => {
   const [addProduct] = useMutation(ADD_PRODUCT);
+  const [getURL, { data }] = useLazyQuery(QUERY_URL);
+  const [image, setImage] = useState();
 
   const [formState, setFormState] = useState({
     name: "",
     description: "",
     price: "",
     stock: "",
-    primaryImage: "",
     category: "",
   });
 
@@ -34,10 +36,33 @@ const ProductForm = ({ categories }) => {
     setDetails({ ...details, [name]: value });
   };
 
-  const addProductHandler = (event) => {
+  const handleImageChange = (event) => {
+    setImage(event.target.files[0]);
+  };
+
+  useEffect(() => {
+    if (image) {
+      getURL({ variables: { primaryImage: image.name } });
+    }
+  }, [image]);
+
+  const addProductHandler = async (event) => {
     event.preventDefault();
-    const { name, description, price, stock, primaryImage, category } =
-      formState;
+    // Upload the image (if it exists) to the AWS s3 Bucket
+    let imageUrl;
+    if (image) {
+      await fetch(data.uploadImage.url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        body: image,
+      });
+      // Gets the URL for src
+      imageUrl = data.uploadImage.url.split("?")[0];
+    }
+    // Variables from the form
+    const { name, description, price, stock, category } = formState;
     const detailsArray = [];
 
     for (let key in details) {
@@ -49,12 +74,12 @@ const ProductForm = ({ categories }) => {
 
     if (name && description && price && category) {
       let primaryImageCheck;
-      if (primaryImage === "") {
-        primaryImageCheck = "default";
+      if (!image) {
+        primaryImageCheck =
+          "https://nsense-images.s3.amazonaws.com/default.jpg";
       } else {
-        primaryImageCheck = primaryImage;
+        primaryImageCheck = imageUrl;
       }
-      const imagesArray = [primaryImageCheck];
 
       addProduct({
         variables: {
@@ -63,7 +88,6 @@ const ProductForm = ({ categories }) => {
           details: detailsArray,
           price: parseFloat(price),
           stock: parseInt(stock),
-          images: imagesArray,
           primaryImage: primaryImageCheck,
           category: category,
         },
@@ -219,46 +243,16 @@ const ProductForm = ({ categories }) => {
         />
 
         <br />
-        {/* Upload multiple images or give up and go with one? */}
-        <label htmlFor="images">Images: </label>
-
-
-
-        <div class="flex justify-center">
-  <div class="mb-3 w-96">
-    <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Default file input example</label>
-    <input class="form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" type="file" id="formFile" />
-  </div>
-</div>
-
-
-
-        <input type="text" name="images" id="images" onChange={handleChange} />
-        <br />
-        {/* Default to first image chosen? Then provide a dropdown using state? */}
-        <label htmlFor="primaryImage">Main Image: </label>
+        <label htmlFor="primaryImage" id="primaryImage">
+          Main Image:{" "}
+        </label>
         <input
-          type="text"
-          name="primaryImage"
-          id="primaryImage"
-          onChange={handleChange}
+          id="imageInput"
+          type="file"
+          accept="image/*"
+          onChange={handleImageChange}
         />
         <br />
-        {/* Change to select... */}
         <label htmlFor="category">Category (Required): </label>
         <select name="category" id="category" onChange={handleChange}>
           <option value="">Select a Category</option>

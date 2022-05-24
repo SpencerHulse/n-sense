@@ -35,7 +35,7 @@ const CartItem2 = ({ item }) => {
     <li key={product.id} className="flex cart-list">
       <div className="orderlist-img">
         <img
-          src={require(`../../assets/images/${product.primaryImage}.jpg`)}
+          src={product.primaryImage}
           alt={`${product.name} ${product.category.categoryName}`}
         />
       </div>
@@ -44,7 +44,12 @@ const CartItem2 = ({ item }) => {
         <div>
           <div className="flex justify-between">
             <h4 className="text-sm">
-              <a href={product.href} className="font-medium text-gray-700 hover:text-gray-800">{product.name}</a>
+              <a
+                href={product.href}
+                className="font-medium text-gray-700 hover:text-gray-800"
+              >
+                {product.name}
+              </a>
               <p className="flex items-center text-sm text-gray-700 space-x-2">
                 {product.inStock ? (
                   <CheckIcon
@@ -65,7 +70,10 @@ const CartItem2 = ({ item }) => {
                 </span>
               </p>
               <div>
-                <button type="button" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                <button
+                  type="button"
+                  className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+                >
                   <span
                     aria-label="trash"
                     onClick={() => {
@@ -80,7 +88,9 @@ const CartItem2 = ({ item }) => {
             </h4>
 
             <div className="ml-4 ">
-              <p className="mb-4 text-sm font-medium text-gray-900">{product.price}</p>
+              <p className="mb-4 text-sm font-medium text-gray-900">
+                {product.price}
+              </p>
               <label htmlFor={`quantity-`} className="sr-only">
                 Quantity, {product.name}
               </label>
@@ -103,9 +113,7 @@ const CartItem2 = ({ item }) => {
           <p className="mt-1 text-sm text-gray-500">{product.size}</p>
         </div>
 
-        <div className="mt-4 flex-1 flex items-end justify-between">
-
-        </div>
+        <div className="mt-4 flex-1 flex items-end justify-between"></div>
       </div>
     </li>
   );
