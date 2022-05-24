@@ -78,8 +78,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-        */
-        <Slider></Slider>
+
+        {/* <Slider></Slider> */}
         <div className="section scroll-carousel">
           <div className="container mx-auto mb-10">
             <ScrollCardCarousel>

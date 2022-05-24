@@ -350,20 +350,6 @@ ul {
   margin-right: 20px;
 }
 
-.adjust-container {
-  background-color: var(--primary-background);
-  border-radius: 10px;
-  padding: 10px;
-  animation-duration: 0.5s;
-  animation-name: animate-fade;
-  animation-fill-mode: backwards;
-}
-
-.fileupload {
-  overflow: hidden;
-  padding: 5px;
-}
-
 @keyframes animate-fade {
   0% { opacity: 0; }
   100% { opacity: 1; }
