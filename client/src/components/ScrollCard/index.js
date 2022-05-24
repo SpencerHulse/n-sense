@@ -15,6 +15,7 @@ function ScrollCard({
 }) {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+
   return (
     <div className="product-card w-48 mr-4">
       <div className="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
@@ -31,7 +32,6 @@ function ScrollCard({
               {name}
             </h5>
           </Link>
-
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {description}
           </p>

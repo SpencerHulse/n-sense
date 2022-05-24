@@ -39,7 +39,6 @@ const CartItem = ({ item }) => {
           alt={`${product.name} ${product.category.categoryName}`}
         />
       </div>
-
       <div className="ml-4 flex-1 flex flex-col">
         <div>
           <div className="flex justify-between">
@@ -62,12 +61,7 @@ const CartItem = ({ item }) => {
                     aria-hidden="true"
                   />
                 )}
-
-                <span>
-                  {product.inStock
-                    ? "In stock"
-                    : `Will ship in ${product.leadTime}`}
-                </span>
+                <span>{product.stock > 0 ? "In stock" : `Will ship ASAP`}</span>
               </p>
               <div>
                 <button
@@ -86,7 +80,6 @@ const CartItem = ({ item }) => {
                 </button>
               </div>
             </h4>
-
             <div className="ml-4 ">
               <p className="mb-4 text-sm font-medium text-gray-900">
                 {product.price}
@@ -112,7 +105,6 @@ const CartItem = ({ item }) => {
           <p className="mt-1 text-sm text-gray-500">{product.color}</p>
           <p className="mt-1 text-sm text-gray-500">{product.size}</p>
         </div>
-
         <div className="mt-4 flex-1 flex items-end justify-between"></div>
       </div>
     </li>

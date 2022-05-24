@@ -91,6 +91,7 @@ const Home = () => {
                           name={product.name}
                           description={product.description}
                           price={product.price}
+                          stock={product.stock}
                           primaryImage={product.primaryImage}
                           category={product.category.categoryName}
                         />
