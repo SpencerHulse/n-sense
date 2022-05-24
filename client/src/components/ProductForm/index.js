@@ -96,14 +96,18 @@ const ProductForm = ({ categories }) => {
       window.location.assign("/admin");
     }
   };
-
+  console.log(formState);
   return (
     <>
       <div className="adjust-container">
-
         <h2>Add a product</h2>
         <form action="submit" onSubmit={addProductHandler}>
-          <select className="w-8/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="category" id="category" onChange={handleChange}>
+          <select
+            className="w-8/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            name="category"
+            id="category"
+            onChange={handleChange}
+          >
             <option value="">Select a Category</option>
             {categories.map((category) => (
               <option value={category._id} key={category._id}>
@@ -112,7 +116,14 @@ const ProductForm = ({ categories }) => {
             ))}
           </select>
           <br />
-          <input type="text" name="name" placeholder="Name" id="name" onChange={handleChange} className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            id="name"
+            onChange={handleChange}
+            className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2"
+          />
           <textarea
             type="text"
             rows="10"
@@ -167,12 +178,11 @@ const ProductForm = ({ categories }) => {
             name="price"
             id="price"
             step="0.01"
-            min="0"
+            min="0.99"
             placeholder="Price"
             className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-            onChange={handleDetails}
+            onChange={handleChange}
           />
-
           {/* Input or the one where you can arrow up/down? */}
           <input
             type="number"
@@ -181,9 +191,8 @@ const ProductForm = ({ categories }) => {
             min="0"
             placeholder="Stock"
             className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-            onChange={handleDetails}
+            onChange={handleChange}
           />
-
           <br />
           <label htmlFor="primaryImage" id="primaryImage">
             Main Image:{" "}
@@ -195,12 +204,10 @@ const ProductForm = ({ categories }) => {
             className="fileupload block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             onChange={handleImageChange}
           />
-
-
-      <br />
-      <button className="add-button">Submit</button>
-    </form>
-      </div >
+          <br />
+          <button className="add-button">Submit</button>
+        </form>
+      </div>
     </>
   );
 };
