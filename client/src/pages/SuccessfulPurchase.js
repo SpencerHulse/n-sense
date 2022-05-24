@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import { ADD_ORDER } from "../utils/mutations";
+import { ADD_ORDER, UPDATE_PRODUCT } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 function SuccessfulPurchase() {
   const [addOrder] = useMutation(ADD_ORDER);
+  const [updateProduct] = useMutation(UPDATE_PRODUCT);
 
   useEffect(() => {
+    if (!Auth.loggedIn()) {
+      window.location.assign("/");
+    }
+
     async function saveOrder() {
       const cart = await idbPromise("cart", "get");
 
@@ -17,20 +23,22 @@ function SuccessfulPurchase() {
         for (let i = 0; i < product.purchaseQuantity; i++) {
           products.push(product._id);
         }
+
+        updateProduct({
+          variables: {
+            id: product._id,
+            stock: product.product.stock - product.purchaseQuantity,
+          },
+        });
       });
 
       if (products.length) {
         const { data } = await addOrder({ variables: { products } });
-
         const productData = data.addOrder.products;
         productData.forEach((item) => {
           idbPromise("cart", "delete", { _id: item._id });
         });
       }
-
-      // setTimeout(() => {
-      //   window.location.assign("/");
-      // }, 3000);
     }
 
     saveOrder();
@@ -55,7 +63,7 @@ function SuccessfulPurchase() {
                   The order was created successfully.
                 </p>
                 <div>
-                  <p class="mt-2 text-center text-sm text-gray-600">
+                  <p className="mt-2 text-center text-sm text-gray-600">
                     <Link to="/">Continue shopping</Link>
                   </p>
                 </div>

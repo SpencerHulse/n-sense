@@ -22,7 +22,7 @@ const NoMatch = () => {
                   to relax, man.
                 </p>
                 <div>
-                  <p class="mt-2 text-center text-sm text-gray-600">
+                  <p className="mt-2 text-center text-sm text-gray-600">
                     <Link to="/">Start shopping</Link>
                   </p>
                 </div>

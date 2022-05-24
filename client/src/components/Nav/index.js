@@ -62,16 +62,6 @@ function Nav() {
           </div>
           <div>
             <ul className="flex items-center">
-              <li>
-                <input
-                  className="border-black border-2 rounded-lg"
-                  type="text"
-                  placeholder="Search..."
-                ></input>
-                <button className="ml-2" type="submit">
-                  <i className="fa fa-search"></i>
-                </button>
-              </li>
               <Cart />
               {Auth.loggedIn() ? (
                 <>

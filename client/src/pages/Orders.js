@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 
 function OrderHistory() {
-  const { data } = useQuery(QUERY_USER);
+  const { loading, data } = useQuery(QUERY_USER);
   let groupedOrders = [];
 
-  if (data) {
+  if (!Auth.loggedIn()) {
+    window.location.assign("/");
+  }
+
+  if (!loading) {
     const userData = data.user;
     const { orders } = userData;
     orders.forEach((order) => {

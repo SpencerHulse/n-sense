@@ -319,6 +319,11 @@ ul {
   border-right: 4px rgb(74, 37, 100);
 }
 
+#cart-nav-btn,
+#close-cart-btn {
+  cursor: pointer;
+}
+
 .cart {
   background-color: white;
   position: absolute;

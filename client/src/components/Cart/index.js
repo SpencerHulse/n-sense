@@ -76,6 +76,7 @@ export default function Cart() {
   }, [cartItems.length, dispatch]);
 
   let cartRef = useRef();
+  let cartTabRef = useRef();
 
   useEffect(() => {
     let handler = (event) => {
@@ -83,7 +84,10 @@ export default function Cart() {
         return;
       }
 
-      if (!cartRef.current.contains(event.target)) {
+      if (
+        !cartRef.current.contains(event.target) &&
+        !cartTabRef.current.contains(event.target)
+      ) {
         toggle();
       }
     };
@@ -94,16 +98,22 @@ export default function Cart() {
   });
 
   if (!cartOpen) {
-    return <li onClick={() => toggle()}>Cart ({cartItems.length})</li>;
+    return (
+      <li onClick={() => toggle()}>
+        <button id="cart-nav-btn">Cart ({cartItems.length})</button>
+      </li>
+    );
   }
 
   return (
     <>
-      <li onClick={() => toggle()}>Cart ({cartItems.length})</li>
+      <li ref={cartTabRef}>
+        <button id="cart-nav-btn">Cart ({cartItems.length})</button>
+      </li>
       <div className="cart" ref={cartRef}>
         <div>
           <div className="mb-5" onClick={() => toggle()}>
-            Close cart
+            <button id="close-cart-btn">Close cart</button>
           </div>
           <form>
             <section>
