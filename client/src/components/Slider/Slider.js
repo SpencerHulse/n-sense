@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { sliderData } from "./slider-data";
+import { Link } from "react-router-dom";
 import "./slider.scss";
 
 const Slider = () => {
@@ -60,8 +61,11 @@ const Slider = () => {
                 <div className="content">
                   <h2>{slide.title}</h2>
                   <hr />
-                  <button className="--btn --btn-primary border-white border-4 py-4 px-8">
-                    Shop Today
+                  <button
+                    type="button"
+                    className="shop --btn --btn-primary border-white border-4 py-4 px-8"
+                  >
+                    <Link to={slide.href}>Shop Today</Link>
                   </button>
                 </div>
               </div>

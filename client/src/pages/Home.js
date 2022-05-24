@@ -63,7 +63,7 @@ const Home = () => {
           </div> */
             /* </div> */
 
-            <div className="section scroll-carousel">
+            <div className="scroll-carousel">
               <Slider />
 
               <div className="container mx-auto mb-10">

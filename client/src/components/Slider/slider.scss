@@ -64,7 +64,7 @@
 .next {
     right: 1.5rem;
 }
-.previous {
+.prev {
     left: 1.5rem;
 }
 
@@ -108,4 +108,7 @@ border: solid white 4px
 .content > * {
     color: #fff;
     margin-bottom: 1rem;
+}
+.shop{
+    z-index: 200
 }
