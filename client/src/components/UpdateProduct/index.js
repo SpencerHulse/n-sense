@@ -75,7 +75,7 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     if (image) {
       getURL({ variables: { primaryImage: image.name } });
     }
-  }, [image]);
+  }, [image, getURL]);
 
   const updateProductHandler = async (event) => {
     event.preventDefault();

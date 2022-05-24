@@ -34,7 +34,7 @@ const Slider = () => {
       auto();
     }
     return () => clearInterval(slideInterval);
-  }, [currentSlide]);
+  }, [currentSlide, auto, autoScroll, slideInterval]);
 
   return (
     <div className="slider">
@@ -54,7 +54,6 @@ const Slider = () => {
           <div
             className={index === currentSlide ? "slide current" : "slide"}
             key={index}
-            onClick={(event) => console.log(event.target)}
           >
             {index === currentSlide && (
               <div>

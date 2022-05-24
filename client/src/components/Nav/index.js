@@ -10,8 +10,6 @@ import { updateCategories, selectCategory } from "../../features/categorySlice";
 // Apollo/GraphQL
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../../utils/queries";
-import { BsSearch } from "react-icons/bs";
-import Modal from "../Modal";
 
 function Nav() {
   const dispatch = useDispatch();
@@ -74,7 +72,7 @@ function Nav() {
                   <i className="fa fa-search"></i>
                 </button>
               </li>
-              <Modal />
+              <Cart />
               {Auth.loggedIn() ? (
                 <>
                   <li>

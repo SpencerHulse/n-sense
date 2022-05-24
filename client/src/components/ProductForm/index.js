@@ -44,7 +44,7 @@ const ProductForm = ({ categories }) => {
     if (image) {
       getURL({ variables: { primaryImage: image.name } });
     }
-  }, [image]);
+  }, [image, getURL]);
 
   const addProductHandler = async (event) => {
     event.preventDefault();

@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+/* This example requires Tailwind CSS v2.0+ */
+import React, { useRef, useEffect } from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
-import Modal from "../Modal";
-import { XIcon } from "@heroicons/react/outline";
 import { toggleCart, addMultipleItems } from "../../features/cartSlice";
 import { idbPromise } from "../../utils/helpers";
 
@@ -13,7 +12,7 @@ import { useLazyQuery } from "@apollo/client";
 import { QUERY_CHECKOUT } from "../../utils/queries";
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
-const Cart = () => {
+export default function Cart() {
   const dispatch = useDispatch();
   const { cartItems, cartOpen } = useSelector((state) => state.cart);
 
@@ -76,69 +75,89 @@ const Cart = () => {
     }
   }, [cartItems.length, dispatch]);
 
+  let cartRef = useRef();
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!cartOpen) {
+        return;
+      }
+
+      if (!cartRef.current.contains(event.target)) {
+        toggle();
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => document.removeEventListener("mousedown", handler);
+  });
+
   if (!cartOpen) {
     return <li onClick={() => toggle()}>Cart ({cartItems.length})</li>;
   }
 
   return (
     <>
-      <li>Cart ({cartItems.length})</li>
-
-      <div className="modal bg-white">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div onClick={() => toggle()}>[close]</div>
-            <h4 className="modal-title">Shopping Cart</h4>
+      <li onClick={() => toggle()}>Cart ({cartItems.length})</li>
+      <div className="cart" ref={cartRef}>
+        <div>
+          <div className="mb-5" onClick={() => toggle()}>
+            Close cart
           </div>
+          <form>
+            <section>
+              <ul className="cart-list-container">
+                {cartItems.map((item) => {
+                  return <CartItem key={item.product._id} item={item} />;
+                })}
+              </ul>
+            </section>
 
-          {cartItems.length ? (
-            <div className="modal-body">
-              {cartItems.map((item) => {
-                return <CartItem key={item.product._id} item={item} />;
-              })}
+            {/* Order summary */}
+            <section aria-labelledby="summary-heading" className="mt-10">
+              <h2 id="summary-heading" className="sr-only">
+                Order summary
+              </h2>
+
               <div>
-                <strong>Total: ${calculateTotal()}</strong>
-                {Auth.loggedIn() ? (
-                  <button onClick={submitCheckout}>Checkout</button>
-                ) : (
-                  <span>(log in to check out)</span>
-                )}
+                <dl className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <dt className="text-base font-medium text-gray-900">
+                      Subtotal
+                    </dt>
+                    <dd className="ml-4 text-base font-medium text-gray-900">
+                      ${calculateTotal()}
+                    </dd>
+                  </div>
+                </dl>
+                <p className="mt-1 text-sm text-gray-500">
+                  Shipping and taxes will be calculated at checkout.
+                </p>
               </div>
-            </div>
-          ) : (
-            <h3>You haven't added anything to your cart yet!</h3>
-          )}
-        </div>
-        <div className="modal-footer">
-          <button>Close</button>
+              {Auth.loggedIn() ? (
+                <div className="mt-10">
+                  <button
+                    type="submit"
+                    className="add-button"
+                    onClick={submitCheckout}
+                  >
+                    Checkout
+                  </button>
+                </div>
+              ) : (
+                <span>
+                  (
+                  <a className="text-lime-600" href="/login">
+                    Log in
+                  </a>{" "}
+                  to check out)
+                </span>
+              )}
+            </section>
+          </form>
         </div>
       </div>
     </>
   );
-};
-
-//       <div>
-//         <div onClick={() => toggle()}>[close]</div>
-//         <h2>Shopping Cart</h2>
-//         {cartItems.length ? (
-//           <div>
-//             {cartItems.map((item) => {
-//               return <CartItem key={item.product._id} item={item} />;
-//             })}
-//             <div>
-//               <strong>Total: ${calculateTotal()}</strong>
-//               {Auth.loggedIn() ? (
-//                 <button>Checkout</button>
-//               ) : (
-//                 <span>(log in to check out)</span>
-//               )}
-//             </div>
-//           </div>
-//         ) : (
-//           <h3>You haven't added anything to your cart yet!</h3>
-//         )}
-//       </div>
-//     </>
-//   );
-// };
-export default Cart;
+}
