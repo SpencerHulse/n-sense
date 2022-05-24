@@ -88,66 +88,77 @@ const Admin = () => {
     <>
       <div className="section">
         <div className="container mx-auto">
-        <h2 className="mb-10">Admin Dashboard</h2>
-          <div>
+
+          <h2 className="mb-10">Admin Dashboard</h2>
+          <div className="flex mx-auto gap-4 w-full">
+
             {/* Thinking each could take up half the screen, and a form can pop up beneath depending on selection */}
-            <div className="order-details">
+            <div className="order-details w-1/2">
 
-            <h2>Categories</h2>
-            <div className="flex gap-4 items-center">
+              <h2>Categories</h2>
+              <div className="flex gap-4 items-center">
 
-            <select className="w-8/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              name="categories"
-              id="categories"
-              onChange={() => handleCategoryChange()}
-              >
-              {!categoryLoading &&
-                categories.map((category) => (
-                  <option value={category.categoryName} key={category._id}>
-                    {category.categoryName}
-                  </option>
-                ))}
-            </select>
-            <button className="mt-5 add-button text-white rounded-md w-4/12" onClick={categoryDeleteHandler}>
-              Delete Selected Category
-            </button>
-                </div>
-            <br />
-            <button onClick={() => setFormType("Add Category")}>
-              Add New Category
-            </button>
-            {formType === "Add Category" && <CategoryForm />}
+                <select className="w-8/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  name="categories"
+                  id="categories"
+                  onChange={() => handleCategoryChange()}
+                >
+                  {!categoryLoading &&
+                    categories.map((category) => (
+                      <option value={category.categoryName} key={category._id}>
+                        {category.categoryName}
+                      </option>
+                    ))}
+                </select>
+                <button className="mt-5 warning-button text-white rounded-md w-4/12 bg-red-600" onClick={categoryDeleteHandler}>
+                  Delete Selected Category
+                </button>
+              </div>
+              <br />
+              <button onClick={() => setFormType("Add Category")}>
+                Add New Category
+              </button>
+              {formType === "Add Category" && <CategoryForm />}
+            </div>
+
+            <div className="order-details w-1/2">
+              <h2>Products</h2>
+              <div className="flex gap-4 items-center">
+                <div className="w-full">
+                <p>Select a product to edit or remove</p>
+                <select
+                  className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  name="products"
+                  id="products"
+                  onChange={() => handleProductChange()}
+                  >
+
+                  <option value="">Select a Product</option>
+                  {!productLoading &&
+                    products.map((product, i) => (
+                      <option value={product._id} key={product._id}>
+                        {product.name}
+                      </option>
+                    ))}
+                </select>
+                    </div>
+                <button className="mt-5 warning-button text-white rounded-md w-4/12 bg-red-600" onClick={productDeleteHandler}>Delete Selected Product</button>
+              </div>
+              <br />
+              <button onClick={() => setFormType("Add Product")}>
+                Add New Product
+              </button>
+              {formType === "Add Product" && <ProductForm categories={categories} />}
+              {formType === "Update Product" && selectedProduct && (
+                <UpdateProduct
+                  selectedProduct={selectedProduct}
+                  categories={categories}
+                />
+              )}
+            </div>
+
           </div>
-          </div>
-          <div className="order-details mt-5">
-            <h2>Products</h2>
-            <select
-              name="products"
-              id="products"
-              onChange={() => handleProductChange()}
-            >
-              <option value="">Select a Product</option>
-              {!productLoading &&
-                products.map((product, i) => (
-                  <option value={product._id} key={product._id}>
-                    {product.name}
-                  </option>
-                ))}
-            </select>
-            <button onClick={productDeleteHandler}>Delete Selected Product</button>
-            <br />
-            <button onClick={() => setFormType("Add Product")}>
-              Add New Product
-            </button>
-          </div>
-          {formType === "Add Product" && <ProductForm categories={categories} />}
-          {formType === "Update Product" && selectedProduct && (
-            <UpdateProduct
-              selectedProduct={selectedProduct}
-              categories={categories}
-            />
-          )}
-          
+
         </div>
       </div>
     </>

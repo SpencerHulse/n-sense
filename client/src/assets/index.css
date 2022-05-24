@@ -170,6 +170,15 @@ ul {
   color: white;
 }
 
+.warning-button {
+  margin-top: auto;
+  /* background-color: var(--brand-color); */
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+}
+
 .product-hero {
   max-height: 700px;
   overflow: hidden;

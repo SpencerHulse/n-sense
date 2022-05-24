@@ -130,7 +130,7 @@ const UpdateProduct = ({ categories, selectedProduct }) => {
     <>
       {formState && (
         <>
-          <h2>Updating Product!</h2>
+          <h2>Editing product</h2>
           <form action="submit" onSubmit={updateProductHandler}>
             <label htmlFor="name">Name (Required): </label>
             <input type="text" name="name" id="name" onChange={handleChange} />
