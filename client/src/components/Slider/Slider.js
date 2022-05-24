@@ -56,10 +56,7 @@ const Slider = () => {
           >
             {index === currentSlide && (
               <div>
-                <img
-                  src="https://www.mcgill.ca/oss/files/oss/styles/hd/public/candle.png?itok=tb-dNiK9&timestamp=1624641622"
-                  alt="slide"
-                />
+                <img src={slide.image} alt="slide" />
                 <div className="content">
                   <h2>{slide.title}</h2>
                   <hr />

@@ -5,11 +5,13 @@ import christmas from "../../assets/images/christmas-wish.jpg";
 
 export const sliderData = [
   {
-    image: { candle1 },
+    image:
+      "https://www.mcgill.ca/oss/files/oss/styles/hd/public/candle.png?itok=tb-dNiK9&timestamp=1624641622",
     title: "Try out our handcrafted scented candles!",
   },
   {
-    image: { patchouli },
+    image:
+      "https://www.kohinoor-joy.com/wp-content/uploads/2018/07/incense.jpg",
     title: "Burn our incense!",
   },
   {
