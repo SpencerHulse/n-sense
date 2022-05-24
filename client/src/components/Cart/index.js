@@ -122,6 +122,7 @@ export default function Cart() {
                   return <CartItem key={item.product._id} item={item} />;
                 })}
               </ul>
+              {!cartItems.length && "There's nothing here yet!"}
             </section>
 
             {/* Order summary */}
