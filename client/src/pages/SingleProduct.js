@@ -33,7 +33,7 @@ const SingleProduct = () => {
     <>
       {currentProduct ? (
         <div>
-          <div className="product-hero-container">
+          <div className="product-hero-container bg-gradient-to-b from-[#e2e2e2] to-[#cccccc] dark:from-[#494949] dark:to-[#2F2F2F]">
             <div className="container mx-auto">
               <div className="flex justify-between product-hero mx-auto gap-9">
                 <div className="product-image mx-auto">
@@ -42,25 +42,25 @@ const SingleProduct = () => {
                     alt={`${currentProduct.name} ${currentProduct.category.categoryName}`}
                   />
                 </div>
-                <div className="product-info">
+                <div className="product-info dark:bg-[#7D7D7D]">
                   <div className="w-full">
-                    <div className="details-item ">
-                      <h2 className="text-2xl bold block">
+                    <div className="details-item">
+                      <h2 className="text-2xl bold block dark:text-white">
                         {currentProduct.name}
                       </h2>
                     </div>
                     <div className="details-item mb-5">
-                      <h3 className="text-slate-600 block">
+                      <h3 className="text-slate-600 block dark:text-white">
                         {currentProduct.category.categoryName}
                       </h3>
                     </div>
-                    <div className="details-item mb-5">
-                      <p className="price light">$ {currentProduct.price}</p>
+                    <div className="details-item mb-5 dark:text-white">
+                      <p className="price light dark:text-white">$ {currentProduct.price}</p>
                     </div>
                     <div className="details-item mb-5">
                       <ul>
                         {currentProduct.details.map((detail, i) => {
-                          return <li key={i}>{detail}</li>;
+                          return <li key={i} className="dark:text-white">{detail}</li>;
                         })}
                       </ul>
                     </div>
@@ -70,7 +70,7 @@ const SingleProduct = () => {
                   <br />
                   {currentProduct.stock <= 0
                     ? "Out of stock!"
-                    : currentProduct.stock <= 20 && "Only a few left!"}
+                    : currentProduct.stock <= 20 && <p className="dark:text-white">Only a few left!</p>}
                   <div className="add-button-container gap-4 flex w-full">
                     <select
                       id="quantity"
@@ -130,10 +130,10 @@ const SingleProduct = () => {
 
           <div className="section w-full flex flex-row">
             <div className="container mx-auto">
-              <h1 className="text-3xl font-extrabold mb-10">
+              <h1 className="text-3xl font-extrabold mb-10 dark:text-white">
                 Product Description
               </h1>
-              <p>{currentProduct.description}</p>
+              <p className="dark:text-white">{currentProduct.description}</p>
             </div>
           </div>
         </div>

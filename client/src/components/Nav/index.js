@@ -30,7 +30,7 @@ function Nav() {
   }
 
   return (
-    <nav>
+    <nav className="dark:bg-[#606060] text-black dark:text-white">
       <div className="container mx-auto relative">
         <div className="flex justify-between items-center">
           <div className="menu-left flex items-center">

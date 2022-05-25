@@ -110,7 +110,7 @@ export default function Cart() {
       <li ref={cartTabRef}>
         <button id="cart-nav-btn">Cart ({cartItems.length})</button>
       </li>
-      <div className="cart" ref={cartRef}>
+      <div className="cart dark:bg-[#606060] dark:text-white" ref={cartRef}>
         <div>
           <div className="mb-5" onClick={() => toggle()}>
             <button id="close-cart-btn">Close cart</button>
@@ -134,15 +134,15 @@ export default function Cart() {
               <div>
                 <dl className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <dt className="text-base font-medium text-gray-900">
+                    <dt className="text-base font-medium text-gray-900 dark:text-white">
                       Subtotal
                     </dt>
-                    <dd className="ml-4 text-base font-medium text-gray-900">
+                    <dd className="ml-4 text-base font-medium text-gray-900 dark:text-white">
                       ${calculateTotal()}
                     </dd>
                   </div>
                 </dl>
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-gray-500 dark:text-[#bababa]">
                   Shipping and taxes will be calculated at checkout.
                 </p>
               </div>

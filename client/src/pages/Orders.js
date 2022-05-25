@@ -64,16 +64,16 @@ function OrderHistory() {
   return (
     <>
       <div className="section">
-        <div className="container mx-auto my-1">
+        <div className="container mx-auto my-1 text-green-700 hover:text-green-700 dark:text-green-600">
           <Link to="/">← Back to Products</Link>
 
           {groupedOrders && data && (
             <>
-              <h2 className="mb-10">Order history for {data.user.username}:</h2>
+              <h2 className="mb-10 dark:text-white">Order history for {data.user.username}:</h2>
               {groupedOrders.map((order) => (
-                <div className="order-details mb-5" key={order._id}>
+                <div className="order-details mb-5 dark:bg-[#494949]" key={order._id}>
                   <div className="order-info flex items-center">
-                    <p className="order-id-badge">
+                    <p className="order-id-badge dark:bg-[#333333]">
                       Order <span className="order-id">#{order._id}</span>
                     </p>
                     <p className="light">
@@ -84,11 +84,11 @@ function OrderHistory() {
                     </p>
                   </div>
                   {/* <hr /> */}
-                  <ul className="w-full order-items">
+                  <ul className="w-full order-items dark:border-[#1a1a1a]">
                     {order.products.map((product, index) => (
                       <li
                         key={index}
-                        className="order-item flex justify-between"
+                        className="order-item dark:hover:bg-[#333333] dark:border-[#1a1a1a] flex justify-between"
                       >
                         <Link
                           to={`/product/${product[0]._id}`}
@@ -102,44 +102,44 @@ function OrderHistory() {
                                 alt={product[0].name}
                               />
                               <div>
-                                <p className="order-product-name">
+                                <p className="order-product-name dark:text-white">
                                   {product[0].name}
                                 </p>
-                                <p className="light">{product[0].category}</p>
+                                <p className="light dark:text-[#bababa]">{product[0].category}</p>
                               </div>
                             </div>
                             <table className="table-fixed w-7/12">
                               <thead>
                                 <tr>
                                   <th>
-                                    <p className="order-details-title">
+                                    <p className="order-details-title dark:text-white">
                                       Quantity
                                     </p>
                                   </th>
                                   <th>
-                                    <p className="order-details-title">
+                                    <p className="order-details-title dark:text-white">
                                       Unit price
                                     </p>
                                   </th>
                                   <th>
-                                    <p className="order-details-title">Total</p>
+                                    <p className="order-details-title dark:text-white">Total</p>
                                   </th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr>
                                   <td>
-                                    <p className="order-details-info">
+                                    <p className="order-details-info dark:text-[#bababa]">
                                       {product[0].quantityPurchased}
                                     </p>
                                   </td>
                                   <td>
-                                    <p className="order-details-info">
+                                    <p className="order-details-info dark:text-[#bababa]">
                                       ${product[0].price.toFixed(2)}
                                     </p>
                                   </td>
                                   <td>
-                                    <p className="order-details-info font-bold">
+                                    <p className="order-details-info font-bold dark:text-[#bababa]">
                                       $
                                       {(
                                         product[0].price *
@@ -158,7 +158,7 @@ function OrderHistory() {
 
                   {/* <hr /> */}
                   <div className="flex justify-end">
-                    <h3 className="order-details-info font-bold">
+                    <h3 className="order-details-info font-bold dark:text-white">
                       Order Total: ${calculateTotal(order).toFixed(2)}
                     </h3>
                   </div>

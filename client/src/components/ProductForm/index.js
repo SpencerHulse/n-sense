@@ -99,8 +99,8 @@ const ProductForm = ({ categories }) => {
   console.log(formState);
   return (
     <>
-      <div className="adjust-container">
-        <h2>Add a product</h2>
+      <div className="adjust-container dark:bg-[#333333]">
+        <h2 className="dark:text-white">Add a product</h2>
         <form action="submit" onSubmit={addProductHandler}>
           <select
             className="w-8/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -122,7 +122,7 @@ const ProductForm = ({ categories }) => {
             placeholder="Name"
             id="name"
             onChange={handleChange}
-            className="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm mb-2"
           />
           <textarea
             type="text"
@@ -130,45 +130,45 @@ const ProductForm = ({ categories }) => {
             name="description"
             id="description"
             placeholder="Description (required)"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleChange}
           />
           <br />
           {/* Some kind of add new on button click type deal with a max of five? */}
-          <label htmlFor="details">Details: </label>
+          <label htmlFor="details" className="dark:text-white">Details: </label>
           <input
             type="text"
             name="details1"
             id="details1"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleDetails}
           />
           <input
             type="text"
             name="details2"
             id="details2"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleDetails}
           />
           <input
             type="text"
             name="details3"
             id="details3"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleDetails}
           />
           <input
             type="text"
             name="details4"
             id="details4"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleDetails}
           />
           <input
             type="text"
             name="details5"
             id="details5"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleDetails}
           />
           <br />
@@ -180,7 +180,7 @@ const ProductForm = ({ categories }) => {
             step="0.01"
             min="0.99"
             placeholder="Price"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleChange}
           />
           {/* Input or the one where you can arrow up/down? */}
@@ -190,18 +190,18 @@ const ProductForm = ({ categories }) => {
             id="stock"
             min="0"
             placeholder="Stock"
-            className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
             onChange={handleChange}
           />
           <br />
-          <label htmlFor="primaryImage" id="primaryImage">
+          <label htmlFor="primaryImage" id="primaryImage" className="dark:text-white">
             Main Image:{" "}
           </label>
           <input
             id="imageInput"
             type="file"
             accept="image/*"
-            className="fileupload block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            className="dark:bg-[#1a1a1a] dark:text-white dark:border-black fileupload block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             onChange={handleImageChange}
           />
           <br />
