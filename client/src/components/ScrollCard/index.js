@@ -38,7 +38,7 @@ function ScrollCard({
           <div className="flex flex-row justify-between w-full">
             <p className="price text-xl font-bold text-white">${price}</p>
             <button
-              className="text-white"
+              className="text-white hover:border-white hover:border-2"
               onClick={() => {
                 const itemInCart = cartItems.find((item) => item._id === _id);
 

@@ -38,7 +38,7 @@ function ProductCard({
           <div className="product-card-action flex flex-row justify-between w-full">
             <p className="price text-xl text-white font-bold">${price}</p>
             <button
-              className="text-white"
+              className="text-white hover:border-white hover:border-2"
               onClick={() => {
                 const itemInCart = cartItems.find((item) => item._id === _id);
 
