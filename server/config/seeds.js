@@ -48,7 +48,7 @@ db.once("open", async () => {
     {
       name: "Citrus Seagrass",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "This soothing fragrance combines the light citrus scents of mandarin and grapefruit with sweet mint, cedarwood, and musk. ",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -63,7 +63,7 @@ db.once("open", async () => {
     {
       name: "Coffee Shop",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        " It smells like fresh brewed coffee, before the sugar, cream, hazelnut... It's not heavy.  Just a soft scent of morning brew",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -77,7 +77,7 @@ db.once("open", async () => {
     {
       name: "Cozy Cabin",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Cozy Cabin is a soy based candle that combines sweet tobacco and leather. One of our softer scents, Cozy Cabin is a warm yet masculine scent. Often referred to as a perfect mandle! When you light this candle a fire automatically starts, shoes come off and (faux) rugs appear out of nowhere.",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -91,7 +91,7 @@ db.once("open", async () => {
     {
       name: "Honey Vanilla",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Featuring floral notes of wildflower honey accented by coconut milk and vanilla, this fragrance is wonderfully sweet, rich and layered. Create a warm, welcoming atmosphere by adding one of these candles to any room in your home. Fragrance Notes: Top: Coconut Milk, Fruity.",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -105,7 +105,7 @@ db.once("open", async () => {
     {
       name: "Lavender",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Beyond its appealing aroma, lavender has been shown to help relieve insomnia, stress, and anxiety.",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -119,7 +119,7 @@ db.once("open", async () => {
     {
       name: "Lemon",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Offers both a clean lemon scent and just a touch of fresh green lemon leaves.",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -133,7 +133,7 @@ db.once("open", async () => {
     {
       name: "Orange Cassia",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Cassia essential oil is made from the leaves of a Chinese evergreen tree. It has a spicy, slightly woody scent that is similar to cinnamon. It smells delicious in fall or holiday blends with orange essential oil",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -147,7 +147,7 @@ db.once("open", async () => {
     {
       name: "Sugar Cookies",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Buttery caramel, cinnamon, maple and cream with a sugary vanilla and baked cookie note combines with white musk.",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -161,7 +161,7 @@ db.once("open", async () => {
     {
       name: "Apple Pie",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Delicious and impossible to resist, our just baked apple pie scent replicates the temptation of this forever favorite. All the classic ingredients are here – sweet apples, rich vanilla and warm cinnamon spice. A nod to tradition and the cozy comforts we can't live without",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -175,7 +175,7 @@ db.once("open", async () => {
     {
       name: "Chocolate Brownie",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "Our Chocolate Fudge Brownie candles are hand poured with a soft food grade paraffin wax blend for great scent throw.",
       details: [
         "Wow, a detail...",
         "Stop asking.",
@@ -190,7 +190,7 @@ db.once("open", async () => {
     {
       name: "Amber and Moss",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu. Et egestas quis ipsum suspendisse. Cras sed felis eget velit aliquet sagittis id consectetur purus. Ut ornare lectus sit amet est placerat in. Posuere ac ut consequat semper viverra nam libero justo. Consequat interdum varius sit amet mattis vulputate. Eu feugiat pretium nibh ipsum consequat. Pulvinar sapien et ligula ullamcorper malesuada proin. Ut lectus arcu bibendum at. Velit dignissim sodales ut eu sem integer vitae justo. Elit ut aliquam purus sit amet luctus venenatis. Imperdiet dui accumsan sit amet nulla facilisi. In nibh mauris cursus mattis molestie a. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.",
+        "A weekend in the mountains, sun gleaming through the canopy. Sage, moss, and lavender. If you like Amber & Moss, we think you'd also like spicy Black Fig",
       details: [
         "It comes in packs of nine!",
         "Wow, a detail...",
@@ -204,7 +204,7 @@ db.once("open", async () => {
     {
       name: "Black Fig",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu. Et egestas quis ipsum suspendisse. Cras sed felis eget velit aliquet sagittis id consectetur purus. Ut ornare lectus sit amet est placerat in. Posuere ac ut consequat semper viverra nam libero justo. Consequat interdum varius sit amet mattis vulputate. Eu feugiat pretium nibh ipsum consequat. Pulvinar sapien et ligula ullamcorper malesuada proin. Ut lectus arcu bibendum at. Velit dignissim sodales ut eu sem integer vitae justo. Elit ut aliquam purus sit amet luctus venenatis. Imperdiet dui accumsan sit amet nulla facilisi. In nibh mauris cursus mattis molestie a. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.",
+        "Backyard fruit trees, something baking in the oven. A little spicy and just sweet enough. Notes of evergreen, mission fig, and spice.",
       details: [
         "It comes in packs of nine!",
         "Wow, a detail...",
@@ -218,7 +218,7 @@ db.once("open", async () => {
     {
       name: "Patchouli Sweetgrass",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu. Et egestas quis ipsum suspendisse. Cras sed felis eget velit aliquet sagittis id consectetur purus. Ut ornare lectus sit amet est placerat in. Posuere ac ut consequat semper viverra nam libero justo. Consequat interdum varius sit amet mattis vulputate. Eu feugiat pretium nibh ipsum consequat. Pulvinar sapien et ligula ullamcorper malesuada proin. Ut lectus arcu bibendum at. Velit dignissim sodales ut eu sem integer vitae justo. Elit ut aliquam purus sit amet luctus venenatis. Imperdiet dui accumsan sit amet nulla facilisi. In nibh mauris cursus mattis molestie a. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.",
+        "Patchouli is not at the forefront of this candle scent. Good for people who hate it, maybe bad for those who do. This is more of a creamy tobacco scent with grassy notes coming through as you burn it. It's a really gorgeous scent that I'm loving more with every burn.",
       details: [
         "It comes in packs of nine!",
         "Wow, a detail...",
@@ -233,7 +233,7 @@ db.once("open", async () => {
     {
       name: "Sandlewood and Rose",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu. Et egestas quis ipsum suspendisse. Cras sed felis eget velit aliquet sagittis id consectetur purus. Ut ornare lectus sit amet est placerat in. Posuere ac ut consequat semper viverra nam libero justo. Consequat interdum varius sit amet mattis vulputate. Eu feugiat pretium nibh ipsum consequat. Pulvinar sapien et ligula ullamcorper malesuada proin. Ut lectus arcu bibendum at. Velit dignissim sodales ut eu sem integer vitae justo. Elit ut aliquam purus sit amet luctus venenatis. Imperdiet dui accumsan sit amet nulla facilisi. In nibh mauris cursus mattis molestie a. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.",
+        "Roses & Sandalwood perfume is blended with essential notes of roses, sandalwood, and a bit more: The floral scent of a fresh, classic, red rose, spicy, warm scent of cinnamon, the woodsy, earthy scent of Sandalwood, intoxicating, slightly sweet, dark, the musky-earthy aroma of Patchouli, church-like resinous and much more",
       details: [
         "It comes in packs of nine!",
         "Wow, a detail...",
@@ -248,7 +248,7 @@ db.once("open", async () => {
     {
       name: "Teakwood and Tobacco",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Amet tellus cras adipiscing enim eu. Et egestas quis ipsum suspendisse. Cras sed felis eget velit aliquet sagittis id consectetur purus. Ut ornare lectus sit amet est placerat in. Posuere ac ut consequat semper viverra nam libero justo. Consequat interdum varius sit amet mattis vulputate. Eu feugiat pretium nibh ipsum consequat. Pulvinar sapien et ligula ullamcorper malesuada proin. Ut lectus arcu bibendum at. Velit dignissim sodales ut eu sem integer vitae justo. Elit ut aliquam purus sit amet luctus venenatis. Imperdiet dui accumsan sit amet nulla facilisi. In nibh mauris cursus mattis molestie a. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.",
+        "Some call it the boyfriend scent, we call it the O.G. Leather, teak, and orange. If you like Teakwood & Tobacco, we think you'd also like creamy Patchouli Sweetgrass or woodsy Moonrise.",
       details: [
         "It comes in packs of nine!",
         "Wow, a detail...",
@@ -261,9 +261,95 @@ db.once("open", async () => {
       category: categories[1]._id,
     },
     {
+      name: "Cedarwood Amber",
+      description:
+        "Cedarwood Amber - A fresh scent with a sensation of texture, warmth, and sensuality. Top notes of bergamot, lavender, and coriander. Bottom notes of sandalwood, cedarwood, amber and musk.",
+      details: [
+        "It comes in packs of nine!",
+        "Wow, a detail...",
+        "Gasp! It smells amazing.",
+      ],
+      price: 6.99,
+      stock: 100,
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/cedarwood-amber.jpg",
+      category: categories[1]._id,
+    },
+    {
+      name: "White Sage",
+      description:
+        "Salvia apiana, the white sage, bee sage, or sacred sage is an evergreen perennial shrub that is native to the southwestern United States and northwestern Mexico, found mainly in the coastal sage scrub habitat of Southern California and Baja California, on the western edges of the Mojave and Sonoran deserts.",
+      details: [
+        "It comes in packs of nine!",
+        "Wow, a detail...",
+        "Gasp! It smells amazing.",
+      ],
+      price: 6.99,
+      stock: 100,
+      primaryImage: "https://nsense-images.s3.amazonaws.com/white-sage.jpg",
+      category: categories[1]._id,
+    },
+    {
+      name: "Incubation Incense",
+      description: "Hand Rolled Artisan Sticks",
+      details: [
+        "It comes in packs of nine!",
+        "Wow, a detail...",
+        "Gasp! It smells amazing.",
+      ],
+      price: 6.99,
+      stock: 100,
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/incubation-incense.jpg",
+      category: categories[1]._id,
+    },
+    {
+      name: "Abarghatti",
+      description:
+        "A traditional incense from India, the word is actually a compound of agar (as in the wood) and batti (meaning stick). These cored incense sticks are also sometimes made of aloeswood instead of agar and remain one of the most popular types of incense in their homeland.",
+      details: [
+        "It comes in packs of nine!",
+        "Wow, a detail...",
+        "Gasp! It smells amazing.",
+      ],
+      price: 6.99,
+      stock: 100,
+      primaryImage: "https://nsense-images.s3.amazonaws.com/abarghatti.jpg",
+      category: categories[1]._id,
+    },
+    {
       name: "Citrus Fresh",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit amet dictum sit. Purus sit amet volutpat consequat mauris nunc congue. In hendrerit gravida rutrum quisque non tellus orci ac. Id porta nibh venenatis cras sed felis eget. Mi eget mauris pharetra et ultrices neque. Nunc sed blandit libero volutpat. Dignissim enim sit amet venenatis urna cursus. Purus sit amet luctus venenatis lectus magna. Elementum pulvinar etiam non quam lacus. Eget magna fermentum iaculis eu non. Amet nulla facilisi morbi tempus. Risus nullam eget felis eget nunc lobortis mattis. Ultrices mi tempus imperdiet nulla malesuada. At volutpat diam ut venenatis tellus. Id venenatis a condimentum vitae sapien pellentesque habitant. Maecenas volutpat blandit aliquam etiam erat. Volutpat odio facilisis mauris sit amet.",
+        "Citrus Fresh™ essential oil blend combines Orange, Grapefruit, Mandarin, Tangerine, Lemon, and Spearmint essential oils to cleanse the air with an uplifting and refreshing aroma when diffused. It contains antioxidants and has cleansing properties when taken internally.",
+      details: ["Wow, a detail... and essential oil."],
+      price: 15.99,
+      stock: 50,
+      primaryImage: "https://nsense-images.s3.amazonaws.com/citrus-fresh.jpg",
+      category: categories[2]._id,
+    },
+    {
+      name: "Tea Tree",
+      description: "Scent is herbaceous, and leathery with a green back note.",
+      details: ["Wow, a detail... and essential oil."],
+      price: 15.99,
+      stock: 50,
+      primaryImage: "https://nsense-images.s3.amazonaws.com/tea-tree.jpg",
+      category: categories[2]._id,
+    },
+    {
+      name: "Australian Sandalwood",
+      description:
+        "Revered for centuries in India and other parts of the Far East, Sandalwood is a wonderfully calming oil which helps reduce nervous tension and agitated emotions. It is considered one of the premier oils for use in meditation by helping to quiet mental chatter. In skin applications, it may help reduce oiliness and blemishes. Sandalwood also can feel soothing and cooling to the skin when added to a carrier oil.",
+      details: ["Wow, a detail... and essential oil."],
+      price: 15.99,
+      stock: 50,
+      primaryImage: "https://nsense-images.s3.amazonaws.com/sharp-thought.jpg",
+      category: categories[2]._id,
+    },
+    {
+      name: "Black Pepper",
+      description:
+        "Its spicy and warm aroma is the perfect addition to other essential oils. Adding Black Pepper with other essential oils enhances any blend with a touch of heat and spice, turning it into something beautifully complex. Using Black Pepper can help you stay alert and stimulate the senses. Black Pepper can also be therapeutic, helping ease pain of aching muscles as well as improve circulation. For those who are trying to quit smoking, this essential oil is useful for helping reduce cravings.",
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
@@ -273,7 +359,7 @@ db.once("open", async () => {
     {
       name: "Cypress",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit amet dictum sit. Purus sit amet volutpat consequat mauris nunc congue. In hendrerit gravida rutrum quisque non tellus orci ac. Id porta nibh venenatis cras sed felis eget. Mi eget mauris pharetra et ultrices neque. Nunc sed blandit libero volutpat. Dignissim enim sit amet venenatis urna cursus. Purus sit amet luctus venenatis lectus magna. Elementum pulvinar etiam non quam lacus. Eget magna fermentum iaculis eu non. Amet nulla facilisi morbi tempus. Risus nullam eget felis eget nunc lobortis mattis. Ultrices mi tempus imperdiet nulla malesuada. At volutpat diam ut venenatis tellus. Id venenatis a condimentum vitae sapien pellentesque habitant. Maecenas volutpat blandit aliquam etiam erat. Volutpat odio facilisis mauris sit amet.",
+        "Cypress Essential Oil is the strong and distinctly aromatic essence obtained by steam distillation from the needles and leaves or wood and bark of select Cypress tree species. A botanical that sparked ancient imagination, Cypress is imbued with the longstanding cultural symbolism of spirituality and immortality.",
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
@@ -283,7 +369,7 @@ db.once("open", async () => {
     {
       name: "Lemon Myrtle",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit amet dictum sit. Purus sit amet volutpat consequat mauris nunc congue. In hendrerit gravida rutrum quisque non tellus orci ac. Id porta nibh venenatis cras sed felis eget. Mi eget mauris pharetra et ultrices neque. Nunc sed blandit libero volutpat. Dignissim enim sit amet venenatis urna cursus. Purus sit amet luctus venenatis lectus magna. Elementum pulvinar etiam non quam lacus. Eget magna fermentum iaculis eu non. Amet nulla facilisi morbi tempus. Risus nullam eget felis eget nunc lobortis mattis. Ultrices mi tempus imperdiet nulla malesuada. At volutpat diam ut venenatis tellus. Id venenatis a condimentum vitae sapien pellentesque habitant. Maecenas volutpat blandit aliquam etiam erat. Volutpat odio facilisis mauris sit amet.",
+        "Lemon Myrtle essential oil has a bright, clean, citrus aroma that is uplifting and refreshing when diffused or applied topically.",
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
@@ -293,7 +379,7 @@ db.once("open", async () => {
     {
       name: "Orange",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit amet dictum sit. Purus sit amet volutpat consequat mauris nunc congue. In hendrerit gravida rutrum quisque non tellus orci ac. Id porta nibh venenatis cras sed felis eget. Mi eget mauris pharetra et ultrices neque. Nunc sed blandit libero volutpat. Dignissim enim sit amet venenatis urna cursus. Purus sit amet luctus venenatis lectus magna. Elementum pulvinar etiam non quam lacus. Eget magna fermentum iaculis eu non. Amet nulla facilisi morbi tempus. Risus nullam eget felis eget nunc lobortis mattis. Ultrices mi tempus imperdiet nulla malesuada. At volutpat diam ut venenatis tellus. Id venenatis a condimentum vitae sapien pellentesque habitant. Maecenas volutpat blandit aliquam etiam erat. Volutpat odio facilisis mauris sit amet.",
+        "Orange essential oil can be used for a variety of applications that range from lifting mood and reducing stress to adding a fresh, citrusy aroma to a room.",
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
@@ -303,7 +389,7 @@ db.once("open", async () => {
     {
       name: "Peppermint",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero justo laoreet sit amet cursus sit amet dictum sit. Purus sit amet volutpat consequat mauris nunc congue. In hendrerit gravida rutrum quisque non tellus orci ac. Id porta nibh venenatis cras sed felis eget. Mi eget mauris pharetra et ultrices neque. Nunc sed blandit libero volutpat. Dignissim enim sit amet venenatis urna cursus. Purus sit amet luctus venenatis lectus magna. Elementum pulvinar etiam non quam lacus. Eget magna fermentum iaculis eu non. Amet nulla facilisi morbi tempus. Risus nullam eget felis eget nunc lobortis mattis. Ultrices mi tempus imperdiet nulla malesuada. At volutpat diam ut venenatis tellus. Id venenatis a condimentum vitae sapien pellentesque habitant. Maecenas volutpat blandit aliquam etiam erat. Volutpat odio facilisis mauris sit amet.",
+        "Peppermint essential oil can be extracted from the leaves of the peppermint plant and is used for a variety of purposes. It has a sharp odor that's cool and refreshing, and the taste is similar. You may be familiar with the coolness in your mouth after you consume something with a peppermint flavor.",
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
@@ -313,7 +399,7 @@ db.once("open", async () => {
     {
       name: "Christmas Wish",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc mattis enim ut tellus. Sit amet purus gravida quis blandit turpis cursus in. Eget arcu dictum varius duis at consectetur lorem donec. Tempor orci dapibus ultrices in iaculis nunc sed augue. Quisque non tellus orci ac auctor augue mauris augue. Iaculis eu non diam phasellus vestibulum lorem sed. Arcu ac tortor dignissim convallis aenean. Mi proin sed libero enim sed faucibus. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Fermentum odio eu feugiat pretium nibh ipsum. Dignissim suspendisse in est ante. Dui ut ornare lectus sit amet est. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Cras sed felis eget velit aliquet sagittis id consectetur purus. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Eget nunc scelerisque viverra mauris. Ullamcorper sit amet risus nullam eget felis eget. Vitae ultricies leo integer malesuada.",
+        "The most magical time of year deserves some special soaps. Inspired by Xmas trees, this soap is spicy with hints of cranberries, cinnamon and orange zest.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
@@ -323,7 +409,7 @@ db.once("open", async () => {
     {
       name: "Honeysuckle and Orange",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc mattis enim ut tellus. Sit amet purus gravida quis blandit turpis cursus in. Eget arcu dictum varius duis at consectetur lorem donec. Tempor orci dapibus ultrices in iaculis nunc sed augue. Quisque non tellus orci ac auctor augue mauris augue. Iaculis eu non diam phasellus vestibulum lorem sed. Arcu ac tortor dignissim convallis aenean. Mi proin sed libero enim sed faucibus. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Fermentum odio eu feugiat pretium nibh ipsum. Dignissim suspendisse in est ante. Dui ut ornare lectus sit amet est. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Cras sed felis eget velit aliquet sagittis id consectetur purus. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Eget nunc scelerisque viverra mauris. Ullamcorper sit amet risus nullam eget felis eget. Vitae ultricies leo integer malesuada.",
+        "The fragrant zing of bright citrus meets the delicate sweetness of honeysuckle flowers. Real extracts of orange peel help cleanse and condition while moisture beads pop and shower skin with incredible softness.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
@@ -334,7 +420,7 @@ db.once("open", async () => {
     {
       name: "Morning Dew",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc mattis enim ut tellus. Sit amet purus gravida quis blandit turpis cursus in. Eget arcu dictum varius duis at consectetur lorem donec. Tempor orci dapibus ultrices in iaculis nunc sed augue. Quisque non tellus orci ac auctor augue mauris augue. Iaculis eu non diam phasellus vestibulum lorem sed. Arcu ac tortor dignissim convallis aenean. Mi proin sed libero enim sed faucibus. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Fermentum odio eu feugiat pretium nibh ipsum. Dignissim suspendisse in est ante. Dui ut ornare lectus sit amet est. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Cras sed felis eget velit aliquet sagittis id consectetur purus. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Eget nunc scelerisque viverra mauris. Ullamcorper sit amet risus nullam eget felis eget. Vitae ultricies leo integer malesuada.",
+        "Handcrafted soap that features a fresh and crisp aroma of bergamot, orange, hyacinth, lilies, lemon zest, and patchouli.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
@@ -344,7 +430,7 @@ db.once("open", async () => {
     {
       name: "Peppermint and Eucalyptus",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc mattis enim ut tellus. Sit amet purus gravida quis blandit turpis cursus in. Eget arcu dictum varius duis at consectetur lorem donec. Tempor orci dapibus ultrices in iaculis nunc sed augue. Quisque non tellus orci ac auctor augue mauris augue. Iaculis eu non diam phasellus vestibulum lorem sed. Arcu ac tortor dignissim convallis aenean. Mi proin sed libero enim sed faucibus. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Fermentum odio eu feugiat pretium nibh ipsum. Dignissim suspendisse in est ante. Dui ut ornare lectus sit amet est. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Cras sed felis eget velit aliquet sagittis id consectetur purus. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Eget nunc scelerisque viverra mauris. Ullamcorper sit amet risus nullam eget felis eget. Vitae ultricies leo integer malesuada.",
+        "Peppermint has a minty aroma while eucalyptus has a earthy aroma - combining the two oils produces a wonderful fresh scent. This is an excellent bar for using in the shower as eucalyptus oil helps support the respiratory system.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
@@ -355,7 +441,50 @@ db.once("open", async () => {
     {
       name: "Tea Tree and Charcoal",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa enim nec dui nunc mattis enim ut tellus. Sit amet purus gravida quis blandit turpis cursus in. Eget arcu dictum varius duis at consectetur lorem donec. Tempor orci dapibus ultrices in iaculis nunc sed augue. Quisque non tellus orci ac auctor augue mauris augue. Iaculis eu non diam phasellus vestibulum lorem sed. Arcu ac tortor dignissim convallis aenean. Mi proin sed libero enim sed faucibus. Sit amet consectetur adipiscing elit duis tristique sollicitudin nibh sit. Fermentum odio eu feugiat pretium nibh ipsum. Dignissim suspendisse in est ante. Dui ut ornare lectus sit amet est. Tempus quam pellentesque nec nam aliquam sem et tortor consequat. Cras sed felis eget velit aliquet sagittis id consectetur purus. Cursus risus at ultrices mi tempus imperdiet nulla malesuada. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Eget nunc scelerisque viverra mauris. Ullamcorper sit amet risus nullam eget felis eget. Vitae ultricies leo integer malesuada.",
+        "This is a deep-cleansing powerhouse and a mild exfoliator. Infused with tea tree essential oil. Excellent for acne prone & oily skin, works great as a facial soap too. Tea tree oil is known to combat acne, athlete's foot, eczema & psoriasis.",
+      details: ["Wow, a detail...", "Stop asking.", "Soap."],
+      price: 4.99,
+      stock: 75,
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/tea-tree-and-charcoal.jpg",
+      category: categories[3]._id,
+    },
+    {
+      name: "Lavender Lemon",
+      description:
+        "Crafted to be fair, wholesome, and good for all, our scented bar soaps cleanse your body and restore your hope in community. Carefully crafted in small batches through one of our sister organizations, let our nourishing soap uplift your body and mind.",
+      details: ["Wow, a detail...", "Stop asking.", "Soap."],
+      price: 4.99,
+      stock: 75,
+      primaryImage: "https://nsense-images.s3.amazonaws.com/lavender-lemon.jpg",
+      category: categories[3]._id,
+    },
+    {
+      name: "Clementine Dream",
+      description:
+        "This soap is a wonderful citrus arrangement including top notes of clementine, tangerine, orange, grapefruit, and lime. With middle notes of ginger, and lime blossoms, and a fresh base note of vanilla bean. This soap is a must have for anyone who loves a citrus scent.",
+      details: ["Wow, a detail...", "Stop asking.", "Soap."],
+      price: 4.99,
+      stock: 75,
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/clementine-dream.jpg",
+      category: categories[3]._id,
+    },
+    {
+      name: "Manderin Mermaid",
+      description:
+        "This mermaid inspired soap will have you feeling like you are in a tropical paradise right in your shower. Manderin Mermaid begins with top notes of mandarin, Mexican lime, tangerine, and kumquat. Middle and base notes of watermelon. tart green apples, cantaloupe. and honeydew melon. This soap is a mos have for anyone that loves a very fruity scent.",
+      details: ["Wow, a detail...", "Stop asking.", "Soap."],
+      price: 4.99,
+      stock: 75,
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/manderin-mermaid.jpg",
+      category: categories[3]._id,
+    },
+    {
+      name: "Hidden Fantasy",
+      description:
+        "This soaps scent has a very sensual scent with hints of fresh citrus and hints of wild cherry interwine with fresh notes to scent the floral heart of this soap fragrance. Tropical ylang ylang balance with sensual jasmine and hints of rose to form a rich floral accord which is surrounded with green leafy accents. Cashmere musk undertones are sweetened with vanilla amber to create a dramatic finish for this soap fragrance.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,

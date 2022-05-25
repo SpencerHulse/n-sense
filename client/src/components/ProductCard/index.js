@@ -18,7 +18,7 @@ function ProductCard({
 
   return (
     <div className="product-card w-1/5">
-      <div className="product-card-content m-2 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div className="product-card-content m-2 max-w-sm bg-white dark:bg-[#494949] rounded-lg border border-gray-200 shadow-md dark:border-gray-700">
         <Link to={`/product/${_id}`}>
           <img
             className="rounded-t-lg product-card-image"
@@ -38,7 +38,7 @@ function ProductCard({
           <div className="product-card-action flex flex-row justify-between w-full">
             <p className="price text-xl text-white font-bold">${price}</p>
             <button
-              className="text-white"
+              className="text-white py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md"
               onClick={() => {
                 const itemInCart = cartItems.find((item) => item._id === _id);
 

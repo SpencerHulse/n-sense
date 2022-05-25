@@ -37,7 +37,7 @@ function Nav() {
 
   return (
     <>
-      <nav className="navbar-container">
+      <nav className="navbar-container dark:bg-[#606060] text-black dark:text-white">
         <div className="container mx-auto relative">
           <div className="flex justify-between items-center">
             <div className="menu-left flex items-center">
@@ -93,7 +93,7 @@ function Nav() {
         </div>
       </nav>
       {/* Hamburger */}
-      <nav className="burger-nav">
+      <nav className="burger-nav dark:bg-[#606060] text-black dark:text-white">
         <div className="container mx-auto relative">
           <div className="flex justify-between items-center">
             <div className="menu-left flex items-center">

@@ -50,7 +50,7 @@ const Home = () => {
               <Slider />
               <div className="container mx-auto mb-10">
                 <div className="mt-10 new-and-noteworthy">
-                  <h1 className="font-bold text-3xl mb-10">
+                  <h1 className="font-bold text-3xl mb-10 dark:text-white">
                     New and Noteworthy
                   </h1>
                   <div className="flex noteworthy">
@@ -69,8 +69,8 @@ const Home = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="noteworthy-fader-right"></div>
-                  <div className="noteworthy-fader-left"></div>
+                  <div className="noteworthy-fader-right bg-gradient-to-l from-[#f8f5f5]/100 to-[#f8f5f5]/0 dark:from-[#1C1C1C]/100 dark:to-[#1C1C1C]/0"></div>
+                  <div className="noteworthy-fader-left bg-gradient-to-r from-[#f8f5f5]/100 to-[#f8f5f5]/0 dark:from-[#1C1C1C]/100 dark:to-[#1C1C1C]/0"></div>
 
                 </div>
               </div>
@@ -82,8 +82,8 @@ const Home = () => {
                 {products.length ? (
                   // Needs to be flex
                   <div>
-                    <h2 className="category-title mb-10 text-3xl bold">
-                      {category ? category : "All products"}
+                    <h2 className="category-title mb-10 text-3xl bold text-black dark:text-white">
+                      {category ? category : "All Products" }
                     </h2>
                     <div className="-m-2 flex flex-wrap italic">
                       {filterProducts().map((product) => (

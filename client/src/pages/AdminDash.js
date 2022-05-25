@@ -88,12 +88,12 @@ const Admin = () => {
     <>
       <div className="section">
         <div className="container mx-auto">
-          <h2 className="mb-6 text-center">Admin Dashboard</h2>
+          <h2 className="mb-6 text-center dark:text-white">Admin Dashboard</h2>
 
           {/* Thinking each could take up half the screen, and a form can pop up beneath depending on selection */}
-          <div className="admin-box mx-auto">
-            <h2>Categories</h2>
-            <p className="mb-5">Select a category to remove</p>
+          <div className="admin-box mx-auto dark:bg-[#494949]">
+            <h2 className="dark:text-white">Categories</h2>
+            <p className="mb-5 dark:text-white">Select a category to remove</p>
 
             <div className="flex gap-4 w-full">
               <div className="w-8/12">
@@ -132,9 +132,9 @@ const Admin = () => {
             {formType === "Add Category" && <CategoryForm />}
           </div>
 
-          <div className="admin-box mx-auto">
-            <h2>Products</h2>
-            <p className="mb-5">Select a product to edit or remove</p>
+          <div className="admin-box mx-auto dark:bg-[#494949]">
+            <h2 className="dark:text-white">Products</h2>
+            <p className="mb-5 dark:text-white">Select a product to edit or remove</p>
             <div className="flex gap-4 w-full">
               <div className="w-8/12">
                 <select
