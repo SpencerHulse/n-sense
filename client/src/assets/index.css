@@ -318,6 +318,10 @@ ul {
 .new-products-card {
   width: 250px;
 }
+.new-products-card:hover{
+  border: solid 4px var(--brand-color);
+  
+}
 
 .title-container {
   position: relative;
@@ -510,7 +514,10 @@ ul {
     height: 100%;
   }
 }
-
+.shop-btn:hover{
+  border: solid 4px var(--brand-color);
+  color: #44ab2a;
+}
 .current {
   opacity: 1;
   transform: translate(0);
