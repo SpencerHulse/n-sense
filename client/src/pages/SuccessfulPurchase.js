@@ -4,8 +4,11 @@ import { ADD_ORDER, UPDATE_PRODUCT } from "../utils/mutations";
 import { idbPromise } from "../utils/helpers";
 import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
+import { useDispatch } from "react-redux";
+import { addMultipleItems } from "../features/cartSlice";
 
 function SuccessfulPurchase() {
+  const dispatch = useDispatch();
   const [addOrder] = useMutation(ADD_ORDER);
   const [updateProduct] = useMutation(UPDATE_PRODUCT);
 
@@ -38,11 +41,13 @@ function SuccessfulPurchase() {
         productData.forEach((item) => {
           idbPromise("cart", "delete", { _id: item._id });
         });
+        const cart = await idbPromise("cart", "get");
+        dispatch(addMultipleItems([...cart]));
       }
     }
 
     saveOrder();
-  }, [addOrder]);
+  }, [addOrder, dispatch, updateProduct]);
 
   return (
     <div>

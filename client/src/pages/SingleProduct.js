@@ -68,7 +68,7 @@ const SingleProduct = () => {
                     <div className="details-item quantity-btn"></div>
                   </div>
                   <br />
-                  {currentProduct.stock === 0
+                  {currentProduct.stock <= 0
                     ? "Out of stock!"
                     : currentProduct.stock <= 20 && "Only a few left!"}
                   <div className="add-button-container gap-4 flex w-full">

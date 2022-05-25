@@ -135,7 +135,7 @@ function OrderHistory() {
                                   </td>
                                   <td>
                                     <p className="order-details-info">
-                                      ${product[0].price}
+                                      ${product[0].price.toFixed(2)}
                                     </p>
                                   </td>
                                   <td>
@@ -159,7 +159,7 @@ function OrderHistory() {
                   {/* <hr /> */}
                   <div className="flex justify-end">
                     <h3 className="order-details-info font-bold">
-                      Order Total: ${calculateTotal(order)}
+                      Order Total: ${calculateTotal(order).toFixed(2)}
                     </h3>
                   </div>
                 </div>

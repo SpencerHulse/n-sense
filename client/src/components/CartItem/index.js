@@ -65,7 +65,9 @@ const CartItem = ({ item }) => {
                     aria-hidden="true"
                   />
                 )}
-                <span>{product.stock > 0 ? "In stock" : `Will ship ASAP`}</span>
+                <span>
+                  {product.stock > 0 ? "Ready to ship" : `Will ship ASAP`}
+                </span>
               </p>
               <div>
                 <button
