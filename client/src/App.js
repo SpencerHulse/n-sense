@@ -9,6 +9,7 @@ import Orders from "./pages/Orders";
 import SingleProduct from "./pages/SingleProduct";
 import SuccessfulPurchase from "./pages/SuccessfulPurchase";
 import NoMatch from "./pages/NoMatch";
+import Footer from "../src/components/Footer";
 
 // Apollo
 import {
@@ -54,6 +55,7 @@ function App() {
             <Route exact path="/success" component={SuccessfulPurchase} />
             <Route component={NoMatch} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

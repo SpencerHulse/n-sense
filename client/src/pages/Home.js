@@ -10,6 +10,7 @@ import { QUERY_PRODUCTS } from "../utils/queries";
 import { idbPromise } from "../utils/helpers";
 import ScrollCard from "../components/ScrollCard";
 import Slider from "../components/Slider/Slider";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const { category } = useParams();
