@@ -23,7 +23,7 @@ const Signup = () => {
           username: formState.username,
         },
       });
-      console.log(mutationResponse);
+
       if (mutationResponse.data.addUser.message) {
         setErrorMessage(mutationResponse.data.addUser.message);
         return;

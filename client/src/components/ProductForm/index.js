@@ -96,7 +96,7 @@ const ProductForm = ({ categories }) => {
       window.location.assign("/admin");
     }
   };
-  console.log(formState);
+
   return (
     <>
       <div className="adjust-container dark:bg-[#333333]">
@@ -135,7 +135,9 @@ const ProductForm = ({ categories }) => {
           />
           <br />
           {/* Some kind of add new on button click type deal with a max of five? */}
-          <label htmlFor="details" className="dark:text-white">Details: </label>
+          <label htmlFor="details" className="dark:text-white">
+            Details:{" "}
+          </label>
           <input
             type="text"
             name="details1"
@@ -194,7 +196,11 @@ const ProductForm = ({ categories }) => {
             onChange={handleChange}
           />
           <br />
-          <label htmlFor="primaryImage" id="primaryImage" className="dark:text-white">
+          <label
+            htmlFor="primaryImage"
+            id="primaryImage"
+            className="dark:text-white"
+          >
             Main Image:{" "}
           </label>
           <input
