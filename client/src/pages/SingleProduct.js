@@ -150,10 +150,12 @@ const SingleProduct = () => {
 
           <div className="section w-full flex flex-row">
             <div className="container mx-auto">
-              <h1 className="text-3xl font-extrabold mb-10 dark:text-white">
+              <h1 className="text-3xl font-extrabold mb-8 dark:text-white">
                 Product Description
               </h1>
-              <p className="dark:text-white">{currentProduct.description}</p>
+              <p className="dark:text-white mb-4">
+                {currentProduct.description}
+              </p>
             </div>
           </div>
         </div>
