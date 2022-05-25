@@ -468,6 +468,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-0 {
   left: 0px;
 }
+.z-0 {
+  z-index: 0;
+}
+.z-10 {
+  z-index: 10;
+}
 .-m-2 {
   margin: -0.5rem;
 }
@@ -494,11 +500,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mb-10 {
-  margin-bottom: 2.5rem;
-}
 .mt-10 {
   margin-top: 2.5rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 .mt-6 {
   margin-top: 1.5rem;
@@ -775,6 +781,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-8 {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+.pt-10 {
+  padding-top: 2.5rem;
 }
 .pl-3 {
   padding-left: 0.75rem;
@@ -1189,8 +1198,10 @@ ul {
 }
 
 .noteworthy {
-  overflow: hidden;
+  overflow-x: scroll;
+  padding-bottom: 25px;
   margin-left: -50px;
+  margin-bottom: -25px;
 }
 
 .cards-container {
