@@ -41,6 +41,14 @@ const Home = () => {
     );
   }
 
+  function newProducts() {
+    if (products.length > 20) {
+      return products.slice(products.length - 10);
+    } else {
+      return products;
+    }
+  }
+
   return (
     <>
       <div>
@@ -55,7 +63,7 @@ const Home = () => {
                   </h1>
                   <div className="flex noteworthy">
                     <div className="flex cards-container">
-                      {filterProducts().map((product) => (
+                      {newProducts().map((product) => (
                         <ScrollCard
                           product={product}
                           key={product._id}
@@ -71,7 +79,6 @@ const Home = () => {
                   </div>
                   <div className="noteworthy-fader-right bg-gradient-to-l from-[#f8f5f5]/100 to-[#f8f5f5]/0 dark:from-[#1C1C1C]/100 dark:to-[#1C1C1C]/0"></div>
                   <div className="noteworthy-fader-left bg-gradient-to-r from-[#f8f5f5]/100 to-[#f8f5f5]/0 dark:from-[#1C1C1C]/100 dark:to-[#1C1C1C]/0"></div>
-
                 </div>
               </div>
             </div>
@@ -83,7 +90,7 @@ const Home = () => {
                   // Needs to be flex
                   <div>
                     <h2 className="category-title mb-10 text-3xl bold text-black dark:text-white">
-                      {category ? category : "All Products" }
+                      {category ? category : "All Products"}
                     </h2>
                     <div className="-m-2 flex flex-wrap italic">
                       {filterProducts().map((product) => (
