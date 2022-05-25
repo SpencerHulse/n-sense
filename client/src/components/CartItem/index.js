@@ -80,7 +80,8 @@ const CartItem = ({ item }) => {
                       dispatch(removeFromCart(item));
                       idbPromise("cart", "delete", { _id: product._id });
                     }}
-                   className="text-green-700 hover:text-green-700 dark:text-green-600">
+                    className="text-green-700 hover:text-green-700 dark:text-green-600"
+                  >
                     Remove
                   </span>
                 </button>
@@ -96,7 +97,7 @@ const CartItem = ({ item }) => {
               <input
                 id={`quantity-`}
                 name={`quantity-`}
-                className="dark:bg-[#333333] dark:text-white product-quantity block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="dark:bg-[#333333] dark:text-white product-quantity block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm cart-quantity-pad"
                 value={purchaseQuantity}
                 onChange={onChange}
                 type="number"
