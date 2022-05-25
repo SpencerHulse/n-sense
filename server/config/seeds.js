@@ -272,7 +272,7 @@ db.once("open", async () => {
       price: 6.99,
       stock: 100,
       primaryImage:
-        "https://nsense-images.s3.amazonaws.com/cedarwood-amber.jpg",
+        "https://nsense-images.s3.amazonaws.com/cedarwood-amber.webp",
       category: categories[1]._id,
     },
     {
@@ -286,11 +286,11 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      primaryImage: "https://nsense-images.s3.amazonaws.com/white-sage.jpg",
+      primaryImage: "https://nsense-images.s3.amazonaws.com/white-sage.webp",
       category: categories[1]._id,
     },
     {
-      name: "Incubation Incense",
+      name: "Incubation",
       description: "Hand Rolled Artisan Sticks",
       details: [
         "It comes in packs of nine!",
@@ -300,11 +300,11 @@ db.once("open", async () => {
       price: 6.99,
       stock: 100,
       primaryImage:
-        "https://nsense-images.s3.amazonaws.com/incubation-incense.jpg",
+        "https://nsense-images.s3.amazonaws.com/incubation-incense.webp",
       category: categories[1]._id,
     },
     {
-      name: "Abarghatti",
+      name: "Agarbatti",
       description:
         "A traditional incense from India, the word is actually a compound of agar (as in the wood) and batti (meaning stick). These cored incense sticks are also sometimes made of aloeswood instead of agar and remain one of the most popular types of incense in their homeland.",
       details: [
@@ -314,7 +314,8 @@ db.once("open", async () => {
       ],
       price: 6.99,
       stock: 100,
-      primaryImage: "https://nsense-images.s3.amazonaws.com/abarghatti.jpg",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/agarbatti-incense.webp",
       category: categories[1]._id,
     },
     {
@@ -333,7 +334,8 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      primaryImage: "https://nsense-images.s3.amazonaws.com/tea-tree.jpg",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/tea-trea-essential-oil.webp",
       category: categories[2]._id,
     },
     {
@@ -343,7 +345,8 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      primaryImage: "https://nsense-images.s3.amazonaws.com/sharp-thought.jpg",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/australian-sandalwood.jpeg",
       category: categories[2]._id,
     },
     {
@@ -353,7 +356,8 @@ db.once("open", async () => {
       details: ["Wow, a detail... and essential oil."],
       price: 15.99,
       stock: 50,
-      primaryImage: "https://nsense-images.s3.amazonaws.com/citrus-fresh.jpg",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/black-pepper-essential-oil.jpeg",
       category: categories[2]._id,
     },
     {
@@ -456,7 +460,8 @@ db.once("open", async () => {
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
-      primaryImage: "https://nsense-images.s3.amazonaws.com/lavender-lemon.jpg",
+      primaryImage:
+        "https://nsense-images.s3.amazonaws.com/lavender-lemon-soap.jpeg",
       category: categories[3]._id,
     },
     {
@@ -467,29 +472,29 @@ db.once("open", async () => {
       price: 4.99,
       stock: 75,
       primaryImage:
-        "https://nsense-images.s3.amazonaws.com/clementine-dream.jpg",
+        "https://nsense-images.s3.amazonaws.com/clementine-dream-soap.jpeg",
       category: categories[3]._id,
     },
     {
-      name: "Manderin Mermaid",
+      name: "Mandarin Mermaid",
       description:
-        "This mermaid inspired soap will have you feeling like you are in a tropical paradise right in your shower. Manderin Mermaid begins with top notes of mandarin, Mexican lime, tangerine, and kumquat. Middle and base notes of watermelon. tart green apples, cantaloupe. and honeydew melon. This soap is a mos have for anyone that loves a very fruity scent.",
+        "This mermaid inspired soap will have you feeling like you are in a tropical paradise right in your shower. Mandarin Mermaid begins with top notes of mandarin, Mexican lime, tangerine, and kumquat. Middle and base notes of watermelon. tart green apples, cantaloupe. and honeydew melon. This soap is a mos have for anyone that loves a very fruity scent.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
       primaryImage:
-        "https://nsense-images.s3.amazonaws.com/manderin-mermaid.jpg",
+        "https://nsense-images.s3.amazonaws.com/manderin-mermaid-soap.jpeg",
       category: categories[3]._id,
     },
     {
       name: "Hidden Fantasy",
       description:
-        "This soaps scent has a very sensual scent with hints of fresh citrus and hints of wild cherry interwine with fresh notes to scent the floral heart of this soap fragrance. Tropical ylang ylang balance with sensual jasmine and hints of rose to form a rich floral accord which is surrounded with green leafy accents. Cashmere musk undertones are sweetened with vanilla amber to create a dramatic finish for this soap fragrance.",
+        "This soaps scent has a very sensual scent with hints of fresh citrus and hints of wild cherry intertwine with fresh notes to scent the floral heart of this soap fragrance. Tropical ylang ylang balance with sensual jasmine and hints of rose to form a rich floral accord which is surrounded with green leafy accents. Cashmere musk undertones are sweetened with vanilla amber to create a dramatic finish for this soap fragrance.",
       details: ["Wow, a detail...", "Stop asking.", "Soap."],
       price: 4.99,
       stock: 75,
       primaryImage:
-        "https://nsense-images.s3.amazonaws.com/tea-tree-and-charcoal.jpg",
+        "https://nsense-images.s3.amazonaws.com/hidden-fantasy-soap.jpeg",
       category: categories[3]._id,
     },
   ]);
