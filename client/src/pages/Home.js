@@ -43,18 +43,18 @@ const Home = () => {
 
   return (
     <>
-      <div className="h-96 bg-slate-300">
+      <div>
         <div>
           {!category && (
             <div className="scroll-carousel">
               <Slider />
               <div className="container mx-auto mb-10">
-                <div className="mt-10">
+                <div className="mt-10 new-and-noteworthy">
                   <h1 className="font-bold text-3xl mb-10">
                     New and Noteworthy
                   </h1>
-                  <div className="flex overflow-x-scroll hide-scroll-bar">
-                    <div className="flex flex-nowrap">
+                  <div className="flex noteworthy">
+                    <div className="flex cards-container">
                       {filterProducts().map((product) => (
                         <ScrollCard
                           product={product}
@@ -69,6 +69,9 @@ const Home = () => {
                       ))}
                     </div>
                   </div>
+                  <div className="noteworthy-fader-right"></div>
+                  <div className="noteworthy-fader-left"></div>
+
                 </div>
               </div>
             </div>
