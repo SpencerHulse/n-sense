@@ -10,11 +10,31 @@ function ProductCard({
   name,
   description,
   price,
+  stock,
   primaryImage,
   category,
 }) {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+
+  function addItemToCart() {
+    const itemInCart = cartItems.find((item) => item._id === _id);
+
+    dispatch(addToCart({ product, purchaseQuantity: 1, _id }));
+
+    if (itemInCart) {
+      idbPromise("cart", "put", {
+        ...itemInCart,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+      });
+    } else {
+      idbPromise("cart", "put", {
+        product,
+        purchaseQuantity: 1,
+        _id,
+      });
+    }
+  }
 
   return (
     <div className="product-card w-64">
@@ -37,29 +57,22 @@ function ProductCard({
           </p>
           <div className="product-card-action flex flex-row justify-between w-full">
             <p className="price text-xl text-white font-bold">${price}</p>
-            <button
-              className="text-white py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md"
-              onClick={() => {
-                const itemInCart = cartItems.find((item) => item._id === _id);
-
-                dispatch(addToCart({ product, purchaseQuantity: 1, _id }));
-
-                if (itemInCart) {
-                  idbPromise("cart", "put", {
-                    ...itemInCart,
-                    purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-                  });
-                } else {
-                  idbPromise("cart", "put", {
-                    product,
-                    purchaseQuantity: 1,
-                    _id,
-                  });
-                }
-              }}
-            >
-              Add to Cart
-            </button>
+            {stock <= 0 ? (
+              <button
+                className="text-white py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md disabled-button"
+                onClick={addItemToCart}
+                disabled
+              >
+                Unavailable
+              </button>
+            ) : (
+              <button
+                className="text-white py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md"
+                onClick={addItemToCart}
+              >
+                Add to Cart
+              </button>
+            )}
           </div>
         </div>
       </div>

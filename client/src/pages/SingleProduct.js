@@ -29,6 +29,39 @@ const SingleProduct = () => {
     }
   }, [productData, id, products, dispatch]);
 
+  function addItemsToCart() {
+    const quantitySelected = parseInt(
+      document.getElementById("quantity").value
+    );
+    if (quantitySelected) {
+      const itemInCart = cartItems.find(
+        (item) => item._id === currentProduct._id
+      );
+
+      dispatch(
+        addToCart({
+          product: currentProduct,
+          purchaseQuantity: quantitySelected,
+          _id: currentProduct._id,
+        })
+      );
+
+      if (itemInCart) {
+        idbPromise("cart", "put", {
+          ...itemInCart,
+          purchaseQuantity:
+            parseInt(itemInCart.purchaseQuantity) + quantitySelected,
+        });
+      } else {
+        idbPromise("cart", "put", {
+          product: currentProduct,
+          purchaseQuantity: quantitySelected,
+          _id: currentProduct._id,
+        });
+      }
+    }
+  }
+
   return (
     <>
       {currentProduct ? (
@@ -55,12 +88,18 @@ const SingleProduct = () => {
                       </h3>
                     </div>
                     <div className="details-item mb-5 dark:text-white">
-                      <p className="price light dark:text-white">$ {currentProduct.price}</p>
+                      <p className="price light dark:text-white">
+                        $ {currentProduct.price}
+                      </p>
                     </div>
                     <div className="details-item mb-5">
                       <ul>
                         {currentProduct.details.map((detail, i) => {
-                          return <li key={i} className="dark:text-white">{detail}</li>;
+                          return (
+                            <li key={i} className="dark:text-white">
+                              {detail}
+                            </li>
+                          );
                         })}
                       </ul>
                     </div>
@@ -70,7 +109,9 @@ const SingleProduct = () => {
                   <br />
                   {currentProduct.stock <= 0
                     ? "Out of stock!"
-                    : currentProduct.stock <= 20 && <p className="dark:text-white">Only a few left!</p>}
+                    : currentProduct.stock <= 20 && (
+                        <p className="dark:text-white">Only a few left!</p>
+                      )}
                   <div className="add-button-container gap-4 flex w-full">
                     <select
                       id="quantity"
@@ -83,45 +124,24 @@ const SingleProduct = () => {
                       <option value="4">4</option>
                       <option value="5">5</option>
                     </select>
-                    <button
-                      className="mt-5 add-button text-white rounded-md w-1/2"
-                      type="button"
-                      onClick={() => {
-                        const quantitySelected = parseInt(
-                          document.getElementById("quantity").value
-                        );
-                        if (quantitySelected) {
-                          const itemInCart = cartItems.find(
-                            (item) => item._id === currentProduct._id
-                          );
-
-                          dispatch(
-                            addToCart({
-                              product: currentProduct,
-                              purchaseQuantity: quantitySelected,
-                              _id: currentProduct._id,
-                            })
-                          );
-
-                          if (itemInCart) {
-                            idbPromise("cart", "put", {
-                              ...itemInCart,
-                              purchaseQuantity:
-                                parseInt(itemInCart.purchaseQuantity) +
-                                quantitySelected,
-                            });
-                          } else {
-                            idbPromise("cart", "put", {
-                              product: currentProduct,
-                              purchaseQuantity: quantitySelected,
-                              _id: currentProduct._id,
-                            });
-                          }
-                        }
-                      }}
-                    >
-                      Add to Cart
-                    </button>
+                    {currentProduct.stock <= 0 ? (
+                      <button
+                        className="mt-5 add-button text-white rounded-md w-1/2 disabled-button"
+                        type="button"
+                        onClick={addItemsToCart}
+                        disabled
+                      >
+                        Unavailable
+                      </button>
+                    ) : (
+                      <button
+                        className="mt-5 add-button text-white rounded-md w-1/2"
+                        type="button"
+                        onClick={addItemsToCart}
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
