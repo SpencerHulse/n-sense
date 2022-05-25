@@ -18,6 +18,16 @@ const Home = () => {
 
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
+
+
+    const scrollContainer = document.querySelector('.noteworthy');
+
+    scrollContainer.addEventListener('wheel', (evt) => {
+      evt.preventDefault();
+      scrollContainer.scrollLeft += evt.deltaY;
+    });
+
+
     if (productData) {
       dispatch(updateProducts(productData.products));
 
@@ -83,7 +93,7 @@ const Home = () => {
                   // Needs to be flex
                   <div>
                     <h2 className="category-title mb-10 text-3xl bold text-black dark:text-white">
-                      {category ? category : "All Products" }
+                      {category ? category : "All Products"}
                     </h2>
                     <div className="-m-2 flex flex-wrap italic">
                       {filterProducts().map((product) => (

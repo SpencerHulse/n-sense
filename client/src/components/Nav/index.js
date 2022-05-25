@@ -54,17 +54,17 @@ function Nav() {
                 {loading
                   ? "Loading"
                   : categories.map((category) => {
-                      return (
-                        <li key={category._id}>
-                          <Link
-                            to={`/category/${category.categoryName.toLowerCase()}`}
-                            onClick={() => singleCategory(category)}
-                          >
-                            {category.categoryName}
-                          </Link>
-                        </li>
-                      );
-                    })}
+                    return (
+                      <li key={category._id}>
+                        <Link
+                          to={`/category/${category.categoryName.toLowerCase()}`}
+                          onClick={() => singleCategory(category)}
+                        >
+                          {category.categoryName}
+                        </Link>
+                      </li>
+                    );
+                  })}
               </ul>
             </div>
             <div>
@@ -149,22 +149,22 @@ function Nav() {
             {loading
               ? "Loading"
               : categories.map((mapCategory) => {
-                  return (
-                    <li
-                      key={mapCategory._id}
-                      onClick={closeNav}
-                      className="nav-li"
+                return (
+                  <li
+                    key={mapCategory._id}
+                    onClick={closeNav}
+                    className="nav-li"
+                  >
+                    <Link
+                      to={`/category/${mapCategory.categoryName.toLowerCase()}`}
+                      onClick={() => singleCategory(mapCategory)}
+                      className="nav-item"
                     >
-                      <Link
-                        to={`/category/${mapCategory.categoryName.toLowerCase()}`}
-                        onClick={() => singleCategory(mapCategory)}
-                        className="nav-item"
-                      >
-                        {mapCategory.categoryName}
-                      </Link>
-                    </li>
-                  );
-                })}
+                      {mapCategory.categoryName}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </nav>
