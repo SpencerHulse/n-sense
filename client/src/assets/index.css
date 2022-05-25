@@ -269,7 +269,7 @@ ul {
 }
 
 .minicontent {
-  width: 400px;
+  max-width: 400px;
 }
 
 .hide-scroll-bar {
