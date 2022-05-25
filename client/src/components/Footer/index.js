@@ -6,7 +6,7 @@ import Mastercard from "../../assets/images/icons/icons8-mastercard.svg";
 const Footer = () => {
   return (
     <div className="container mx-auto">
-      <footer className="flex justify-between h-20 items-center text-white ">
+      <footer className="flex justify-between h-20 items-center text-black dark:text-white ">
         <div className="">
           <p>© 2022 N-Sense LLC</p>
         </div>
