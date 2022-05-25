@@ -12,8 +12,6 @@ The framework used throughout the project is Tailwind. However, much of the styl
 
 **The site also features an admin side, where only admin accounts (which must be created manually) have access. It is a small page where categories and products can be added, changed, or deleted. If you are on the Heroku site, the email and password to access that account are admin@admin.com and admin.**
 
-[Demonstration Video]()!
-
 ![alt text](./assets/nsense.png)
 
 ## Table of Contents

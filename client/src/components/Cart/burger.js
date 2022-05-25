@@ -1,9 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleCart, addMultipleItems } from "../../features/cartSlice";
+import { toggleBurgerCart, addMultipleItems } from "../../features/cartSlice";
 import { idbPromise } from "../../utils/helpers";
 
 // Stripe
@@ -14,7 +14,7 @@ const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 export default function Cart() {
   const dispatch = useDispatch();
-  const { cartItems, cartOpen } = useSelector((state) => state.cart);
+  const { cartItems, cartOpenBurger } = useSelector((state) => state.cart);
 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -29,8 +29,8 @@ export default function Cart() {
     }
   }, [cartItems.length, dispatch]);
 
-  function toggle() {
-    dispatch(toggleCart());
+  function toggleBurger() {
+    dispatch(toggleBurgerCart());
   }
 
   function calculateTotal() {
@@ -75,9 +75,31 @@ export default function Cart() {
     }
   }, [cartItems.length, dispatch]);
 
-  if (!cartOpen) {
+  let cartBurgerRef = useRef();
+  let cartBurgerTabRef = useRef();
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!cartOpenBurger) {
+        return;
+      }
+
+      if (
+        !cartBurgerRef.current.contains(event.target) &&
+        !cartBurgerTabRef.current.contains(event.target)
+      ) {
+        toggleBurger();
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => document.removeEventListener("mousedown", handler);
+  });
+
+  if (!cartOpenBurger) {
     return (
-      <li onClick={() => toggle()}>
+      <li onClick={() => toggleBurger()}>
         <button id="cart-nav-btn">Cart ({cartItems.length})</button>
       </li>
     );
@@ -85,12 +107,15 @@ export default function Cart() {
 
   return (
     <>
-      <li>
+      <li ref={cartBurgerTabRef}>
         <button id="cart-nav-btn">Cart ({cartItems.length})</button>
       </li>
-      <div className="cart dark:bg-[#606060] dark:text-white">
+      <div
+        className="cart dark:bg-[#606060] dark:text-white"
+        ref={cartBurgerRef}
+      >
         <div>
-          <div className="mb-5" onClick={() => toggle()}>
+          <div className="mb-5" onClick={() => toggleBurger()}>
             <button id="close-cart-btn">Close cart</button>
           </div>
           <form>
