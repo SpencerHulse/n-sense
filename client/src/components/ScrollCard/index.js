@@ -34,35 +34,6 @@ function ScrollCard({
               {name}
             </h5>
           </Link>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {description}
-          </p>
-          <div className="flex flex-row justify-between w-full">
-            <p className="price text-xl font-bold text-white">${price}</p>
-            <button
-              className="py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md"
-              onClick={() => {
-                const itemInCart = cartItems.find((item) => item._id === _id);
-
-                dispatch(addToCart({ product, purchaseQuantity: 1, _id }));
-
-                if (itemInCart) {
-                  idbPromise("cart", "put", {
-                    ...itemInCart,
-                    purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
-                  });
-                } else {
-                  idbPromise("cart", "put", {
-                    product,
-                    purchaseQuantity: 1,
-                    _id,
-                  });
-                }
-              }}
-            >
-              Add to Cart
-            </button>
-          </div>
         </div>
       </div>
     </div>
