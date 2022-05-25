@@ -46,9 +46,9 @@ const Home = () => {
       <div>
         <div>
           {!category && (
-            <div className="scroll-carousel">
+            <div className="scroll-carousel relative z-0">
               <Slider />
-              <div className="container mx-auto mb-10">
+              <div className="container mx-auto">
                 <div className="mt-10 new-and-noteworthy">
                   <h1 className="font-bold text-3xl mb-10 dark:text-white">
                     New and Noteworthy
@@ -76,7 +76,7 @@ const Home = () => {
               </div>
             </div>
           )}
-          <div>
+          <div className="relative z-10 bg-[#F8F5F5] dark:bg-[#1C1C1C] pt-10">
             <div className="container mx-auto flex">
               <div className="product-display flex flex-wrap">
                 {products.length ? (

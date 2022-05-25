@@ -295,8 +295,10 @@ ul {
 }
 
 .noteworthy {
-  overflow: hidden;
+  overflow-x: scroll;
+  padding-bottom: 25px;
   margin-left: -50px;
+  margin-bottom: -25px;
 }
 
 .cards-container {
