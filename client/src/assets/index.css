@@ -108,6 +108,11 @@ hr {
   overflow: hidden;
 }
 
+.product-image {
+  display: flex;
+  align-items: center;
+}
+
 .product-image img {
   width: 100%;
   max-height: 700px;
@@ -616,11 +621,11 @@ hr {
 }
 
 .navActive {
-  color: red !important;
+  color: var(--brand-color) !important;
 }
 
 .nav-item:hover {
-  color: red;
+  color: var(--brand-color);
   opacity: 0.7;
   cursor: pointer;
 }
@@ -669,7 +674,7 @@ hr {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  background: red;
+  background: var(--brand-color);
   width: 2em;
   height: 3px;
   border-radius: 1em;
@@ -708,5 +713,23 @@ hr {
 
   .navbar-container {
     display: block;
+  }
+}
+
+@media (max-width: 999px) {
+  .product-hero {
+    max-height: none;
+    flex-direction: column;
+  }
+
+  .product-image img {
+    max-height: 400px;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+  }
+
+  .product-info {
+    margin: 0 auto 20px;
+    width: 80%;
   }
 }

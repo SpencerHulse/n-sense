@@ -1017,6 +1017,11 @@ hr {
   overflow: hidden;
 }
 
+.product-image {
+  display: flex;
+  align-items: center;
+}
+
 .product-image img {
   width: 100%;
   max-height: 700px;
@@ -1617,6 +1622,24 @@ hr {
 
   .navbar-container {
     display: block;
+  }
+}
+
+@media (max-width: 999px) {
+  .product-hero {
+    max-height: none;
+    flex-direction: column;
+  }
+
+  .product-image img {
+    max-height: 400px;
+    margin: 0 auto;
+    padding: 20px 20px 0 20px;
+  }
+
+  .product-info {
+    margin: 0 auto 20px;
+    width: 80%;
   }
 }
 
