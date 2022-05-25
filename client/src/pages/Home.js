@@ -18,15 +18,12 @@ const Home = () => {
 
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
+    const scrollContainer = document.querySelector(".noteworthy");
 
-
-    const scrollContainer = document.querySelector('.noteworthy');
-
-    scrollContainer.addEventListener('wheel', (evt) => {
+    scrollContainer.addEventListener("wheel", (evt) => {
       evt.preventDefault();
       scrollContainer.scrollLeft += evt.deltaY;
     });
-
 
     if (productData) {
       dispatch(updateProducts(productData.products));
@@ -68,7 +65,7 @@ const Home = () => {
               <Slider />
               <div className="container mx-auto">
                 <div className="mt-10 new-and-noteworthy">
-                  <h1 className="font-bold text-3xl mb-10 dark:text-white">
+                  <h1 className="font-bold text-3xl mb-10 dark:text-white main-page-section-titles">
                     New and Noteworthy
                   </h1>
                   <div className="flex noteworthy">
@@ -99,10 +96,10 @@ const Home = () => {
                 {products.length ? (
                   // Needs to be flex
                   <div>
-                    <h2 className="category-title mb-10 text-3xl bold text-black dark:text-white">
+                    <h2 className="category-title mb-10 text-3xl bold text-black dark:text-white main-page-section-titles">
                       {category ? category : "All Products"}
                     </h2>
-                    <div className="-m-2 flex flex-wrap italic">
+                    <div className="-m-2 flex flex-wrap italic space-around products-wrapper">
                       {filterProducts().map((product) => (
                         <ProductCard
                           product={product}

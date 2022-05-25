@@ -17,7 +17,7 @@ function ProductCard({
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
-    <div className="product-card w-1/5">
+    <div className="product-card w-64">
       <div className="product-card-content m-2 max-w-sm bg-white dark:bg-[#494949] rounded-lg border border-gray-200 shadow-md dark:border-gray-700">
         <Link to={`/product/${_id}`}>
           <img
