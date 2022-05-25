@@ -18,6 +18,16 @@ const Home = () => {
 
   const { loading, data: productData } = useQuery(QUERY_PRODUCTS);
   useEffect(() => {
+
+
+    const scrollContainer = document.querySelector('.noteworthy');
+
+    scrollContainer.addEventListener('wheel', (evt) => {
+      evt.preventDefault();
+      scrollContainer.scrollLeft += evt.deltaY;
+    });
+
+
     if (productData) {
       dispatch(updateProducts(productData.products));
 
