@@ -40,12 +40,12 @@ const Slider = () => {
     <div className="slider">
       <FontAwesomeIcon
         icon={faAngleLeft}
-        className="arrow prev"
+        className="arrow prev small-hidden"
         onClick={prevSlide}
       ></FontAwesomeIcon>
       <FontAwesomeIcon
         icon={faAngleRight}
-        className="arrow next"
+        className="arrow next small-hidden"
         onClick={nextSlide}
       ></FontAwesomeIcon>
 
@@ -58,7 +58,7 @@ const Slider = () => {
             {index === currentSlide && (
               <div>
                 <img src={slide.image} alt="slide" />
-                <div className="content">
+                <div className="content small-hidden">
                   <h2>{slide.title}</h2>
                   <hr />
                   <Link to={slide.href}>

@@ -107,6 +107,21 @@ hr {
   color: #fff;
   margin-bottom: 1rem;
 }
+
 .shop {
   z-index: 200;
+}
+
+@media screen and (max-width: 1200px) {
+  .small-hidden {
+    display: none;
+  }
+
+  .slider {
+    height: 300px;
+  }
+
+  .slide div img {
+    min-height: 300px;
+  }
 }
