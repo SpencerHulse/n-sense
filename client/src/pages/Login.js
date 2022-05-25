@@ -12,7 +12,7 @@ function Login() {
   return (
     <div>
       <div className="container mx-auto">
-        <div className="minidialog mx-auto">
+        <div className="minidialog bg-white dark:bg-[#494949] mx-auto">
           <div className="minicontent mx-auto">
             <div>
               <img
@@ -20,16 +20,16 @@ function Login() {
                 src={require(`../assets/images/nsense-logo.png`)}
                 alt="n-Sense logo"
               />
-              <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
                 {loginForm
                   ? "Sign in to your account"
                   : "Sign up for an account"}
               </h2>
-              <p className="mt-2 text-center text-sm text-gray-600">
+              <p className="mt-2 text-center text-sm text-gray-600 dark:text-white">
                 Or{" "}
                 <button
                   id="login-form-select"
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium text-green-700 hover:text-green-700 dark:text-green-600"
                   onClick={() => setLoginForm(!loginForm)}
                 >
                   {loginForm ? "join today" : "login now"}

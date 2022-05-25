@@ -49,7 +49,7 @@ const CartItem = ({ item }) => {
             <h4 className="text-sm">
               <a
                 href={product.href}
-                className="font-medium text-gray-700 hover:text-gray-800"
+                className="font-medium text-gray-700 hover:text-gray-800 dark:text-white"
               >
                 {product.name}
               </a>
@@ -61,11 +61,11 @@ const CartItem = ({ item }) => {
                   />
                 ) : (
                   <ClockIcon
-                    className="flex-shrink-0 h-5 w-5 text-gray-300"
+                    className="flex-shrink-0 h-5 w-5 text-gray-300 dark:text-white"
                     aria-hidden="true"
                   />
                 )}
-                <span>
+                <span className="dark:text-white">
                   {product.stock > 0 ? "Ready to ship" : `Will ship ASAP`}
                 </span>
               </p>
@@ -80,14 +80,14 @@ const CartItem = ({ item }) => {
                       dispatch(removeFromCart(item));
                       idbPromise("cart", "delete", { _id: product._id });
                     }}
-                  >
+                   className="text-green-700 hover:text-green-700 dark:text-green-600">
                     Remove
                   </span>
                 </button>
               </div>
             </h4>
             <div className="ml-4 ">
-              <p className="mb-4 text-sm font-medium text-gray-900">
+              <p className="mb-4 text-sm font-medium text-gray-900 dark:text-white">
                 {product.price}
               </p>
               <label htmlFor={`quantity-`} className="sr-only">
@@ -96,7 +96,7 @@ const CartItem = ({ item }) => {
               <input
                 id={`quantity-`}
                 name={`quantity-`}
-                className="product-quantity block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="dark:bg-[#333333] dark:text-white product-quantity block max-w-full rounded-md border border-gray-300 py-1.5 text-base leading-5 font-medium text-gray-700 text-left shadow-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 value={purchaseQuantity}
                 onChange={onChange}
                 type="number"

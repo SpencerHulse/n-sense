@@ -22,7 +22,6 @@
 
 a {
   font-weight: bold;
-  color: #44ab2a;
 }
 
 h2 {
@@ -117,9 +116,9 @@ hr {
 }
 
 .product-hero-container {
-  background-image: url("./images/product-bg.png");
+  /* background-image: url("./images/product-bg.png");
   background-repeat: repeat-x;
-  background-size: contain;
+  background-size: contain; */
 }
 
 nav {
@@ -131,7 +130,6 @@ nav {
 }
 
 nav a {
-  color: black;
   font-weight: normal;
 }
 
@@ -240,7 +238,6 @@ ul {
 }
 
 .main {
-  background-color: var(--primary-background);
   min-height: 100vh;
   overflow: auto;
 }
@@ -253,7 +250,6 @@ ul {
   margin-top: 90px;
   max-width: 600px;
   padding: 50px 80px 50px 50px;
-  background-color: white;
   background-image: url("./images/hero-accent.png");
   background-position: right;
   background-repeat: no-repeat;
@@ -324,7 +320,6 @@ ul {
 .new-products-title {
   position: absolute;
   width: 100%;
-  background-color: white;
   bottom: 0px;
   padding: 10px;
 }
@@ -354,8 +349,6 @@ ul {
 .noteworthy-fader-right {
   display: block;
   position: absolute;
-  background: rgb(248, 245, 245);
-  background: linear-gradient(90deg, rgba(248, 245, 245, 0) 0%, rgba(248, 245, 245, 1) 100%);
   height: 100%;
   width: 50px;
   top: 0px;
@@ -365,8 +358,6 @@ ul {
 .noteworthy-fader-left {
   display: block;
   position: absolute;
-  background: rgb(248, 245, 245);
-  background: linear-gradient(270deg, rgba(248, 245, 245, 0) 0%, rgba(248, 245, 245, 1) 100%);
   height: 100%;
   width: 50px;
   top: 0px;
