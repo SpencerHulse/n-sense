@@ -716,7 +716,7 @@ hr {
   }
 }
 
-@media (max-width: 999px) {
+@media (max-width: 998px) {
   .product-hero {
     max-height: none;
     flex-direction: column;
