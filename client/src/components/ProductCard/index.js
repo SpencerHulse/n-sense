@@ -56,10 +56,12 @@ function ProductCard({
             {description}
           </p>
           <div className="product-card-action flex flex-row justify-between w-full">
-            <p className="price text-xl text-white font-bold">${price}</p>
+            <p className="price text-xl text-black dark:text-white font-bold">
+              ${price}
+            </p>
             {stock <= 0 ? (
               <button
-                className="text-white py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md disabled-button"
+                className="text-black dark:text-white py-2 px-4 hover:shadow-black dark:hover:shadow-white hover:shadow-inner rounded-md disabled-button"
                 onClick={addItemToCart}
                 disabled
               >
@@ -67,7 +69,7 @@ function ProductCard({
               </button>
             ) : (
               <button
-                className="text-white py-2 px-4 hover:shadow-white hover:shadow-inner rounded-md"
+                className="text-black dark:text-white py-2 px-4 hover:shadow-black dark:hover:shadow-white hover:shadow-inner rounded-md"
                 onClick={addItemToCart}
               >
                 Add to Cart

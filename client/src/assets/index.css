@@ -16,6 +16,22 @@
   --brand-color: #44ab2a;
 }
 
+::-webkit-scrollbar {
+  z-index: 99999;
+}
+
+::-webkit-scrollbar-track {
+  background: #e7e7e7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6a6a6a;
+}
+
 .section {
   margin: 25px 0 0 0;
 }
@@ -743,6 +759,7 @@ hr {
 .footer-container {
   padding-top: 10px;
   margin-top: 30px;
+  background: white;
 }
 
 footer {
