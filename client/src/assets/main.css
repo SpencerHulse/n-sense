@@ -500,9 +500,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-2 {
   margin-bottom: 0.5rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -520,6 +517,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mb-4 {
   margin-bottom: 1rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
 }
 .ml-4 {
   margin-left: 1rem;
@@ -729,28 +729,28 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
 .bg-gradient-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
-.bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+.from-\[\#e2e2e2\] {
+  --tw-gradient-from: #e2e2e2;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(226 226 226 / 0));
 }
 .from-\[\#f8f5f5\]\/100 {
   --tw-gradient-from: rgb(248 245 245 / 1);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(248 245 245 / 0));
 }
-.from-\[\#e2e2e2\] {
-  --tw-gradient-from: #e2e2e2;
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(226 226 226 / 0));
+.to-\[\#cccccc\] {
+  --tw-gradient-to: #cccccc;
 }
 .to-\[\#f8f5f5\]\/0 {
   --tw-gradient-to: rgb(248 245 245 / 0);
-}
-.to-\[\#cccccc\] {
-  --tw-gradient-to: #cccccc;
 }
 .p-2\.5 {
   padding: 0.625rem;
@@ -832,11 +832,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-medium {
   font-weight: 500;
 }
-.font-bold {
-  font-weight: 700;
-}
 .font-extrabold {
   font-weight: 800;
+}
+.font-bold {
+  font-weight: 700;
 }
 .font-normal {
   font-weight: 400;
@@ -1236,9 +1236,8 @@ ul {
 .new-products-card {
   width: 250px;
 }
-.new-products-card:hover{
+.new-products-card:hover {
   border: solid 4px var(--brand-color);
-  
 }
 
 .title-container {
@@ -1432,7 +1431,7 @@ ul {
     height: 100%;
   }
 }
-.shop-btn:hover{
+.shop-btn:hover {
   border: solid 4px var(--brand-color);
   color: #44ab2a;
 }
@@ -1659,6 +1658,27 @@ hr {
   }
 }
 
+.footer-container {
+  padding-top: 10px;
+  margin-top: 30px;
+}
+
+footer {
+  margin: 0 20px;
+}
+
+@media (max-width: 800px) {
+  .icons {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .footer-container {
+    padding-top: 20px;
+  }
+}
+
 .hover\:bg-red-100:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(254 226 226 / var(--tw-bg-opacity));
@@ -1823,22 +1843,22 @@ hr {
     background-color: rgb(26 26 26 / var(--tw-bg-opacity));
   }
 
-  .dark\:from-\[\#1C1C1C\]\/100 {
-    --tw-gradient-from: rgb(28 28 28 / 1);
-    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(28 28 28 / 0));
-  }
-
   .dark\:from-\[\#494949\] {
     --tw-gradient-from: #494949;
     --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(73 73 73 / 0));
   }
 
-  .dark\:to-\[\#1C1C1C\]\/0 {
-    --tw-gradient-to: rgb(28 28 28 / 0);
+  .dark\:from-\[\#1C1C1C\]\/100 {
+    --tw-gradient-from: rgb(28 28 28 / 1);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(28 28 28 / 0));
   }
 
   .dark\:to-\[\#2F2F2F\] {
     --tw-gradient-to: #2F2F2F;
+  }
+
+  .dark\:to-\[\#1C1C1C\]\/0 {
+    --tw-gradient-to: rgb(28 28 28 / 0);
   }
 
   .dark\:text-white {

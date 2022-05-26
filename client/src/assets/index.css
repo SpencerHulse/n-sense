@@ -318,9 +318,8 @@ ul {
 .new-products-card {
   width: 250px;
 }
-.new-products-card:hover{
+.new-products-card:hover {
   border: solid 4px var(--brand-color);
-  
 }
 
 .title-container {
@@ -514,7 +513,7 @@ ul {
     height: 100%;
   }
 }
-.shop-btn:hover{
+.shop-btn:hover {
   border: solid 4px var(--brand-color);
   color: #44ab2a;
 }
@@ -738,5 +737,26 @@ hr {
   .product-info {
     margin: 0 auto 20px;
     width: 80%;
+  }
+}
+
+.footer-container {
+  padding-top: 10px;
+  margin-top: 30px;
+}
+
+footer {
+  margin: 0 20px;
+}
+
+@media (max-width: 800px) {
+  .icons {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .footer-container {
+    padding-top: 20px;
   }
 }

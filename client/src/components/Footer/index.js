@@ -1,11 +1,8 @@
 import React from "react";
-import AmEx from "../../assets/images/icons/icons8-american-express.svg";
-import Visa from "../../assets/images/icons/icons8-visa.svg";
-import Mastercard from "../../assets/images/icons/icons8-mastercard.svg";
 
 const Footer = () => {
   return (
-    <div className="container mx-auto">
+    <div className="mx-auto footer-container dark:bg-[#606060] text-black dark:text-white">
       <footer className="flex justify-between h-20 items-center text-black dark:text-white ">
         <div className="">
           <p>© 2022 N-Sense LLC</p>
@@ -27,8 +24,8 @@ const Footer = () => {
                 gradientTransform="translate(0 -1354)"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0" stop-color="#00b3ee" />
-                <stop offset="1" stop-color="#0082d8" />
+                <stop offset="0" stopColor="#00b3ee" />
+                <stop offset="1" stopColor="#0082d8" />
               </linearGradient>
               <path
                 fill="url(#4aQSF3KYsmAUlEZ8JzDHGa)"
