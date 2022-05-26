@@ -554,6 +554,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-5 {
   height: 1.25rem;
 }
+.h-20 {
+  height: 5rem;
+}
+.h-0 {
+  height: 0px;
+}
+.h-3 {
+  height: 0.75rem;
+}
+.h-4 {
+  height: 1rem;
+}
 .w-full {
   width: 100%;
 }
@@ -1224,6 +1236,10 @@ ul {
 .new-products-card {
   width: 250px;
 }
+.new-products-card:hover{
+  border: solid 4px var(--brand-color);
+  
+}
 
 .title-container {
   position: relative;
@@ -1416,7 +1432,10 @@ ul {
     height: 100%;
   }
 }
-
+.shop-btn:hover{
+  border: solid 4px var(--brand-color);
+  color: #44ab2a;
+}
 .current {
   opacity: 1;
   transform: translate(0);

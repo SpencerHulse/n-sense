@@ -65,7 +65,7 @@ const Slider = () => {
                     <button
                       id="slider-button"
                       type="button"
-                      className="shop --btn --btn-primary border-white border-4 py-4 px-8"
+                      className="shop-btn --btn --btn-primary border-white border-4 py-4 px-8"
                     >
                       Shop Today
                     </button>
