@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import NewNoteworthy from "../components/NewNoteworthy";
 import Slider from "../components/Slider/Slider";
@@ -52,7 +53,7 @@ const Home = () => {
               <NewNoteworthy products={products} />
             </div>
           )}
-          <div className="relative z-10 bg-[#F8F5F5] dark:bg-[#1C1C1C] pt-10">
+          <div className="relative bg-[#F8F5F5] dark:bg-[#1C1C1C] pt-10">
             <div className="container mx-auto flex">
               <div className="product-display flex flex-wrap">
                 {products.length ? (
@@ -85,6 +86,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
